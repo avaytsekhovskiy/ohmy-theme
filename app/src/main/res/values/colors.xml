@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ANDROID THEME COLORS-->
+    <color name="primary">#3F51B5</color>
+    <color name="primary_light">#7986CB</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="accent">#F4511E</color>
+
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_primary_inverse">#fefefe</color>
+    <color name="text_hint">@color/text_secondary</color>
+
+    <color name="background_common">#ffffff</color>
+    <color name="background_transparent">#11000000</color>
+
+    <color name="divider">#BDBDBD</color>
+</resources>

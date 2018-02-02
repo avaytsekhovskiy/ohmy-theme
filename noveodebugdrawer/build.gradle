@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.noveogroup.android.check'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion config.sdk.compile
+    buildToolsVersion config.sdk.tools
+
+    defaultConfig {
+        minSdkVersion config.sdk.min
+        targetSdkVersion config.sdk.target
+        versionCode config.build.code
+        versionName config.build.name
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //Options
+    dexOptions {
+        javaMaxHeapSize '4g'
+    }
+
+    lintOptions {
+        abortOnError true
+        checkAllWarnings true
+        disable 'AllowBackup'
+        disable 'ContentDescription'
+        disable 'InvalidPackage'
+        disable 'SpUsage'
+        disable 'IconMissingDensityFolder'
+        disable 'SelectableText'
+        disable 'RtlCompat', 'RtlEnabled', 'RtlHardcoded', 'RtlSymmetry'
+        disable 'MissingPrefix'
+    }
+
+}
+
+dependencies {
+    /* Test */
+    testApi lib.leakCanaryNoOp
+
+    /* Kotlin */
+    api lib.kotlinStd
+
+    /* Palamia debug drawer */
+    api lib.debugDrawerCommons
+    api lib.debugDrawerOkHttp
+    api lib.debugDrawerOkHttp3
+    api lib.debugDrawerScalpel
+    api lib.debugDrawerCommons
+    debugApi lib.debugDrawer
+    releaseApi lib.debugDrawerNoOp
+    debugApi lib.debugDrawerView
+    releaseApi lib.debugDrawerViewNoOp
+
+    /* Noveo debug drawer */
+    api lib.debugDrawerBuildInfo
+    debugApi lib.debugDrawerBuildConfig
+    releaseApi lib.debugDrawerBuildConfigNoOp
+
+    /* Inspection Tools */
+    api lib.stetho
+    api lib.scalpel
+    debugApi lib.leakCanary
+    releaseApi lib.leakCanaryNoOp
+}
+
+check {
+    abortOnError true
+    checkstyle { config rootProject.file('analyzers/checkstyle.xml').absolutePath }
+    pmd { config rootProject.file('analyzers/pmd.xml').absolutePath }
+    findbugs { skip true }
+}

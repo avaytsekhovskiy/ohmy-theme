@@ -1,0 +1,5 @@
+<resources>
+    <string name="title_welcome">Welcome Page</string>
+
+    <string name="welcome_next_button">next</string>
+</resources>

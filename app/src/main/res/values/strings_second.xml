@@ -1,0 +1,4 @@
+<resources>
+    <string name="title_second">Second Page</string>
+    <string name="second_page_back_button">pop</string>
+</resources>

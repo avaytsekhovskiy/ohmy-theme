@@ -1,0 +1,5 @@
+<resources>
+    <string name="main_menu_save">save</string>
+    <string name="main_menu_mail">mail</string>
+    <string name="main_menu_sms">sms</string>
+</resources>

@@ -1,0 +1,87 @@
+_____________
+!! Термины !!
+
+Style - коллекция property, которые описывают внешний вид и формат View & Window.
+	    reuse этой коллекции без дублирования свойств
+
+Почему они называются по разному?
+
+1. Style - apply attrs to single view inside window. 
+2. Theme - apply attrs to each view/subview inside window
+
+Theme - это style, примененный к Activity/Application. 
+
+__________________
+!! Наследование !!
+
+Способ наследования от @android:style отличается от способа наследования от наших собственных тем.
+
+Свои - через точку.   implicit
+Чужие - parent="".    explicit - always wins
+
+________________
+!! Attributes !! 
+
+Keys & value-format одновременно
+keys - это просто имя
+format - fraction/float/boolean/color/string/dimension/integer (flag/enum/reference)
+
+Их можно объявлять attr.xml -> <attr name="" format="">
+
+Вообще тут надо понимать xml:
+
+Все аттрибуты, которые мы используем находятся в xmlns:android apk/res/android
+Можно назвать его как хочется. 
+
+ссылки ? ns : attr / name
+
+___________
+!! Theme & Themeception!!
+
+Сами ничего не делают, они просто набор конфигураций. База
+
+Когда надо тулбар - темный, а остальное - светлым. Нужно ThemeOverlay - это и есть Themeception
+Пересечения где тема Light.DarkActionBar использует подтемы из ThemeOverlay.Dark и наоборот
+
+LightActivity -> DarkActionBar -> LightPopUp...
+
+
+
+А какие цвета наследуются?
+
+
+
+__________________
+!! Готовые темы !!
+
+Theme - переписывают все
+ThemeOverlay - переписывают особое, оставляют при этом colorAccent / colorPrimary из базовой.
+ThemeColors - high-level styling. Можно отнаследовать Light темы от обычной и... унаследовать базовые цвета о_О
+
+Стиль -> использует аттрибут фона -> использут drawable.xml (selector) в значении -> использует ссылку на цвет из темы (на аттрибут)
+
+Перечислить все нужные атрибуты для проекта наглядно! Не та картинка с 6 штуками, а моя, лучше.
+
+colorAccent / colorPrimary / colorPrimaryDark / colorControlNormal (secondary) / colorControlActivated (accent)
+
+______________
+!! API 21 + !!
+
+Можно использовать colorStateList и theme attr references для drawable.xml
+Многие view можно tint'ить. Их части (thumb/track у seekbar)
+
+______________________
+!! Developer Errors !!
+
+1. Не тот родитель.
+2. Порядок чтения цвета: 
+  - AttributeSet -> layout параметры
+  - explicit style -> style в xml
+  - defStyleRes -> R.style.* 
+  - defStyleAttr -> R.attr.*
+  - base value in this theme - don't rely on it - это плохо, это значит, что если чего-то нет, то оно получит это значение, даже если там действительно должно быть пусто.
+
+
+
+
+
