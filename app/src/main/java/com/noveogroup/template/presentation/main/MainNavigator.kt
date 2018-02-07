@@ -9,7 +9,7 @@ import com.noveogroup.template.domain.navigation.router.MainRouter
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.navigation.AnimationDescriptor
 import com.noveogroup.template.presentation.common.navigation.BaseFragmentNavigator
-import com.noveogroup.template.presentation.main.page.second.SecondFragment
+import com.noveogroup.template.presentation.main.page.inheritance.InheritanceFragment
 import com.noveogroup.template.presentation.main.page.welcome.WelcomeFragment
 
 import ru.terrakok.cicerone.commands.Command
@@ -32,15 +32,14 @@ class MainNavigator(
     ) {
         val (enter, exit, popEnter, popExit) = when (nextFragment) {
             is WelcomeFragment -> AnimationDescriptor.FROM_BOTTOM
-            is SecondFragment -> AnimationDescriptor.FROM_RIGHT
-            else -> AnimationDescriptor.FADE
+            else -> AnimationDescriptor.FROM_RIGHT
         }
         fragmentTransaction.setCustomAnimations(enter, exit, popEnter, popExit)
     }
 
     override fun createFragment(screenKey: String, data: Any?) = when (screenKey) {
         MainRouter.WELCOME -> WelcomeFragment.newInstance()
-        MainRouter.NEXT -> SecondFragment.newInstance()
+        MainRouter.INHERITANCE -> InheritanceFragment.newInstance()
         else -> throw Error("Unknown Fragment Key")
     }
 

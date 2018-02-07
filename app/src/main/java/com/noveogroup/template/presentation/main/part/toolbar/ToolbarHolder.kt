@@ -92,9 +92,11 @@ class ToolbarHolder(
         }
     }
 
-    fun onOptionsItemSelected(menuItem: MenuItem) = menuItem.asDescriptor()
-            ?.let { toolbarPresenter.handleMenuItemClick(it) }
-            ?.let { true } ?: false
+    fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        val descriptor = menuItem.asDescriptor() ?: return false
+        toolbarPresenter.handleMenuItemClick(descriptor)
+        return true
+    }
 
     @SuppressLint("RestrictedApi")
     fun setMenu(menu: Menu) {

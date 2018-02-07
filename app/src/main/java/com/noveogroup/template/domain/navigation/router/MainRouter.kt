@@ -5,12 +5,12 @@ import ru.terrakok.cicerone.Router
 
 class MainRouter(cicerone: Cicerone<Router>) : BaseRouter(cicerone) {
 
-    fun openSecond() = router.navigateTo(NEXT)
+    fun openInheritance() = router.navigateTo(INHERITANCE)
 
     fun startFromWelcome() = router.newRootScreen(WELCOME)
 
     companion object {
         const val WELCOME = "main welcome"
-        const val NEXT = "main next"
+        const val INHERITANCE = "main inheritance"
     }
 }

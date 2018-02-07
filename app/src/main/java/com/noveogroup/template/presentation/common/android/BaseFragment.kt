@@ -161,20 +161,33 @@ open class BaseFragment : Fragment(), BaseView {
 
     override fun showKeyboard(target: Any) = keyboardDelegate.showKeyboard(target)
 
-    override fun showDebugMessage(comment: CharSequence, error: Throwable?) = debugDelegate?.showDebugMessage(comment, error)
-            ?: Unit
+    override fun showDebugMessage(comment: CharSequence, error: Throwable?) {
+        debugDelegate?.showDebugMessage(comment, error)
+    }
 
-    fun showRegularContent() = loadingDelegate?.showRegularContent() ?: Unit
+    fun showRegularContent() {
+        loadingDelegate?.showRegularContent()
+    }
 
-    fun showErrorContent() = loadingDelegate?.showErrorContent() ?: Unit
+    fun showErrorContent() {
+        loadingDelegate?.showErrorContent()
+    }
 
-    fun showEmptyContent() = loadingDelegate?.showEmptyContent() ?: Unit
+    fun showEmptyContent() {
+        loadingDelegate?.showEmptyContent()
+    }
 
-    fun hideContent() = loadingDelegate?.hideContent() ?: Unit
+    fun hideContent() {
+        loadingDelegate?.hideContent()
+    }
 
-    fun showProgressWithMask() = loadingDelegate?.showProgressWithMask() ?: Unit
+    fun showProgressWithMask() {
+        loadingDelegate?.showProgressWithMask()
+    }
 
-    fun hideProgressWithMask() = loadingDelegate?.hideProgressWithMask() ?: Unit
+    fun hideProgressWithMask() {
+        loadingDelegate?.hideProgressWithMask()
+    }
 
     /**
      * Method for handling fragment specific back press event.

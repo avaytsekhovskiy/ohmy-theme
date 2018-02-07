@@ -11,21 +11,19 @@ import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.domain.navigation.router.MainRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
-import com.noveogroup.template.presentation.di.module.main.MainActivityName
+import com.noveogroup.template.presentation.common.mvp.view.BaseView
 import javax.inject.Inject
 
 @InjectViewState
 class WelcomePresenter @Inject constructor(
-        @MainActivityName private val mainActivityName: String,
         private val mainRouter: MainRouter,
         private val resourceManager: ResourceManager,
         globalRouter: GlobalRouter,
         statePublisher: ScreenInteractor
-) : BasePresenter<WelcomeView>(globalRouter, statePublisher) {
+) : BasePresenter<BaseView>(globalRouter, statePublisher) {
 
-    override fun attachView(view: WelcomeView) {
+    override fun attachView(view: BaseView) {
         super.attachView(view)
-        viewState.showName(mainActivityName)
         requestAppearance(
                 pageMode = PageMode.TOOLBAR,
                 toggle = Toggle.BURGER,
@@ -34,5 +32,9 @@ class WelcomePresenter @Inject constructor(
                 title = resourceManager.getString(R.string.title_welcome))
     }
 
-    internal fun openNext() = mainRouter.openSecond()
+    internal fun openInheritance() = mainRouter.openInheritance()
+
+    internal fun openPaletteDark() = globalRouter.nextPalette(R.style.AppTheme_Dark)
+
+    internal fun openPalette() = globalRouter.nextPalette(R.style.AppTheme)
 }

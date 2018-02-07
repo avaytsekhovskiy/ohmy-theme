@@ -1,0 +1,81 @@
+package com.noveogroup.template.presentation.palette.toolbar
+
+import android.annotation.SuppressLint
+import android.support.v7.view.menu.MenuBuilder
+import android.support.v7.view.menu.MenuItemImpl
+import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.noveogroup.template.R
+import com.noveogroup.template.core.rx.RxHelper
+import com.noveogroup.template.presentation.common.android.BaseActivity
+import com.noveogroup.template.presentation.common.android.BaseMvpComponent
+import com.noveogroup.template.presentation.common.ext.*
+import com.noveogroup.template.presentation.di.DI
+
+class ToolbarHolder(activity: BaseActivity) : BaseMvpComponent(activity), ToolbarView, ViewBinder {
+
+    override val container: View = activity.findViewById(android.R.id.content)
+
+    private val rxHelper = RxHelper()
+    private val state = MenuState()
+
+    private val toolbar: Toolbar by bindView(R.id.toolbar)
+    private val actionBar get() = activity.supportActionBar
+
+    @InjectPresenter
+    lateinit var toolbarPresenter: ToolbarPresenter
+
+    @ProvidePresenter
+    fun providePresenter(): ToolbarPresenter = DI.mainScope.getInstance(ToolbarPresenter::class.java)
+
+    override fun onCreate() {
+        super.onCreate()
+        activity.setSupportActionBar(toolbar)
+        actionBar?.setDisplayShowHomeEnabled(true)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
+        toolbar.setNavigationOnClickListener { toolbarPresenter.back() }
+
+        rxHelper.add(state.observe { state.allMenuItems.forEach { it.isVisible = true } })
+        state.onContentReady()
+
+        toolbar.show()
+    }
+
+    override fun changeTitle(title: String) {
+        log.debug("Title changed $title")
+        actionBar?.title = title //automatically changes title of Toolbar container.
+    }
+
+    @SuppressLint("RestrictedApi")
+    fun setMenu(menu: Menu) {
+        state.onMenuReady(menu)
+
+        //hack to make overflow icons visible
+        (menu as? MenuBuilder)?.setOptionalIconsVisible(true)
+
+        //colorize overflow icons programmatically to primary dark
+        state.allMenuItems.forEach {
+            if (it is MenuItemImpl && !it.requiresActionButton()) {
+                it.icon = toolbar.context.colorizeDrawable(it.icon, R.attr.colorPrimaryDark)
+            }
+        }
+
+        toolbarPresenter.requestAppearanceRefresh()
+    }
+
+    fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        showToast("${menuItem.groupId}: ${menuItem.itemId}")
+        return true
+    }
+
+    fun onDestroy() {
+        ButterKnife.reset(this)
+        rxHelper.unsubscribeAll()
+    }
+
+}

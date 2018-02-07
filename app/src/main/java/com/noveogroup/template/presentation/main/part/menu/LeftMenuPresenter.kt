@@ -16,12 +16,12 @@ class LeftMenuPresenter @Inject constructor(
         statePublisher: ScreenInteractor
 ) : BasePresenter<LeftMenuView>(globalRouter, statePublisher), ScreenStateListener {
 
-    override fun onScreenStateChanged(helper: ScreenStateDiffHelper) = helper.ifSideModeChanged { menu ->
-        viewState.apply {
+    override fun onScreenStateChanged(helper: ScreenStateDiffHelper) = with(viewState) {
+        helper.ifSideModeChanged { aside ->
             when {
-                menu.locked && menu.opened -> lockOpened()
-                menu.locked -> lockClosed()
-                menu.opened -> open().also { unlock() }
+                aside.locked && aside.opened -> lockOpened()
+                aside.locked -> lockClosed()
+                aside.opened -> open().also { unlock() }
                 else -> close().also { unlock() }
             }
         }

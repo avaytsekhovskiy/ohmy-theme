@@ -10,9 +10,7 @@ import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.di.DI
 
 @Layout(R.layout.activity_splash)
-class SplashActivity : BaseActivity(), SplashView {
-
-    override val scopeInitializer = SplashScopeInitializer()
+class SplashActivity : BaseActivity() {
 
     @InjectPresenter
     internal lateinit var presenter: SplashPresenter

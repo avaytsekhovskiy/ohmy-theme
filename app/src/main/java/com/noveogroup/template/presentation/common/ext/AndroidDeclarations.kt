@@ -13,6 +13,7 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.noveogroup.template.R
 import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.common.android.inflater.LayoutWrapper
@@ -54,8 +55,9 @@ fun ViewBinder.dissolveViews(vararg views: View?) = views.forEach { it?.dissolve
  */
 fun ViewBinder.hideViews(vararg views: View?) = views.forEach { it?.hide() }
 
-fun ViewGroup.inflateChild(@LayoutRes layoutId: Int, attachToRoot: Boolean = false): View =
-        context.inflater.inflate(layoutId, this, attachToRoot)
+fun ViewGroup.inflateChild(@LayoutRes layoutId: Int, attachToRoot: Boolean = false): View {
+    return context.inflater.inflate(layoutId, this, attachToRoot)
+}
 
 fun LayoutInflater.contentFrom(source: Any, parent: ViewGroup? = null): View = source.javaClass.run {
     when {
@@ -86,6 +88,9 @@ val Context.locale: Locale
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) locales.get(0) else locale
     }
+
+fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT): Toast =
+        Toast.makeText(this, message, duration).apply { show() }
 
 @Suppress("UNCHECKED_CAST")
 fun <T : Fragment> FragmentActivity.findFragmentByContainer(container: ViewGroup) =

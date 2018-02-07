@@ -16,9 +16,7 @@ class KeyboardDelegate(
 
     override fun showKeyboard(target: Any): Unit = with(input) {
         when (target) {
-            is View -> {
-                showSoftInput(target.apply { requestFocus() }, InputMethodManager.SHOW_FORCED)
-            }
+            is View -> showSoftInput(target.apply { requestFocus() }, InputMethodManager.SHOW_FORCED)
             else -> toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
         }
     }

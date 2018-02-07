@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
+import android.support.annotation.StyleRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.SupportFragmentUtils.cleanSupportLibraryIssues
 import android.support.v7.app.AppCompatActivity
@@ -22,6 +23,7 @@ import com.noveogroup.template.presentation.common.mvp.delegate.*
 import com.noveogroup.template.presentation.common.mvp.view.BaseView
 import com.noveogroup.template.presentation.common.navigation.BackListener
 import com.noveogroup.template.presentation.common.navigation.NavigatorLifecycle
+import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.ScopeInitializer
 import io.palaima.debugdrawer.DebugDrawer
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -42,8 +44,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     val rotating get() = orientationHelper.rotating
 
     /* DI */
-    private val lazyScope: ScopeInitializer by lazy { scopeInitializer }
-    abstract val scopeInitializer: ScopeInitializer
+    private val lazyScope: ScopeInitializer by lazy { ActivityScopeInitializer() }
 
     /* NAVIGATION */
     @Inject
@@ -65,6 +66,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     @Inject
     lateinit var debugHelper: DebugDrawerHelper
     private lateinit var debugDrawer: DebugDrawer
+    @StyleRes
+    open val themeId: Int = R.style.AppTheme
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +78,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         lazyScope.inject(this)
 
         /* UI */
-        onApplyTheme()
+        setTheme(themeId)
         setContentView(inflater.contentFrom(this))
 
         /* Orientation */
@@ -234,10 +237,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     protected fun Fragment.addTo(@IdRes containerId: Int) = supportFragmentManager.let {
         it.beginTransaction().replace(containerId, this).commit()
         it.executePendingTransactions()
-    }
-
-    protected open fun onApplyTheme() {
-        setTheme(R.style.AppTheme)
     }
 
 }

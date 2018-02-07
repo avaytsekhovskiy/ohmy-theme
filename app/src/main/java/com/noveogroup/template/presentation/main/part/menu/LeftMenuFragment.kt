@@ -49,17 +49,29 @@ class LeftMenuFragment : BaseFragment(), LeftMenuView, BackListener {
         }
     }
 
-    override fun open() = drawerDelegate?.open() ?: Unit
+    override fun open() {
+        drawerDelegate?.open()
+    }
 
-    override fun close() = drawerDelegate?.close() ?: Unit
+    override fun close() {
+        drawerDelegate?.close()
+    }
 
-    override fun lockOpened() = drawerDelegate?.lockOpened() ?: Unit
+    override fun lockOpened() {
+        drawerDelegate?.lockOpened()
+    }
 
-    override fun lockClosed() = drawerDelegate?.lockClosed() ?: Unit
+    override fun lockClosed() {
+        drawerDelegate?.lockClosed()
+    }
 
-    override fun lockAsIs() = drawerDelegate?.lockAsIs() ?: Unit
+    override fun lockAsIs() {
+        drawerDelegate?.lockAsIs()
+    }
 
-    override fun unlock() = drawerDelegate?.unlock() ?: Unit
+    override fun unlock() {
+        drawerDelegate?.unlock()
+    }
 
 }
 

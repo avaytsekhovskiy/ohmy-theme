@@ -14,10 +14,10 @@ private const val RX = "[RxJava]"
 fun Application.runErrorHandler(
         log: Logger = ErrorHandler.log,
         shouldCrash: (Throwable) -> Boolean
-) = with(Thread.getDefaultUncaughtExceptionHandler()) {
+) = Thread.getDefaultUncaughtExceptionHandler().let { handler ->
     Thread.setDefaultUncaughtExceptionHandler { thread, error ->
         log.error("FATAL EXCEPTION:", error)
-        if (shouldCrash(error)) uncaughtException(thread, error)
+        if (shouldCrash(error)) handler.uncaughtException(thread, error)
     }
 }
 

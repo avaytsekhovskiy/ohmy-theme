@@ -12,44 +12,46 @@
         <item name="android:background">?android:listDivider</item>
     </style>
 
-    <style name="AppTheme.Text" parent="AppTheme">
+    <style name="AppTheme.Text">
         <!--<item name="fontPath">@string/some_font</item>-->
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="AppTheme.Text.Header" parent="AppTheme.Text">
+    <style name="AppTheme.Text.Header">
         <item name="android:textColor">?colorPrimaryDark</item>
         <item name="android:textSize">@dimen/large</item>
     </style>
 
-    <style name="AppTheme.Text.Regular" parent="AppTheme.Text">
+    <style name="AppTheme.Text.Regular">
         <item name="android:textSize">@dimen/normal</item>
     </style>
 
-    <style name="AppTheme.Text.Regular.Small" parent="AppTheme.Text">
+    <style name="AppTheme.Text.Regular.Small">
         <item name="android:textSize">@dimen/small</item>
     </style>
 
-    <style name="AppTheme.Text.Secondary" parent="AppTheme.Text">
+    <style name="AppTheme.Text.Secondary">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:textSize">@dimen/normal</item>
     </style>
 
-    <style name="AppTheme.Text.Label" parent="AppTheme.Text">
+    <style name="AppTheme.Text.Label">
         <item name="android:textSize">@dimen/small</item>
     </style>
 
-    <style name="AppTheme.Text.Primary" parent="AppTheme.Text">
+    <style name="AppTheme.Text.Primary">
         <item name="android:textSize">@dimen/large</item>
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">?colorAccent</item>
         <item name="android:textColor">?android:textColorPrimaryInverse</item>
-        <item name="android:minHeight">?attr/actionBarSize</item>
     </style>
 
-    <style name="AppTheme.Button.Small" parent="Widget.AppCompat.Button.Colored">
+    <style name="AppTheme.Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Button.Small">
         <item name="android:textSize">@dimen/small</item>
     </style>
 
@@ -62,7 +64,7 @@
         <item name="cpb_rotation_speed">@string/cpb_default_rotation_speed</item>
     </style>
 
-    <style name="AppTheme.NoOverScroll" parent="AppTheme">
+    <style name="AppTheme.NoOverScroll">
         <item name="android:overScrollMode">never</item>
     </style>
 

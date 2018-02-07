@@ -56,6 +56,6 @@ data class Infinite<out T>(
     ) = when {
         value != null -> onNext(value)
         error != null -> onError(error)
-        else -> error(RuntimeException("pair with nulls"))
+        else -> error("pair with nulls")
     }
 }

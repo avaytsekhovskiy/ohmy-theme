@@ -7,9 +7,11 @@ import com.squareup.leakcanary.RefWatcher
 class LeakCanaryProxy(private var watcher: RefWatcher? = null) {
 
     fun initialize(app: Application) {
-        app.takeIf(LeakCanary::isInAnalyzerProcess)?.let { watcher = LeakCanary.install(it) }
+        watcher = app.takeIf(LeakCanary::isInAnalyzerProcess)?.let(LeakCanary::install)
     }
 
-    fun watch(target: Any) = watcher?.watch(target)
+    fun watch(target: Any) {
+        watcher?.watch(target)
+    }
 
 }

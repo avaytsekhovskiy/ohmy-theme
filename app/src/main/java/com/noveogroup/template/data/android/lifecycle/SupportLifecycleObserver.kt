@@ -14,24 +14,31 @@ class SupportLifecycleObserver(
         private val onActivityDestroyed: ((Activity) -> Unit)? = null
 ) : Application.ActivityLifecycleCallbacks {
 
-    override fun onActivityCreated(activity: Activity, bundle: Bundle?) =
-            onActivityCreated?.invoke(activity, bundle) ?: Unit
+    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
+        onActivityCreated?.invoke(activity, bundle)
+    }
 
-    override fun onActivityStarted(activity: Activity) =
-            onActivityStarted?.invoke(activity) ?: Unit
+    override fun onActivityStarted(activity: Activity) {
+        onActivityStarted?.invoke(activity)
+    }
 
-    override fun onActivityResumed(activity: Activity) =
-            onActivityResumed?.invoke(activity) ?: Unit
+    override fun onActivityResumed(activity: Activity) {
+        onActivityResumed?.invoke(activity)
+    }
 
-    override fun onActivityPaused(activity: Activity) =
-            onActivityPaused?.invoke(activity) ?: Unit
+    override fun onActivityPaused(activity: Activity) {
+        onActivityPaused?.invoke(activity)
+    }
 
-    override fun onActivityStopped(activity: Activity) =
-            onActivityStopped?.invoke(activity) ?: Unit
+    override fun onActivityStopped(activity: Activity) {
+        onActivityStopped?.invoke(activity)
+    }
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) =
-            onActivitySaveInstanceState?.invoke(activity, bundle) ?: Unit
+    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {
+        onActivitySaveInstanceState?.invoke(activity, bundle)
+    }
 
-    override fun onActivityDestroyed(activity: Activity) =
-            onActivityDestroyed?.invoke(activity) ?: Unit
+    override fun onActivityDestroyed(activity: Activity) {
+        onActivityDestroyed?.invoke(activity)
+    }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TestParent">
+        <item name="android:textSize">60dp</item>
+    </style>
+
+    <style name="TestParent2">
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+    </style>
+
+
+    <style name="TestParent.ChildOk">
+        <item name="android:alpha">0.5</item>
+    </style>
+
+    <style name="TestParent.ChildBad" parent="TestParent2">
+        <item name="android:alpha">0.5</item>
+    </style>
+
+</resources>

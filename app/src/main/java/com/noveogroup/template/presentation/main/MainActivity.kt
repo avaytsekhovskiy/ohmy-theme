@@ -22,9 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @Layout(R.layout.activity_main)
-class MainActivity : BaseActivity(), MainView, NavigatorProvider {
-
-    override val scopeInitializer = MainScopeInitializer(this)
+class MainActivity : BaseActivity(), NavigatorProvider {
 
     @InjectPresenter
     internal lateinit var presenter: MainPresenter
@@ -67,7 +65,7 @@ class MainActivity : BaseActivity(), MainView, NavigatorProvider {
             mainRouter.removeNavigator()
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_toolbar, menu)
+        menuInflater.inflate(R.menu.toolbar, menu)
         toolbarHolder.setMenu(menu)
         return true
     }

@@ -1,10 +1,10 @@
 package com.noveogroup.template.presentation
 
 import android.support.multidex.MultiDexApplication
-import android.widget.Toast
 import com.arellomobile.mvp.MvpFacade
 import com.noveogroup.template.core.ext.logger
 import com.noveogroup.template.data.android.lifecycle.ForegroundPublisher
+import com.noveogroup.template.presentation.common.ext.toast
 import com.noveogroup.template.presentation.di.DI
 import com.noveogroup.template.presentation.di.inject
 import net.danlew.android.joda.JodaTimeAndroid
@@ -40,10 +40,8 @@ class ExampleApplication : MultiDexApplication() {
         JodaTimeAndroid.init(this)
         CalligraphyConfig.initDefault(calligraphyConfig)
 
-        foregroundPublisher.observeVisibility { showToast(it.toString()) }
+        foregroundPublisher.observeVisibility { toast("$it") }
     }
-
-    private fun showToast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
     private fun setupErrorHandling() {
         runErrorHandler(log) { true }

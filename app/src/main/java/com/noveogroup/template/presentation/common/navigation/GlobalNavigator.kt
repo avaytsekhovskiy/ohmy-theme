@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.main.MainActivity
+import com.noveogroup.template.presentation.palette.PaletteActivity
 import com.noveogroup.template.presentation.splash.SplashActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import ru.terrakok.cicerone.android.SupportAppNavigator
@@ -20,6 +21,7 @@ class GlobalNavigator(private val activity: BaseActivity) : SupportAppNavigator(
 
     override fun createActivityIntent(screenKey: String, data: Any?): Intent = when (screenKey) {
         GlobalRouter.SPLASH -> SplashActivity.newIntentClearTask(activity)
+        GlobalRouter.PALETTE -> PaletteActivity.newIntent(activity, data as Int)
         GlobalRouter.MAIN -> MainActivity.newIntent(activity)
         GlobalRouter.INSTAGRAM -> openInstagram(data as String)
         else -> throw IllegalArgumentException("Unknown Activity screen key")

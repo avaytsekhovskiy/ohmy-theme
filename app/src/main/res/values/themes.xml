@@ -2,84 +2,155 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
-        <item name="android:windowBackground">@color/background_common</item>
+        /* WINDOW */
+        <item name="android:windowBackground">?android:attr/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
-        <item name="android:colorBackground">@color/background_common</item>
-        <item name="android:textColorPrimary">@color/text_primary</item>
-        <item name="android:textColorPrimaryInverse">@color/text_primary_inverse</item>
-        <item name="android:textColorSecondary">@color/text_secondary</item>
-        <item name="android:textColorHint">@color/text_hint</item>
-        <item name="android:listDivider">@color/divider</item>
-        <item name="android:colorForeground">@android:color/white</item>
+
+        /* BASIC COLORS */
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorForeground">@color/black</item>
+
+        <item name="android:textColorPrimary">@color/black_light</item>
+        <item name="android:textColorPrimaryInverse">@color/white_light</item>
+        <item name="android:textColorPrimaryDisableOnly">?android:attr/textColorPrimary</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">
+            ?android:attr/textColorPrimaryInverse
+        </item>
+
+        <item name="android:listDivider">@color/grey</item>
+
+        <item name="android:textColorSecondary">@color/grey_dark</item>
+        <item name="android:textColorSecondaryInverse">@color/grey_light</item>
+        <item name="android:textColorHint">?android:attr/textColorSecondary</item>
+
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue_dark</item>
+        <item name="colorAccent">@color/orange</item>
+
+        <item name="textColorError">@color/red</item>
+
+        <item name="colorControlNormal">@color/green</item>
+        <item name="colorControlActivated">@color/green_light</item>
+
+        <item name="colorButtonNormal">@color/orange</item>
+        <item name="colorSwitchThumbNormal">?android:attr/textColorSecondary</item>
+
+        /* TOOLBAR */
         <item name="actionBarStyle">@style/AppTheme.Toolbar</item>
+        <item name="android:toolbarStyle" tools:targetApi="lollipop">?attr/actionBarStyle</item>
         <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow</item>
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorControlNormal">@color/primary</item>
-        <item name="colorControlActivated">@color/primary</item>
-        <item name="colorSwitchThumbNormal">@color/primary</item>
-        <item name="android:dropDownListViewStyle">@style/AppTheme.Toolbar.Overflow</item>
+        /* DIALOGS */
+        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Dark</item>
+        /* UI VIEW */
+        <item name="android:buttonStyle">@style/AppTheme.Button</item>
+        <item name="android:dropDownListViewStyle">@style/AppTheme.Overflow</item>
 
-        <item name="textColorError">@color/primary_dark</item>
-
-        <!--Libs-->
+        /* LIBRARY ATTRS */
         <item name="cpbStyle">@style/CircularThemeProgressBar</item>
 
-        <!--Own-->
-        <item name="colorPrimaryLight">@color/primary_light</item>
-        <item name="colorAccent">@color/accent</item>
+        /* OWN ATTRS */
+        <item name="colorPrimaryLight">@color/blue_light</item>
     </style>
 
-    <style name="AppTheme.Dialog.Alert" parent="@style/Theme.AppCompat.Dialog.Alert">
-        <item name="android:textColorPrimaryInverse">@color/text_primary</item>
-        <item name="android:textColorPrimary">@color/text_primary_inverse</item>
-        <item name="android:textColorSecondary">@color/text_primary_inverse</item>
-        <item name="android:textColorHint">@color/text_primary_inverse</item>
-        <item name="android:colorForeground">@android:color/white</item>
-        <item name="colorAccent">@color/accent</item>
+    <style name="AppTheme.Dark">
+        /* WINDOW */
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+
+        /* BASIC COLORS */
+        <item name="android:colorBackground">@color/black</item>
+        <item name="android:colorForeground">@color/white</item>
+
+        <item name="android:textColorPrimary">@color/white_light</item>
+        <item name="android:textColorPrimaryInverse">@color/black_light</item>
+
+        /* TOOLBAR */
+        <item name="actionBarStyle">@style/AppTheme.Toolbar</item>
+        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow.Dark</item>
+
+        /* UI VIEW */
+        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Light</item>
     </style>
 
-    <style name="AppTheme.SplashTheme" parent="AppTheme">
+    <style name="AppTheme.SplashTheme">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
-    <style name="AppTheme.NoAnimationTheme" parent="AppTheme">
+    <style name="AppTheme.NoAnimationTheme">
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="AppTheme.DialogTheme" parent="Base.Theme.AppCompat.Light.Dialog" tools:ignore="UnusedResources">
-        <item name="colorAccent">@color/primary</item>
+    <style name="AppTheme.DialogTheme">
+        <item name="colorAccent">@color/blue</item>
     </style>
 
-    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat">
-        <item name="android:textColorPrimary">@color/text_primary_inverse</item>
-        <item name="android:textColorPrimaryInverse">@color/text_primary</item>
-        <item name="android:textColorSecondary">@color/text_primary_inverse</item>
-        <!--<item name="android:textCursorDrawable">@drawable/cursor</item>-->
-        <item name="android:actionMenuTextColor">@color/text_primary_inverse</item>
-        <item name="android:icon">@color/text_primary_inverse</item>
-        <item name="colorControlNormal">@color/text_primary_inverse</item>
-        <item name="colorControlActivated">@color/text_primary_inverse</item>
+    <style name="AppTheme.Dialog.Alert" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert" />
+
+    <style name="AppTheme.Dialog.Alert.Light">
+        <item name="android:textColorPrimaryInverse">@color/white_light</item>
+        <item name="android:textColorPrimary">@color/black_light</item>
+        <item name="android:colorBackground">@color/white_light</item>
+        <item name="android:colorForeground">@color/black_light</item>
     </style>
 
-    <style name="AppTheme.Toolbar.Popup" parent="ThemeOverlay.AppCompat">
-        <item name="android:textColorPrimary">@color/text_primary</item>
-        <item name="android:textColorPrimaryInverse">@color/text_primary_inverse</item>
-        <item name="android:colorBackground">@color/text_primary_inverse</item>
+    <style name="AppTheme.Dialog.Alert.Dark">
+        <item name="android:textColorPrimaryInverse">@color/black_light</item>
+        <item name="android:textColorPrimary">@color/white_light</item>
+        <item name="android:colorBackground">@color/black_light</item>
+        <item name="android:colorForeground">@color/white_light</item>
     </style>
 
-    <style name="AppTheme.Toolbar.Overflow">
+    /* TOOLBAR */
+
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="popupTheme">@style/AppTheme.Toolbar.Popup.Light</item>
+        <item name="android:textColorPrimary">@color/white_light</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+        <item name="android:textColorSecondary">@color/white_light</item>
+        <item name="android:actionMenuTextColor">@color/white_light</item>
+        <item name="android:icon">@color/white_light</item>
+        <item name="colorControlNormal">@color/white_light</item>
+        <item name="colorControlActivated">@color/white_light</item>
+    </style>
+
+    /* TOOLBAR POPUP */
+
+    <style name="AppTheme.Toolbar.Popup" parent="ThemeOverlay.AppCompat" />
+
+    <style name="AppTheme.Toolbar.Popup.Light">
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.Popup.Dark">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+        <item name="android:colorBackground">@color/black</item>
+    </style>
+
+    /* OVERFLOW */
+
+    <style name="AppTheme.Overflow">
         <item name="android:listSelector">@drawable/list_item_background</item>
         <item name="android:dividerHeight">@dimen/divider_height</item>
-        <item name="android:divider">@color/divider</item>
+        <item name="android:divider">@color/grey</item>
     </style>
+
+    /* DRAWER TOGGLE */
 
     <style name="AppTheme.Toolbar.DrawerArrow" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <item name="color">@color/text_primary_inverse</item>
-        <item name="colorControlNormal">@color/text_primary_inverse</item>
-        <item name="colorControlActivated">@color/text_primary_inverse</item>
+        <item name="colorControlNormal">?attr/color</item>
+        <item name="colorControlActivated">?attr/color</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.DrawerArrow.Light">
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.DrawerArrow.Dark">
+        <item name="color">@color/black</item>
     </style>
 
 </resources>

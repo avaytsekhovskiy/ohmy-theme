@@ -11,7 +11,7 @@ import com.noveogroup.template.presentation.di.DI
 import kotlinx.android.synthetic.main.fragment_welcome.*
 
 @Layout(R.layout.fragment_welcome)
-class WelcomeFragment : BaseFragment(), WelcomeView {
+class WelcomeFragment : BaseFragment() {
 
     @InjectPresenter
     lateinit var presenter: WelcomePresenter
@@ -21,11 +21,9 @@ class WelcomeFragment : BaseFragment(), WelcomeView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        nextButton.setOnClickListener { presenter.openNext() }
-    }
-
-    override fun showName(name: String) {
-        nameView.text = name
+        inheritanceButton.setOnClickListener { presenter.openInheritance() }
+        paletteButton.setOnClickListener { presenter.openPalette() }
+        paletteDarkButton.setOnClickListener { presenter.openPaletteDark() }
     }
 
     companion object {

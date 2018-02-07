@@ -1,5 +1,7 @@
 <resources>
     <string name="title_welcome">Welcome Page</string>
 
-    <string name="welcome_next_button">next</string>
+    <string name="welcome_inheritance">Inheritance</string>
+    <string name="welcome_palette">Palette Light</string>
+    <string name="welcome_palette_dark">Palette Dark</string>
 </resources>
