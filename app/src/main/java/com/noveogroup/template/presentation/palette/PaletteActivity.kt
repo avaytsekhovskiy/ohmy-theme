@@ -12,6 +12,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.inflater.Layout
+import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.DI
 import com.noveogroup.template.presentation.palette.toolbar.ToolbarHolder
 import kotlinx.android.synthetic.main.activity_palette.*
@@ -23,7 +24,9 @@ class PaletteActivity : BaseActivity() {
     internal lateinit var presenter: PalettePresenter
 
     @ProvidePresenter
-    fun providePresenter(): PalettePresenter = DI.splashScope.getInstance(PalettePresenter::class.java)
+    fun providePresenter() = DI.paletteScope.getInstance(PalettePresenter::class.java)!!
+
+    override val lazyScope by lazy { ActivityScopeInitializer { DI.paletteScope } }
 
     private lateinit var toolbarHolder: ToolbarHolder
 

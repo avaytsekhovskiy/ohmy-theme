@@ -23,7 +23,6 @@ import com.noveogroup.template.presentation.common.mvp.delegate.*
 import com.noveogroup.template.presentation.common.mvp.view.BaseView
 import com.noveogroup.template.presentation.common.navigation.BackListener
 import com.noveogroup.template.presentation.common.navigation.NavigatorLifecycle
-import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.ScopeInitializer
 import io.palaima.debugdrawer.DebugDrawer
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -44,7 +43,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     val rotating get() = orientationHelper.rotating
 
     /* DI */
-    private val lazyScope: ScopeInitializer by lazy { ActivityScopeInitializer() }
+    abstract val lazyScope: ScopeInitializer
 
     /* NAVIGATION */
     @Inject

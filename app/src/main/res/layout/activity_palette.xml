@@ -19,11 +19,26 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/label"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Text" />
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Label" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/label3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/large"
+                android:enabled="false"
+                android:text="Label Disabled" />
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,32 +48,88 @@
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Regular" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Regular Disabled" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/button2"
                 style="@style/AppTheme.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Borderless" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/AppTheme.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Borderless Disabled" />
 
         </LinearLayout>
 
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/input"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit Text" />
+            android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/check"
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/input"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Regular" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/input2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Disabled" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Checkbox" />
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="true" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/check2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="false" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/check3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Disabled" />
+
+        </LinearLayout>
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radio1"
@@ -73,6 +144,13 @@
                 android:layout_height="wrap_content"
                 android:text="Radio 2" />
 
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Radio 3" />
+
         </RadioGroup>
 
         <android.support.v7.widget.AppCompatSeekBar
@@ -83,12 +161,27 @@
             android:layout_margin="@dimen/large"
             android:max="10" />
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/switchView"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="switch me"
-            app:switchPadding="@dimen/small" />
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="switch me"
+                app:switchPadding="@dimen/small" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switchView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/large"
+                android:enabled="false"
+                android:text="disabled"
+                app:switchPadding="@dimen/small" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

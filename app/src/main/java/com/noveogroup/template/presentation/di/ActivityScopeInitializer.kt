@@ -5,10 +5,9 @@ import com.noveogroup.template.presentation.di.module.ActivityModule
 import toothpick.Scope
 import toothpick.config.Module
 
-class ActivityScopeInitializer : ScopeInitializer({ DI.splashScope }) {
+class ActivityScopeInitializer(scopeProvider: () -> Scope) : ScopeInitializer(scopeProvider) {
 
-    override fun provideModules(): Array<Module> =
-            arrayOf(ActivityModule())
+    override fun provideModules(): Array<Module> = arrayOf(ActivityModule())
 
     override fun beforeClose(scope: Scope) {
         scope.getInstance(ScreenInteractor::class.java).stop()

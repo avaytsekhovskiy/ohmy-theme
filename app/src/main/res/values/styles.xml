@@ -1,60 +1,5 @@
 <resources>
 
-    <style name="AppTheme.Divider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/divider_height</item>
-        <item name="android:background">?android:listDivider</item>
-    </style>
-
-    <style name="AppTheme.Divider.Horizontal">
-        <item name="android:layout_width">@dimen/divider_height</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">?android:listDivider</item>
-    </style>
-
-    <style name="AppTheme.Text">
-        <!--<item name="fontPath">@string/some_font</item>-->
-        <item name="android:textColor">?android:textColorPrimary</item>
-    </style>
-
-    <style name="AppTheme.Text.Header">
-        <item name="android:textColor">?colorPrimaryDark</item>
-        <item name="android:textSize">@dimen/large</item>
-    </style>
-
-    <style name="AppTheme.Text.Regular">
-        <item name="android:textSize">@dimen/normal</item>
-    </style>
-
-    <style name="AppTheme.Text.Regular.Small">
-        <item name="android:textSize">@dimen/small</item>
-    </style>
-
-    <style name="AppTheme.Text.Secondary">
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
-        <item name="android:textSize">@dimen/normal</item>
-    </style>
-
-    <style name="AppTheme.Text.Label">
-        <item name="android:textSize">@dimen/small</item>
-    </style>
-
-    <style name="AppTheme.Text.Primary">
-        <item name="android:textSize">@dimen/large</item>
-    </style>
-
-    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textColor">?android:textColorPrimaryInverse</item>
-    </style>
-
-    <style name="AppTheme.Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:textColor">?android:textColorPrimary</item>
-    </style>
-
-    <style name="AppTheme.Button.Small">
-        <item name="android:textSize">@dimen/small</item>
-    </style>
-
     <style name="CircularThemeProgressBar" parent="android:Widget.Holo.ProgressBar">
         <item name="cpb_color">?colorPrimary</item>
         <item name="cpb_stroke_width">@dimen/cpb_default_stroke_width</item>
@@ -62,10 +7,6 @@
         <item name="cpb_max_sweep_angle">@integer/cpb_default_max_sweep_angle</item>
         <item name="cpb_sweep_speed">@string/cpb_default_sweep_speed</item>
         <item name="cpb_rotation_speed">@string/cpb_default_rotation_speed</item>
-    </style>
-
-    <style name="AppTheme.NoOverScroll">
-        <item name="android:overScrollMode">never</item>
     </style>
 
 </resources>

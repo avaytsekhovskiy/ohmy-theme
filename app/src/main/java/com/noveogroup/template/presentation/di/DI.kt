@@ -27,10 +27,12 @@ object DI {
     private const val APP_SCOPE = "APP"
     private val SPLASH_SCOPE get() = "SPLASH :: $currentActivity"
     private val MAIN_SCOPE get() = "MAIN :: $currentActivity"
+    private val PALETTE_SCOPE get() = "PALETTE :: $currentActivity"
 
     val appScope: Scope get() = Toothpick.openScope(APP_SCOPE)
     val splashScope: Scope get() = Toothpick.openScopes(APP_SCOPE, SPLASH_SCOPE)
     val mainScope: Scope get() = Toothpick.openScopes(APP_SCOPE, MAIN_SCOPE)
+    val paletteScope: Scope get() = Toothpick.openScopes(APP_SCOPE, PALETTE_SCOPE)
 
     private var currentActivity: String = ""
 

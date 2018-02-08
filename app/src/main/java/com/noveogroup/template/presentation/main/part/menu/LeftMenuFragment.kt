@@ -19,7 +19,7 @@ class LeftMenuFragment : BaseFragment(), LeftMenuView, BackListener {
     lateinit var presenter: LeftMenuPresenter
 
     @ProvidePresenter
-    fun providePresenter(): LeftMenuPresenter = DI.mainScope.getInstance(LeftMenuPresenter::class.java)
+    fun providePresenter() = DI.mainScope.getInstance(LeftMenuPresenter::class.java)!!
 
     private var drawerDelegate: DrawerDelegate? = null
 

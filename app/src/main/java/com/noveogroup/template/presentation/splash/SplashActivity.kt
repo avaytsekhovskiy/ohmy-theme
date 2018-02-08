@@ -7,6 +7,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.inflater.Layout
+import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.DI
 
 @Layout(R.layout.activity_splash)
@@ -15,8 +16,10 @@ class SplashActivity : BaseActivity() {
     @InjectPresenter
     internal lateinit var presenter: SplashPresenter
 
+    override val lazyScope by lazy { ActivityScopeInitializer { DI.splashScope } }
+
     @ProvidePresenter
-    fun providePresenter(): SplashPresenter = DI.splashScope.getInstance(SplashPresenter::class.java)
+    fun providePresenter() = DI.splashScope.getInstance(SplashPresenter::class.java)!!
 
     companion object {
         fun newIntentClearTask(context: Context) = Intent(context, SplashActivity::class.java).apply {

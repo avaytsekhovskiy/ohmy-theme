@@ -17,7 +17,7 @@ class WelcomeFragment : BaseFragment() {
     lateinit var presenter: WelcomePresenter
 
     @ProvidePresenter
-    fun providePresenter(): WelcomePresenter = DI.mainScope.getInstance(WelcomePresenter::class.java)
+    fun providePresenter() = DI.mainScope.getInstance(WelcomePresenter::class.java)!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

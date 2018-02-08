@@ -1,5 +1,6 @@
 <resources>
     <string name="title_welcome">Welcome Page</string>
+    <string name="title_inheritance">Style Inheritance</string>
 
     <string name="welcome_inheritance">Inheritance</string>
     <string name="welcome_palette">Palette Light</string>

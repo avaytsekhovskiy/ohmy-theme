@@ -15,6 +15,7 @@ import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.common.ext.findFragmentByContainer
 import com.noveogroup.template.presentation.common.mvp.delegate.DrawerDelegate
 import com.noveogroup.template.presentation.common.navigation.NavigatorProvider
+import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.DI
 import com.noveogroup.template.presentation.main.part.menu.LeftMenuFragment
 import com.noveogroup.template.presentation.main.part.toolbar.ToolbarHolder
@@ -28,7 +29,9 @@ class MainActivity : BaseActivity(), NavigatorProvider {
     internal lateinit var presenter: MainPresenter
 
     @ProvidePresenter
-    fun providePresenter(): MainPresenter = DI.mainScope.getInstance(MainPresenter::class.java)
+    fun providePresenter() = DI.mainScope.getInstance(MainPresenter::class.java)!!
+
+    override val lazyScope by lazy { ActivityScopeInitializer { DI.mainScope } }
 
     @Inject
     lateinit var mainRouter: MainRouter

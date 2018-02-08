@@ -30,7 +30,7 @@ class ToolbarHolder(activity: BaseActivity) : BaseMvpComponent(activity), Toolba
     lateinit var toolbarPresenter: ToolbarPresenter
 
     @ProvidePresenter
-    fun providePresenter(): ToolbarPresenter = DI.mainScope.getInstance(ToolbarPresenter::class.java)
+    fun providePresenter(): ToolbarPresenter = DI.paletteScope.getInstance(ToolbarPresenter::class.java)
 
     override fun onCreate() {
         super.onCreate()
