@@ -28,7 +28,7 @@
 
     <fr.castorflex.android.circularprogressbar.CircularProgressBar
         android:id="@+id/wrapperProgress"
-        style="@style/CircularThemeProgressBar"
+        style="?attr/cpbStyle"
         android:layout_width="@dimen/progress_bar_size"
         android:layout_height="@dimen/progress_bar_size"
         android:layout_gravity="center"

@@ -58,20 +58,21 @@ class ToolbarHolder(activity: BaseActivity) : BaseMvpComponent(activity), Toolba
         //hack to make overflow icons visible
         (menu as? MenuBuilder)?.setOptionalIconsVisible(true)
 
-        //colorize overflow icons programmatically to primary dark
+        //colorize toolbar icons from theme
         state.allMenuItems.forEach {
-            if (it is MenuItemImpl && !it.requiresActionButton()) {
-                it.icon = toolbar.context.colorizeDrawable(it.icon, R.attr.colorPrimaryDark)
+            if (it is MenuItemImpl) {
+                val attrId = when {
+                    it.requiresActionButton() -> android.R.attr.textColorPrimary
+                    else -> R.attr.colorPrimaryDark
+                }
+                it.icon = toolbar.context.colorizeDrawable(it.icon, attrId)
             }
         }
 
         toolbarPresenter.requestAppearanceRefresh()
     }
 
-    fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
-        showToast("${menuItem.groupId}: ${menuItem.itemId}")
-        return true
-    }
+    fun onOptionsItemSelected(menuItem: MenuItem) = true
 
     fun onDestroy() {
         ButterKnife.reset(this)

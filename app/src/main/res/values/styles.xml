@@ -9,4 +9,10 @@
         <item name="cpb_rotation_speed">@string/cpb_default_rotation_speed</item>
     </style>
 
+    <style name="AppTheme.ListStyle">
+        <item name="android:listSelector">@drawable/list_item_background</item>
+        <item name="android:dividerHeight">@dimen/divider_height</item>
+        <item name="android:divider">@color/grey</item>
+    </style>
+
 </resources>

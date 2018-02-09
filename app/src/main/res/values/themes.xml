@@ -2,6 +2,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="appToolbarStyle">@style/AppTheme.Toolbar.Dark</item>
+
         /* WINDOW */
         <item name="android:windowBackground">?android:attr/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
@@ -32,36 +34,27 @@
 
         <item name="android:listDivider">@color/grey</item>
 
-
+        <item name="colorPrimaryLight">@color/blue_light</item>
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryDark">@color/blue_dark</item>
         <item name="colorAccent">@color/orange</item>
-
-        <item name="textColorError">@color/red</item>
-
         <item name="colorControlNormal">@color/orange_light</item>
         <!--<item name="colorControlActivated">?attr/colorAccent</item>-->
         <!--<item name="colorButtonNormal">?attr/colorAccent</item>-->
 
-        <!-- Default color is - @color/switch_thumb_disabled_material_light -->
-        <item name="colorSwitchThumbNormal">?android:attr/textColorSecondaryInverse</item>
-
-        /* TOOLBAR */
-        <item name="actionBarStyle">@style/AppTheme.Toolbar</item>
-        <item name="android:toolbarStyle" tools:targetApi="lollipop">?attr/actionBarStyle</item>
-        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow</item>
-        /* DIALOGS */
+        /* STYLES INCEPTION */
         <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Dark</item>
-        /* UI VIEW */
+
+        <item name="actionBarStyle">?attr/appToolbarStyle</item>
+        <item name="android:toolbarStyle" tools:targetApi="lollipop">?attr/appToolbarStyle</item>
+        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow</item>
+
         <item name="android:buttonStyle">@style/AppTheme.Button</item>
-        <item name="android:dropDownListViewStyle">@style/AppTheme.Overflow</item>
-        <item name="android:checkboxStyle">@style/Widget.AppCompat.CompoundButton.CheckBox</item>
+        <item name="android:borderlessButtonStyle">@style/AppTheme.Button.Borderless</item>
+        <item name="android:dropDownListViewStyle">@style/AppTheme.ListStyle</item>
 
         /* LIBRARY ATTRS */
         <item name="cpbStyle">@style/CircularThemeProgressBar</item>
-
-        /* OWN ATTRS */
-        <item name="colorPrimaryLight">@color/blue_light</item>
     </style>
 
     <style name="AppTheme.Dark">
@@ -75,11 +68,15 @@
         <item name="android:textColorPrimary">@color/white_light</item>
         <item name="android:textColorPrimaryInverse">@color/black_light</item>
 
-        /* TOOLBAR */
-        <item name="actionBarStyle">@style/AppTheme.Toolbar</item>
-        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow.Dark</item>
+        <item name="colorPrimaryLight">@color/orange_light</item>
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/orange_dark</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorControlNormal">@color/blue_light</item>
 
-        /* UI VIEW */
+        /* STYLES INCEPTION */
+        <item name="appToolbarStyle">@style/AppTheme.Toolbar.Light</item>
+        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow.Dark</item>
         <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Light</item>
     </style>
 
@@ -103,6 +100,8 @@
         <item name="colorAccent">@color/blue</item>
     </style>
 
+    /* ALERT DIALOGS */
+
     <style name="AppTheme.Dialog.Alert" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert" />
 
     <style name="AppTheme.Dialog.Alert.Light">
@@ -121,42 +120,43 @@
 
     /* TOOLBAR */
 
-    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark">
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat">
+        <item name="android:textColorSecondary">?android:attr/textColorPrimary</item>
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:icon">?android:attr/textColorPrimary</item>
+        <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+        <item name="colorControlActivated">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.Light">
+        <item name="popupTheme">@style/AppTheme.Toolbar.Popup.Dark</item>
+        <item name="android:textColorPrimary">@color/black_light</item>
+        <item name="android:textColorPrimaryInverse">@color/white_light</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.Dark">
         <item name="popupTheme">@style/AppTheme.Toolbar.Popup.Light</item>
         <item name="android:textColorPrimary">@color/white_light</item>
-        <item name="android:textColorPrimaryInverse">@color/black</item>
-        <item name="android:textColorSecondary">@color/white_light</item>
-        <item name="android:actionMenuTextColor">@color/white_light</item>
-        <item name="android:icon">@color/white_light</item>
-        <item name="colorControlNormal">@color/white_light</item>
-        <item name="colorControlActivated">@color/white_light</item>
+        <item name="android:textColorPrimaryInverse">@color/black_light</item>
     </style>
 
     /* TOOLBAR POPUP */
 
-    <style name="AppTheme.Toolbar.Popup" parent="ThemeOverlay.AppCompat" />
+    <style name="AppTheme.Toolbar.Popup" parent="ThemeOverlay.AppCompat">
+        <item name="android:colorBackground">?android:attr/textColorPrimaryInverse</item>
+    </style>
 
     <style name="AppTheme.Toolbar.Popup.Light">
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorPrimaryInverse">@color/white</item>
-        <item name="android:colorBackground">@color/white</item>
     </style>
 
     <style name="AppTheme.Toolbar.Popup.Dark">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorPrimaryInverse">@color/black</item>
-        <item name="android:colorBackground">@color/black</item>
     </style>
 
-    /* OVERFLOW */
-
-    <style name="AppTheme.Overflow">
-        <item name="android:listSelector">@drawable/list_item_background</item>
-        <item name="android:dividerHeight">@dimen/divider_height</item>
-        <item name="android:divider">@color/grey</item>
-    </style>
-
-    /* DRAWER TOGGLE */
+    /* DRAWER ICON */
 
     <style name="AppTheme.Toolbar.DrawerArrow" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>

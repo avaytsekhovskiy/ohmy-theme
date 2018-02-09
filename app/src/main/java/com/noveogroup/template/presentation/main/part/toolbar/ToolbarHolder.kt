@@ -107,8 +107,12 @@ class ToolbarHolder(
 
         //colorize overflow icons programmatically to primary dark
         state.allMenuItems.forEach {
-            if (it is MenuItemImpl && !it.requiresActionButton()) {
-                it.icon = toolbar.context.colorizeDrawable(it.icon, R.attr.colorPrimaryDark)
+            if (it is MenuItemImpl) {
+                val attrId = when {
+                    it.requiresActionButton() -> android.R.attr.textColorPrimary
+                    else -> R.attr.colorPrimaryDark
+                }
+                it.icon = toolbar.context.colorizeDrawable(it.icon, attrId)
             }
         }
 

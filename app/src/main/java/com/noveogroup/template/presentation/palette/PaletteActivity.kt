@@ -27,17 +27,14 @@ class PaletteActivity : BaseActivity() {
     fun providePresenter() = DI.paletteScope.getInstance(PalettePresenter::class.java)!!
 
     override val lazyScope by lazy { ActivityScopeInitializer { DI.paletteScope } }
+    override val themeId get() = intent.getIntExtra(EXTRA_THEME, 0)
 
     private lateinit var toolbarHolder: ToolbarHolder
 
-    override val themeId get() = intent.getIntExtra(EXTRA_THEME, 0)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
 
-        switchView.setOnCheckedChangeListener { _, checked -> showToast("Switch: $checked") }
         button.setOnClickListener { dialogDelegate.showDialog(dialog(R.style.AppTheme_Dialog_Alert_Light)) }
         button2.setOnClickListener { dialogDelegate.showDialog(dialog(R.style.AppTheme_Dialog_Alert_Dark)) }
     }
@@ -53,8 +50,7 @@ class PaletteActivity : BaseActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) =
-            toolbarHolder.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem) = toolbarHolder.onOptionsItemSelected(item)
 
     override fun onBackPressed() = presenter.back()
 
