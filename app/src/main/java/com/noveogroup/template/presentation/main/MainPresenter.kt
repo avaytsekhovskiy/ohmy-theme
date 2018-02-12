@@ -15,9 +15,9 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(
         private val resourceManager: ResourceManager,
         private val mainRouter: MainRouter,
-        globalRouter: GlobalRouter,
-        statePublisher: ScreenInteractor
-) : BasePresenter<BaseView>(globalRouter, statePublisher) {
+        private val screenInteractor: ScreenInteractor,
+        globalRouter: GlobalRouter
+) : BasePresenter<BaseView>(globalRouter) {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -26,7 +26,7 @@ class MainPresenter @Inject constructor(
 
     override fun attachView(view: BaseView?) {
         super.attachView(view)
-        requestAppearance(
+        screenInteractor.publish(
                 toolbarMenu = ToolbarMenu.NO_MENU,
                 pageMode = PageMode.TOOLBAR
         )

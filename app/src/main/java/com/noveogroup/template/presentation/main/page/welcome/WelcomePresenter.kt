@@ -16,13 +16,13 @@ import javax.inject.Inject
 class WelcomePresenter @Inject constructor(
         private val mainRouter: MainRouter,
         private val resourceManager: ResourceManager,
-        globalRouter: GlobalRouter,
-        statePublisher: ScreenInteractor
-) : BasePresenter<BaseView>(globalRouter, statePublisher) {
+        private val screenInteractor: ScreenInteractor,
+        globalRouter: GlobalRouter
+) : BasePresenter<BaseView>(globalRouter) {
 
     override fun attachView(view: BaseView) {
         super.attachView(view)
-        requestAppearance(
+        screenInteractor.publish(
                 toggle = Toggle.BURGER,
                 sideMode = SideMode.CLOSED,
                 title = resourceManager.getString(R.string.title_welcome))

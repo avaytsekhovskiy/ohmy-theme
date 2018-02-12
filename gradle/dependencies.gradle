@@ -43,7 +43,6 @@ ext.plugin = [
         noveoCheck: "com.noveogroup.android:check:$versions.noveoCheckPlugin",
         kotlin    : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinPlugin",
 ]
-
 ext.lib = [
         /* Test dependencies */
         junit                     : "junit:junit:$versions.junit",
@@ -127,3 +126,4 @@ ext.lib = [
         debugDrawerBuildConfig    : "com.noveogroup:debugdrawer-buildconfig:$versions.noveoDebugDrawer",
         debugDrawerBuildConfigNoOp: "com.noveogroup:debugdrawer-buildconfig-no-op:$versions.noveoDebugDrawer",
 ]
+

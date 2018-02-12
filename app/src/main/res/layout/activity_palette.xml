@@ -19,9 +19,26 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/disableView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large"
+            android:text="disable views"
+            app:switchPadding="@dimen/small" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
+            <!-- Broken preview, but accentColor is applied correctly in runtime -->
+            <fr.castorflex.android.circularprogressbar.CircularProgressBar
+                android:layout_width="@dimen/large"
+                android:layout_height="@dimen/large" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="@dimen/large"
+                android:layout_height="wrap_content" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/label"
@@ -29,33 +46,14 @@
                 android:layout_height="wrap_content"
                 android:text="Label" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/label3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/large"
-                android:enabled="false"
-                android:text="Label Disabled" />
+            <android.support.v4.widget.Space
+                android:layout_width="@dimen/large"
+                android:layout_height="wrap_content" />
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Regular" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="Regular Disabled" />
+            <!-- Broken preview, but accentColor is applied correctly in runtime -->
+            <fr.castorflex.android.circularprogressbar.CircularProgressBar
+                android:layout_width="@dimen/large"
+                android:layout_height="@dimen/large" />
 
         </LinearLayout>
 
@@ -64,40 +62,28 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/buttonRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Light Dialog" />
+
+            <Button
+                android:id="@+id/buttonBorderless"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Borderless" />
-
-            <Button
-                android:id="@+id/button4"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="Borderless Disabled" />
+                android:text="Dark Dialog" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/input"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Regular" />
-
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/input2"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="Disabled" />
-
-        </LinearLayout>
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/inputField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/small"
+            android:layout_marginRight="@dimen/small"
+            android:hint="Hint"
+            android:text="Input Field" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -108,57 +94,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="true" />
+                android:text="check" />
 
-            <android.support.v7.widget.AppCompatCheckBox
-                android:id="@+id/check2"
+            <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="false" />
+                android:orientation="horizontal">
 
-            <android.support.v7.widget.AppCompatCheckBox
-                android:id="@+id/check3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="Disabled" />
+                <RadioButton
+                    android:id="@+id/radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="radio 1" />
+
+                <RadioButton
+                    android:id="@+id/radio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="radio 2" />
+
+            </RadioGroup>
 
         </LinearLayout>
 
-        <RadioGroup
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Radio 1" />
-
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Radio 2" />
-
-            <RadioButton
-                android:id="@+id/radio3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="Radio 3" />
-
-        </RadioGroup>
+            android:numStars="6"
+            android:rating="3"
+            android:stepSize="1" />
 
         <android.support.v7.widget.AppCompatSeekBar
-            android:id="@+id/seek"
+            android:id="@+id/seekBar"
             style="@style/Base.Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/large"
+            android:layout_marginLeft="@dimen/small"
+            android:layout_marginRight="@dimen/small"
             android:max="10" />
 
         <LinearLayout
@@ -166,20 +142,21 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.SwitchCompat
-                android:id="@+id/switchView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="switch me"
-                app:switchPadding="@dimen/small" />
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/switchView2"
+                android:id="@+id/switchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/large"
                 android:enabled="false"
-                android:text="disabled"
+                android:text="Switch"
                 app:switchPadding="@dimen/small" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textOff="NOK"
+                android:textOn="OK" />
 
         </LinearLayout>
 

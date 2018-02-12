@@ -13,13 +13,13 @@ import javax.inject.Inject
 
 class InheritancePresenter @Inject constructor(
         private val resourceManager: ResourceManager,
-        globalRouter: GlobalRouter,
-        statePublisher: ScreenInteractor
-) : BasePresenter<BaseView>(globalRouter, statePublisher) {
+        private val screenInteractor: ScreenInteractor,
+        globalRouter: GlobalRouter
+) : BasePresenter<BaseView>(globalRouter) {
 
     override fun attachView(view: BaseView?) {
         super.attachView(view)
-        requestAppearance(
+        screenInteractor.publish(
                 toggle = Toggle.BACK,
                 sideMode = SideMode.DISABLED,
                 title = resourceManager.getString(R.string.title_inheritance)

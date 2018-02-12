@@ -7,6 +7,7 @@ import android.support.annotation.StyleRes
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
@@ -18,7 +19,7 @@ import com.noveogroup.template.presentation.palette.toolbar.ToolbarHolder
 import kotlinx.android.synthetic.main.activity_palette.*
 
 @Layout(R.layout.activity_palette)
-class PaletteActivity : BaseActivity() {
+class PaletteActivity : BaseActivity(), PaletteView {
 
     @InjectPresenter
     internal lateinit var presenter: PalettePresenter
@@ -27,16 +28,28 @@ class PaletteActivity : BaseActivity() {
     fun providePresenter() = DI.paletteScope.getInstance(PalettePresenter::class.java)!!
 
     override val lazyScope by lazy { ActivityScopeInitializer { DI.paletteScope } }
-    override val themeId get() = intent.getIntExtra(EXTRA_THEME, 0)
+    override val themeId by lazy { intent.getIntExtra(EXTRA_THEME, 0) }
 
     private lateinit var toolbarHolder: ToolbarHolder
+
+    private val uiControls: List<View> by lazy {
+        return@lazy listOf(
+                label, inputField,
+                buttonRegular, buttonBorderless,
+                check, radio1, radio2,
+                ratingBar, seekBar,
+                switchButton, toggleButton
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
 
-        button.setOnClickListener { dialogDelegate.showDialog(dialog(R.style.AppTheme_Dialog_Alert_Light)) }
-        button2.setOnClickListener { dialogDelegate.showDialog(dialog(R.style.AppTheme_Dialog_Alert_Dark)) }
+        buttonRegular.setOnClickListener { presenter.onDialog(true) }
+        buttonBorderless.setOnClickListener { presenter.onDialog(false) }
+
+        disableView.setOnCheckedChangeListener { _, checked -> presenter.onChecked(checked) }
     }
 
     override fun onDestroy() {
@@ -54,14 +67,31 @@ class PaletteActivity : BaseActivity() {
 
     override fun onBackPressed() = presenter.back()
 
-    private fun dialog(@StyleRes dialogTheme: Int) = AlertDialog.Builder(this, dialogTheme).run {
-        setTitle("Title")
-        setMessage("Lots of letters")
-        setPositiveButton("OK", { _, _ -> cancelDialog() })
-        setNegativeButton("NOK", { _, _ -> cancelDialog() })
-        setNeutralButton("Dunno", { _, _ -> cancelDialog() })
-        return@run create()
+    override fun disableUiControls() = toggleUiControls(false)
+
+    override fun enableUiControls() = toggleUiControls(true)
+
+    override fun showLightDialog() = showStyledDialog(R.style.AppTheme_Dialog_Alert_Light)
+
+    override fun showDarkDialog() = showStyledDialog(R.style.AppTheme_Dialog_Alert_Dark)
+
+    private fun toggleUiControls(enabled: Boolean) {
+        if (disableView.isChecked != enabled) {
+            disableView.isChecked = enabled
+        }
+        uiControls.forEach { it.isEnabled = enabled }
     }
+
+    private fun showStyledDialog(@StyleRes dialogTheme: Int) = dialogDelegate.showDialog(
+            AlertDialog.Builder(this, dialogTheme).run {
+                setTitle("Title")
+                setMessage("Lots of letters")
+                setPositiveButton("OK", { _, _ -> cancelDialog() })
+                setNegativeButton("NOK", { _, _ -> cancelDialog() })
+                setNeutralButton("Dunno", { _, _ -> cancelDialog() })
+                return@run create()
+            }
+    )
 
     companion object {
         private const val EXTRA_THEME = "EXTRA_THEME_BOOLEAN_IS_LIGHT"
