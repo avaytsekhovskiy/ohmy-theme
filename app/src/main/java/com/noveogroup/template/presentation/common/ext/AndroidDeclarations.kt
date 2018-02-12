@@ -9,6 +9,8 @@ import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
+import android.text.Html
+import android.text.Spanned
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -107,3 +109,11 @@ fun <T : Fragment> Fragment.findFragmentByContainer(container: ViewGroup) =
 @Suppress("UNCHECKED_CAST")
 fun <T : Fragment> Fragment.findFragmentById(@IdRes idRes: Int) =
         childFragmentManager.findFragmentById(idRes) as? T
+
+fun CharSequence.fromHtml(flags: Int? = null): Spanned {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(this.toString(), flags ?: Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        Html.fromHtml(this.toString())
+    }
+}

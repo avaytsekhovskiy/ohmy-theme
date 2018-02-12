@@ -13,6 +13,8 @@ class TouchConsumerFrameLayout : FrameLayout {
     @Suppress("MemberVisibilityCanBePrivate")
     var consumeTouches = true
 
+    var silentListener: ((ev: MotionEvent) -> Unit)? = null
+
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -22,5 +24,8 @@ class TouchConsumerFrameLayout : FrameLayout {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    override fun dispatchTouchEvent(ev: MotionEvent) = consumeTouches || super.dispatchTouchEvent(ev)
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        silentListener?.invoke(ev)
+        return consumeTouches || super.dispatchTouchEvent(ev)
+    }
 }

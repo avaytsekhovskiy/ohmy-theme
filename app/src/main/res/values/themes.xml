@@ -10,24 +10,23 @@
         <item name="android:colorBackground">@color/white_light</item>
         <item name="android:colorForeground">@color/black_light</item>
 
-        <item name="android:textColor">@color/cs_primary</item>
-        <item name="android:editTextColor">@color/cs_primary</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/cs_primary</item>
-        <item name="android:textColorPrimaryInverseDisableOnly">@color/cs_primary_inverse</item>
+        <item name="android:textColor">@color/cs_text_primary</item>
+        <item name="android:editTextColor">@color/cs_text_primary</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/cs_text_primary</item>
 
         <item name="android:disabledAlpha">0.5</item>
 
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorPrimaryInverse">@color/white</item>
-        <item name="android:textColorSecondary">@color/grey_dark</item>
-        <item name="android:textColorSecondaryInverse">@color/grey_light</item>
+        <item name="android:textColorSecondary">@color/green_dark</item>
+        <item name="android:textColorSecondaryInverse">@color/green_dark</item>
+        <item name="android:textColorTertiary">@color/grey_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/grey_light</item>
 
-        <item name="android:textColorHint">@color/red_dark</item>
-        <item name="android:textColorHintInverse">@color/red_light</item>
-        <item name="android:textColorHighlight">@color/red_dark</item>
-        <item name="android:textColorHighlightInverse">@color/red_light</item>
-        <item name="android:textColorLink">@color/red_dark</item>
-        <item name="android:textColorLinkInverse">@color/red_light</item>
+        <item name="textColorError">@color/red_dark</item>
+        <item name="android:textColorHint">@color/cs_text_tertiary</item>
+        <!--<item name="android:textColorHighlight">?attr/colorPrimary a bit transparent</item>-->
+        <item name="android:textColorLink">@color/cs_accent</item>
 
         <item name="android:listDivider">@color/grey</item>
 
@@ -40,42 +39,19 @@
         <!--<item name="colorButtonNormal">?attr/colorAccent</item>-->
 
         /* STYLES INCEPTION */
-        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Dark</item>
+        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Light</item>
 
         <item name="appToolbarStyle">@style/AppTheme.Toolbar.Dark</item>
         <item name="actionBarStyle">?attr/appToolbarStyle</item>
         <item name="android:toolbarStyle" tools:targetApi="lollipop">?attr/appToolbarStyle</item>
         <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow</item>
 
-        <item name="android:buttonStyle">@style/AppTheme.Button</item>
-        <item name="android:borderlessButtonStyle">@style/AppTheme.Button.Borderless</item>
+        <item name="android:buttonStyle">@style/AppTheme.Button.Colored</item>
+        <item name="android:borderlessButtonStyle">@style/AppTheme.Button.Borderless.Colored</item>
         <item name="android:dropDownListViewStyle">@style/AppTheme.ListStyle</item>
 
         /* LIBRARY ATTRS */
         <item name="cpbStyle">@style/CircularThemeProgressBar</item>
-    </style>
-
-    <style name="AppTheme.Dark">
-        /* WINDOW */
-        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
-
-        /* BASIC COLORS */
-        <item name="android:colorBackground">@color/grey_dark</item>
-        <item name="android:colorForeground">@color/white_light</item>
-
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorPrimaryInverse">@color/black</item>
-
-        <item name="colorPrimaryLight">@color/orange_light</item>
-        <item name="colorPrimary">@color/orange</item>
-        <item name="colorPrimaryDark">@color/orange_dark</item>
-        <item name="colorAccent">@color/blue</item>
-        <item name="colorControlNormal">@color/blue_light</item>
-
-        /* STYLES INCEPTION */
-        <item name="appToolbarStyle">@style/AppTheme.Toolbar.Light</item>
-        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow.Dark</item>
-        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Light</item>
     </style>
 
     <style name="AppTheme.SplashTheme">
@@ -86,35 +62,16 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textColor">@color/cs_colored_inverse</item>
-    </style>
-
-    <style name="AppTheme.Button.Borderless" parent="Widget.AppCompat.Button.Borderless.Colored">
-        <item name="android:textColor">@color/cs_colored</item>
-    </style>
-
-    <style name="AppTheme.DialogTheme">
-        <item name="colorAccent">@color/blue</item>
-    </style>
-
     /* ALERT DIALOGS */
 
-    <style name="AppTheme.Dialog.Alert" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert" />
-
-    <style name="AppTheme.Dialog.Alert.Light">
+    <style name="AppTheme.Dialog.Alert" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert">
         <item name="android:textColorPrimaryInverse">@color/white_light</item>
         <item name="android:textColorPrimary">@color/black_light</item>
         <item name="android:colorBackground">@color/white_light</item>
         <item name="android:colorForeground">@color/black_light</item>
     </style>
 
-    <style name="AppTheme.Dialog.Alert.Dark">
-        <item name="android:textColorPrimaryInverse">@color/black_light</item>
-        <item name="android:textColorPrimary">@color/white_light</item>
-        <item name="android:colorBackground">@color/black_light</item>
-        <item name="android:colorForeground">@color/white_light</item>
-    </style>
+    <style name="AppTheme.Dialog.Alert.Light" />
 
     /* TOOLBAR */
     <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat">
@@ -123,48 +80,30 @@
         <item name="android:icon">?android:attr/textColorPrimary</item>
         <item name="colorControlNormal">?android:attr/textColorPrimary</item>
         <item name="colorControlActivated">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="AppTheme.Toolbar.Light">
         <item name="popupTheme">@style/AppTheme.Toolbar.Popup.Dark</item>
         <item name="android:textColorPrimary">@color/black_light</item>
         <item name="android:textColorPrimaryInverse">@color/white_light</item>
     </style>
 
-    <style name="AppTheme.Toolbar.Dark">
-        <item name="popupTheme">@style/AppTheme.Toolbar.Popup.Light</item>
-        <item name="android:textColorPrimary">@color/white_light</item>
-        <item name="android:textColorPrimaryInverse">@color/black_light</item>
-    </style>
+    <style name="AppTheme.Toolbar.Light" />
 
     /* TOOLBAR POPUP */
     <style name="AppTheme.Toolbar.Popup" parent="ThemeOverlay.AppCompat">
         <item name="android:colorBackground">?android:attr/textColorPrimaryInverse</item>
-    </style>
-
-    <style name="AppTheme.Toolbar.Popup.Light">
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorPrimaryInverse">@color/white</item>
     </style>
 
-    <style name="AppTheme.Toolbar.Popup.Dark">
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorPrimaryInverse">@color/black</item>
-    </style>
+    <style name="AppTheme.Toolbar.Popup.Light" />
 
     /* DRAWER ICON */
     <style name="AppTheme.Toolbar.DrawerArrow" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="colorControlNormal">?attr/color</item>
         <item name="colorControlActivated">?attr/color</item>
-    </style>
-
-    <style name="AppTheme.Toolbar.DrawerArrow.Light">
         <item name="color">@color/white</item>
     </style>
 
-    <style name="AppTheme.Toolbar.DrawerArrow.Dark">
-        <item name="color">@color/black</item>
-    </style>
+    <style name="AppTheme.Toolbar.DrawerArrow.Light" />
 
 </resources>

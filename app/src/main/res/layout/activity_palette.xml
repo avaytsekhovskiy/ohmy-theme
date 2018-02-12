@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/appToolbarStyle" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="HardcodedText,UselessParent">
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/disableView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/large"
-            android:text="disable views"
-            app:switchPadding="@dimen/small" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/appToolbarStyle" />
+
+        <EditText
+            android:id="@+id/focusStealer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:ignore="TextFields" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <!-- Broken preview, but accentColor is applied correctly in runtime -->
-            <fr.castorflex.android.circularprogressbar.CircularProgressBar
-                android:layout_width="@dimen/large"
-                android:layout_height="@dimen/large" />
-
-            <android.support.v4.widget.Space
-                android:layout_width="@dimen/large"
-                android:layout_height="wrap_content" />
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/disableView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large"
+                android:text="disable views"
+                app:switchPadding="@dimen/small" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/label"
@@ -46,120 +46,151 @@
                 android:layout_height="wrap_content"
                 android:text="Label" />
 
-            <android.support.v4.widget.Space
-                android:layout_width="@dimen/large"
-                android:layout_height="wrap_content" />
-
-            <!-- Broken preview, but accentColor is applied correctly in runtime -->
-            <fr.castorflex.android.circularprogressbar.CircularProgressBar
-                android:layout_width="@dimen/large"
-                android:layout_height="@dimen/large" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/buttonRegular"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Light Dialog" />
+                android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/buttonBorderless"
-                style="?attr/borderlessButtonStyle"
+                <Button
+                    android:id="@+id/buttonRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Dialog" />
+
+                <Button
+                    android:id="@+id/buttonBorderless"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Dialog" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/large"
+                android:paddingRight="@dimen/large">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/inputLayout"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/inputField"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:hint="Hint"
+                        android:imeOptions="actionGo"
+                        android:maxLines="1" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/validateInputButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="validate" />
+
+            </FrameLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dark Dialog" />
+                android:layout_height="wrap_content">
 
-        </LinearLayout>
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/inputField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/small"
-            android:layout_marginRight="@dimen/small"
-            android:hint="Hint"
-            android:text="Input Field" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatCheckBox
-                android:id="@+id/check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="check" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radio1"
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="radio 1" />
+                    android:text="check" />
 
-                <RadioButton
-                    android:id="@+id/radio2"
+                <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="radio 2" />
+                    android:orientation="horizontal">
 
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="radio 1" />
 
-        </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="radio 2" />
 
-        <android.support.v7.widget.AppCompatRatingBar
-            android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="6"
-            android:rating="3"
-            android:stepSize="1" />
+                </RadioGroup>
 
-        <android.support.v7.widget.AppCompatSeekBar
-            android:id="@+id/seekBar"
-            style="@style/Base.Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/small"
-            android:layout_marginRight="@dimen/small"
-            android:max="10" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/switchButton"
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/large"
-                android:enabled="false"
-                android:text="Switch"
-                app:switchPadding="@dimen/small" />
+                android:numStars="6"
+                android:rating="3"
+                android:stepSize="1" />
 
-            <ToggleButton
-                android:id="@+id/toggleButton"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small"
+                android:layout_marginRight="@dimen/small"
+                android:clickable="false"
+                android:duplicateParentState="false">
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Base.Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:duplicateParentState="false"
+                    android:max="10" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/large"
+                    android:enabled="false"
+                    android:text="Switch"
+                    app:switchPadding="@dimen/small" />
+
+                <ToggleButton
+                    android:id="@+id/toggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textOff="NOK"
+                    android:textOn="OK" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/selectableLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:textOff="NOK"
-                android:textOn="OK" />
+                android:layout_marginTop="@dimen/large"
+                android:textIsSelectable="true"
+                tools:text="Here will be link example in runtime" />
+
 
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>
