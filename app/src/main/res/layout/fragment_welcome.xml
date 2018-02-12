@@ -23,4 +23,16 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome_palette_dark" />
 
+    <Button
+        android:id="@+id/paletteGreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_palette_green" />
+
+    <Button
+        android:id="@+id/paletteDarkGreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_palette_dark_green" />
+
 </LinearLayout>

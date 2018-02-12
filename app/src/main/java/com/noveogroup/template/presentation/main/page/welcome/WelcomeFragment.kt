@@ -24,6 +24,8 @@ class WelcomeFragment : BaseFragment() {
         inheritanceButton.setOnClickListener { presenter.openInheritance() }
         paletteButton.setOnClickListener { presenter.openPalette() }
         paletteDarkButton.setOnClickListener { presenter.openPaletteDark() }
+        paletteGreenButton.setOnClickListener { presenter.openPaletteGreen() }
+        paletteDarkGreenButton.setOnClickListener { presenter.openPaletteDarkGreen() }
     }
 
     companion object {
