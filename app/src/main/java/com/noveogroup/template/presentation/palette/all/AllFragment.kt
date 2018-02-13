@@ -43,8 +43,6 @@ class AllFragment : BaseFragment(), AllView {
             }
         }
 
-        disableView.setOnCheckedChangeListener { _, checked -> presenter.requestDisable(checked) }
-
         validateInputButton.setOnClickListener {
             inputLayout.error = when {
                 inputField.text.isNullOrEmpty() -> "Can't be empty"
@@ -62,15 +60,23 @@ class AllFragment : BaseFragment(), AllView {
 
     }
 
-    override fun enableViews() = changeViewsDisabled(false)
+    override fun enableViews() = changeViewsDisabled(true)
 
-    override fun disableViews() = changeViewsDisabled(true)
+    override fun disableViews() = changeViewsDisabled(false)
 
-    private fun changeViewsDisabled(disabled: Boolean) {
-        if (disableView.isChecked != disabled) {
-            disableView.isChecked = disabled
-        }
-        uiControls.forEach { it.isEnabled = disabled }
+    private fun changeViewsDisabled(enabled: Boolean) {
+        uiControls.forEach { it.isEnabled = enabled }
+    }
+
+    override fun showExplanation() {
+        dialogDelegate.showSimpleDialog(
+                title = "Theme attrs",
+                description = """
+                               |just all other views
+                               |
+                               |Soon will be splitted
+                                """.trimMargin()
+        )
     }
 
     private fun deFocus() {

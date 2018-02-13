@@ -26,8 +26,6 @@ class ButtonsFragment : BaseFragment(), ButtonsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        explainButton.setOnClickListener { presenter.requestExplanation() }
-
         listOf(normalButton, normalFlatButton).forEach {
             it.setOnClickListener { presenter.requestDialog(true) }
         }

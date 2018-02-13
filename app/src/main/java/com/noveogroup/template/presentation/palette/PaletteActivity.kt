@@ -47,6 +47,8 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
 
         switchExampleButton.setOnClickListener { presenter.replaceExample() }
+        explainButton.setOnClickListener { presenter.explain() }
+        disableView.setOnCheckedChangeListener { _, checked -> presenter.disable(checked) }
     }
 
     override fun onInstallNavigator() {

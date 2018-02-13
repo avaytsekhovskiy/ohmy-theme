@@ -3,6 +3,7 @@ package com.noveogroup.template.presentation.palette
 import com.arellomobile.mvp.InjectViewState
 import com.noveogroup.template.R
 import com.noveogroup.template.data.android.system.ResourceManager
+import com.noveogroup.template.domain.interactor.PaletteInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
 import com.noveogroup.template.domain.interactor.state.model.PageMode
 import com.noveogroup.template.domain.interactor.state.model.SideMode
@@ -14,6 +15,7 @@ import javax.inject.Inject
 
 @InjectViewState
 class PalettePresenter @Inject constructor(
+        private val paletteInteractor: PaletteInteractor,
         private val paletteRouter: PaletteRouter,
         private val resourceManager: ResourceManager,
         private val screenInteractor: ScreenInteractor,
@@ -46,6 +48,14 @@ class PalettePresenter @Inject constructor(
         }
 
         position = (position + 1) % 2
+    }
+
+    fun explain() {
+        paletteInteractor.explain()
+    }
+
+    fun disable(disabled: Boolean) {
+        paletteInteractor.disable(disabled)
     }
 
 }

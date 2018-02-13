@@ -24,14 +24,6 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/disableView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/large"
-                android:text="disable views"
-                app:switchPadding="@dimen/small" />
-
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/label"
                 android:layout_width="wrap_content"
