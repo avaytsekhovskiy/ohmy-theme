@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme.Dark">
+    <style name="AppTheme.Dark" parent="Base.AppTheme">
         /* WINDOW */
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
 
-        /* BASIC COLORS */
+        /* TEXT COLORS */
         <item name="android:colorBackground">@color/black_light</item>
         <item name="android:colorForeground">@color/white_light</item>
 
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorPrimaryInverse">@color/black</item>
 
+        /* APP COLORS */
         <item name="colorPrimaryLight">@color/orange_light</item>
         <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryDark">@color/orange_dark</item>
@@ -19,30 +20,30 @@
         <item name="colorControlNormal">@color/blue_light</item>
 
         /* STYLES INCEPTION */
-        <item name="appToolbarStyle">@style/AppTheme.Toolbar.Light</item>
-        <item name="drawerArrowStyle">@style/AppTheme.Toolbar.DrawerArrow.Dark</item>
-        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Dark</item>
+        <item name="appToolbarStyle">@style/AppThemeOverlay.Toolbar.Light</item>
+        <item name="drawerArrowStyle">@style/AppThemeOverlay.Toolbar.DrawerArrow.Dark</item>
+        <item name="alertDialogTheme">@style/AppThemeOverlay.Dialog.Alert.Dark</item>
     </style>
 
-    <style name="AppTheme.Dialog.Alert.Dark">
+    <style name="AppThemeOverlay.Dialog.Alert.Dark" parent="Base.AppThemeOverlay.Dialog.Alert">
         <item name="android:textColorPrimaryInverse">@color/black_light</item>
         <item name="android:textColorPrimary">@color/white_light</item>
         <item name="android:colorBackground">@color/black_light</item>
         <item name="android:colorForeground">@color/white_light</item>
     </style>
 
-    <style name="AppTheme.Toolbar.Dark">
-        <item name="popupTheme">@style/AppTheme.Toolbar.Popup.Light</item>
+    <style name="AppThemeOverlay.Toolbar.Dark" parent="Base.AppThemeOverlay.Toolbar">
+        <item name="popupTheme">@style/AppThemeOverlay.Toolbar.Popup.Light</item>
         <item name="android:textColorPrimary">@color/white_light</item>
         <item name="android:textColorPrimaryInverse">@color/black_light</item>
     </style>
 
-    <style name="AppTheme.Toolbar.Popup.Dark">
+    <style name="AppThemeOverlay.Toolbar.Popup.Dark" parent="Base.AppThemeOverlay.Toolbar.Popup">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorPrimaryInverse">@color/black</item>
     </style>
 
-    <style name="AppTheme.Toolbar.DrawerArrow.Dark">
+    <style name="AppThemeOverlay.Toolbar.DrawerArrow.Dark" parent="Base.AppThemeOverlay.Toolbar.DrawerArrow">
         <item name="color">@color/black</item>
     </style>
 

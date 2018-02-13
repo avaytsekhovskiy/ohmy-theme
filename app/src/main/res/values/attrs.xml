@@ -2,4 +2,20 @@
 <resources>
     <attr name="colorPrimaryLight" format="color|reference" />
     <attr name="appToolbarStyle" format="reference" />
+
+    <!--compatibility with pre lollipop -->
+    <attr name="csCompatAccent" format="reference" />
+    <attr name="csCompatColoredTextPrimary" format="reference" />
+    <attr name="csCompatColoredTextSecondary" format="reference" />
+    <attr name="csCompatColoredTextTertiary" format="reference" />
+    <attr name="csCompatPrimary" format="reference" />
+    <attr name="csCompatPrimaryDark" format="reference" />
+    <attr name="csCompatPrimaryLight" format="reference" />
+    <attr name="csCompatTextError" format="reference" />
+    <attr name="csCompatTextPrimary" format="reference" />
+    <attr name="csCompatTextPrimaryInverse" format="reference" />
+    <attr name="csCompatTextSecondary" format="reference" />
+    <attr name="csCompatTextTertiary" format="reference" />
+
+    <attr name="dsCompatListBackground" format="reference" />
 </resources>

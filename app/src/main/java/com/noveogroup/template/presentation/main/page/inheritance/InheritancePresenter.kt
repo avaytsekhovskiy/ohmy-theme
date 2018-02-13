@@ -8,7 +8,6 @@ import com.noveogroup.template.domain.interactor.state.model.SideMode
 import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
-import com.noveogroup.template.presentation.common.mvp.view.BaseView
 import javax.inject.Inject
 
 @InjectViewState
@@ -16,9 +15,9 @@ class InheritancePresenter @Inject constructor(
         private val resourceManager: ResourceManager,
         private val screenInteractor: ScreenInteractor,
         globalRouter: GlobalRouter
-) : BasePresenter<BaseView>(globalRouter) {
+) : BasePresenter<InheritanceView>(globalRouter) {
 
-    override fun attachView(view: BaseView?) {
+    override fun attachView(view: InheritanceView?) {
         super.attachView(view)
         screenInteractor.publish(
                 toggle = Toggle.BACK,
@@ -29,6 +28,11 @@ class InheritancePresenter @Inject constructor(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.showSimpleDialog("Example of", "Style loses all implicit parent attributes when explicit parent is presented.")
+        viewState.takeIf { shouldShowExplanation }?.showExplanation()
+        shouldShowExplanation = false
+    }
+
+    companion object {
+        var shouldShowExplanation = true
     }
 }

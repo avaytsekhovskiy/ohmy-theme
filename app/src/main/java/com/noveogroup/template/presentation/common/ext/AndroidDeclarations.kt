@@ -7,6 +7,7 @@ import android.os.Build
 import android.support.annotation.DimenRes
 import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.text.Html
@@ -110,7 +111,8 @@ fun <T : Fragment> Fragment.findFragmentByContainer(container: ViewGroup) =
 fun <T : Fragment> Fragment.findFragmentById(@IdRes idRes: Int) =
         childFragmentManager.findFragmentById(idRes) as? T
 
-fun CharSequence.fromHtml(flags: Int? = null): Spanned {
+@RequiresApi(Build.VERSION_CODES.N)
+fun CharSequence.fromHtml(flags: Int? = Html.FROM_HTML_MODE_LEGACY): Spanned {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(this.toString(), flags ?: Html.FROM_HTML_MODE_LEGACY)
     } else {

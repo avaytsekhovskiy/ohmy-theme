@@ -66,7 +66,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     lateinit var debugHelper: DebugDrawerHelper
     private lateinit var debugDrawer: DebugDrawer
     @StyleRes
-    open val themeId: Int = R.style.AppTheme
+    open val themeId: Int = R.style.AppTheme_Light
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

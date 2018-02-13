@@ -39,7 +39,7 @@ class PaletteActivity : BaseActivity(), PaletteView {
     private lateinit var toolbarHolder: ToolbarHolder
 
     private val uiControls: List<View> by lazy {
-        return@lazy listOf(
+        listOf(
                 label, selectableLabel,
                 inputField, inputLayout, validateInputButton,
                 buttonRegular, buttonBorderless,
@@ -101,9 +101,9 @@ class PaletteActivity : BaseActivity(), PaletteView {
 
     override fun enableUiControls() = toggleUiControls(true)
 
-    override fun showLightDialog() = showStyledDialog(R.style.AppTheme_Dialog_Alert_Light)
+    override fun showLightDialog() = showStyledDialog(R.style.AppThemeOverlay_Dialog_Alert_Light)
 
-    override fun showDarkDialog() = showStyledDialog(R.style.AppTheme_Dialog_Alert_Dark)
+    override fun showDarkDialog() = showStyledDialog(R.style.AppThemeOverlay_Dialog_Alert_Dark)
 
     private fun toggleUiControls(enabled: Boolean) {
         if (disableView.isChecked != enabled) {

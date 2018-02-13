@@ -10,6 +10,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/explainImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="@dimen/large"
+            android:src="@android:drawable/ic_dialog_info"
+            android:tint="?colorPrimary" />
+
         <TextView
             style="@style/TestParent"
             android:layout_width="wrap_content"

@@ -44,6 +44,7 @@
                 android:id="@+id/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large"
                 android:text="Label" />
 
             <LinearLayout
@@ -52,13 +53,14 @@
 
                 <Button
                     android:id="@+id/buttonRegular"
+                    style="@style/AppTheme.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Light Dialog" />
 
                 <Button
                     android:id="@+id/buttonBorderless"
-                    style="?attr/borderlessButtonStyle"
+                    style="@style/AppTheme.Button.Borderless.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dark Dialog" />
@@ -136,7 +138,7 @@
                 style="@style/Widget.AppCompat.RatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:numStars="6"
+                android:numStars="5"
                 android:rating="3"
                 android:stepSize="1" />
 
@@ -153,6 +155,7 @@
                     style="@style/Base.Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/large"
                     android:duplicateParentState="false"
                     android:max="10" />
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.AppTheme" parent="Base.AppTheme.V15">
+        /* COMPATIBILITY */
+        <item name="csCompatAccent">@color/cs_accent</item>
+        <item name="csCompatColoredTextPrimary">@color/cs_colored_text_primary</item>
+        <item name="csCompatColoredTextSecondary">@color/cs_colored_text_secondary</item>
+        <item name="csCompatColoredTextTertiary">@color/cs_colored_text_tertiary</item>
+        <item name="csCompatPrimary">@color/cs_primary</item>
+        <item name="csCompatPrimaryDark">@color/cs_primary_dark</item>
+        <item name="csCompatPrimaryLight">@color/cs_primary_light</item>
+        <item name="csCompatTextError">@color/cs_text_error</item>
+        <item name="csCompatTextPrimary">@color/cs_text_primary</item>
+        <item name="csCompatTextPrimaryInverse">@color/cs_text_primary_inverse</item>
+        <item name="csCompatTextSecondary">@color/cs_text_secondary</item>
+        <item name="csCompatTextTertiary">@color/cs_text_tertiary</item>
+    </style>
+
+</resources>
