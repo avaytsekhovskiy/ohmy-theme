@@ -9,16 +9,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/colorBackground"
+        android:background="?android:colorBackground"
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/appToolbarStyle" />
+            android:layout_height="?actionBarSize"
+            android:background="?colorPrimary"
+            android:minHeight="?actionBarSize"
+            android:theme="?appToolbarStyle" />
 
         <FrameLayout
             android:id="@+id/mainContainer"

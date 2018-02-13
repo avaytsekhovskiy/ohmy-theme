@@ -2,19 +2,23 @@
 <resources>
 
     <style name="Base.AppTheme" parent="Base.AppTheme.V15">
+        <item name="colorButtonNormal">?csCompatButtonBackground</item>
+        <item name="android:colorButtonNormal">?csCompatButtonBackground</item>
+
         /* COMPATIBILITY */
+        <item name="dsCompatListBackground">@drawable/list_item_background</item>
+        <item name="csCompatButtonBackground">@color/cs_button_background</item>
+
         <item name="csCompatAccent">@color/cs_accent</item>
-        <item name="csCompatColoredTextPrimary">@color/cs_colored_text_primary</item>
-        <item name="csCompatColoredTextSecondary">@color/cs_colored_text_secondary</item>
-        <item name="csCompatColoredTextTertiary">@color/cs_colored_text_tertiary</item>
+        <item name="csCompatTextError">@color/cs_text_error</item>
+        <item name="csCompatPrimaryLight">@color/cs_primary_light</item>
         <item name="csCompatPrimary">@color/cs_primary</item>
         <item name="csCompatPrimaryDark">@color/cs_primary_dark</item>
-        <item name="csCompatPrimaryLight">@color/cs_primary_light</item>
-        <item name="csCompatTextError">@color/cs_text_error</item>
-        <item name="csCompatTextPrimary">@color/cs_text_primary</item>
-        <item name="csCompatTextPrimaryInverse">@color/cs_text_primary_inverse</item>
-        <item name="csCompatTextSecondary">@color/cs_text_secondary</item>
-        <item name="csCompatTextTertiary">@color/cs_text_tertiary</item>
+        <item name="csCompatSecondary">@color/cs_text_secondary</item>
+        <item name="csCompatSecondaryInverse">@color/cs_text_secondary_inverse</item>
+        <item name="csCompatTertiary">@color/cs_text_tertiary</item>
+        <item name="csCompatColoredSecondary">@color/cs_colored_text_secondary</item>
+        <item name="csCompatColoredTertiary">@color/cs_colored_text_tertiary</item>
     </style>
 
 </resources>
