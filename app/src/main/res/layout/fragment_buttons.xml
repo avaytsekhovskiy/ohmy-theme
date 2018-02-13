@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/explainButton"
+            style="@style/AppTheme.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@android:drawable/ic_dialog_info"
+            android:drawablePadding="@dimen/normal"
+            android:drawableTint="?android:textColorSecondary"
+            android:padding="@dimen/normal"
+            android:text="Explain"
+            tools:targetApi="m" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small"
+                    android:text="Raised Buttons" />
+
+                <Button
+                    android:id="@+id/normalButton"
+                    style="@style/AppTheme.Button"
+                    android:text="AppTheme.Button"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/coloredButton"
+                    style="@style/AppTheme.Button.Colored"
+                    android:text="AppTheme.Button.Colored"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/disabledButton"
+                    style="@style/AppTheme.Button.Colored"
+                    android:enabled="false"
+                    android:text="AppTheme.Button.*"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small"
+                    android:text="Flat Buttons" />
+
+                <Button
+                    android:id="@+id/normalFlatButton"
+                    style="@style/AppTheme.Button.Borderless"
+                    android:text="AppTheme.Button.Borderless"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/coloredFlatButton"
+                    style="@style/AppTheme.Button.Borderless.Colored"
+                    android:text="AppTheme.Button.Borderless.Colored"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/disabledFlatButton"
+                    style="@style/AppTheme.Button.Borderless.Colored"
+                    android:enabled="false"
+                    android:text="AppTheme.Button.Borderless.*"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

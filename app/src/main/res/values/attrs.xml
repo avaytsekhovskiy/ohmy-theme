@@ -4,6 +4,9 @@
     <attr name="appToolbarStyle" format="reference" />
 
     <!--compatibility with pre lollipop -->
+    <attr name="cCompatButtonNormal" format="color" />
+    <attr name="cCompatButtonDisabled" format="color" />
+
     <attr name="csCompatButtonBackground" format="color|reference" />
     <attr name="dsCompatListBackground" format="reference" />
 

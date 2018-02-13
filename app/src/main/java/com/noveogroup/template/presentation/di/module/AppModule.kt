@@ -11,6 +11,7 @@ import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.navigation.Routers
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.domain.navigation.router.MainRouter
+import com.noveogroup.template.domain.navigation.router.PaletteRouter
 import com.noveogroup.template.presentation.ExampleApplication
 import com.noveogroup.template.presentation.common.android.helper.DebugDrawerHelper
 import com.noveogroup.template.presentation.di.provider.CalligraphyProvider
@@ -36,6 +37,7 @@ class AppModule(app: ExampleApplication) : Module() {
         //Navigation
         bind(GlobalRouter::class.java).toInstance(routers.global)
         bind(MainRouter::class.java).toInstance(routers.main)
+        bind(PaletteRouter::class.java).toInstance(routers.palette)
 
         //Tools
         bind(Gson::class.java).toProvider(GsonProvider::class.java).singletonInScope()

@@ -1,51 +1,39 @@
-package com.noveogroup.template.presentation.palette
+package com.noveogroup.template.presentation.palette.all
 
 import com.arellomobile.mvp.InjectViewState
 import com.noveogroup.template.R
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
-import com.noveogroup.template.domain.interactor.state.model.PageMode
 import com.noveogroup.template.domain.interactor.state.model.SideMode
 import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
-import com.noveogroup.template.domain.navigation.router.PaletteRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
 import javax.inject.Inject
 
 @InjectViewState
-class PalettePresenter @Inject constructor(
-        private val paletteRouter: PaletteRouter,
+class AllPresenter @Inject constructor(
         private val resourceManager: ResourceManager,
         private val screenInteractor: ScreenInteractor,
         globalRouter: GlobalRouter
-) : BasePresenter<PaletteView>(globalRouter) {
-
-    private var position = 0
+) : BasePresenter<AllView>(globalRouter) {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        replaceExample()
+        viewState.enableViews()
     }
 
-    override fun attachView(view: PaletteView?) {
+    override fun attachView(view: AllView?) {
         super.attachView(view)
         screenInteractor.publish(
-                title = resourceManager.getString(R.string.palette_title),
                 toggle = Toggle.BACK,
-                pageMode = PageMode.TOOLBAR,
-                sideMode = SideMode.DISABLED
+                sideMode = SideMode.DISABLED,
+                title = resourceManager.getString(R.string.title_inheritance)
         )
     }
 
-    override fun back() = globalRouter.exit()
-
-    fun replaceExample() {
-        when (position) {
-            0 -> paletteRouter.displayButtons()
-            else -> paletteRouter.displayAllControls()
-        }
-
-        position = (position + 1) % 2
+    fun requestDisable(disabled: Boolean) = with(viewState) {
+        if (disabled) disableViews()
+        else enableViews()
     }
 
 }

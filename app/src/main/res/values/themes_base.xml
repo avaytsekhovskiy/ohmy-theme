@@ -54,6 +54,9 @@
         <item name="dsCompatListBackground">?android:textColorTertiaryInverse</item>
         <item name="csCompatButtonBackground">@color/white_light</item>
 
+        <item name="cCompatButtonNormal">?android:textColorSecondaryInverse</item>
+        <item name="cCompatButtonDisabled">@color/grey</item>
+
         <item name="csCompatAccent">?colorAccent</item>
         <item name="csCompatTextError">?textColorError</item>
         <item name="csCompatPrimaryLight">?colorPrimaryLight</item>
