@@ -9,4 +9,7 @@ interface PaletteView : BaseView {
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showSettings()
 
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun recreate()
+
 }

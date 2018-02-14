@@ -30,7 +30,7 @@ class PalettePresenter @Inject constructor(
 
     private var position = 0
 
-    private val consumer = Consumer<Optional<Int>> { globalRouter.replacePalette() }
+    private val consumer = Consumer<Optional<Int>> { viewState.recreate() }
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
