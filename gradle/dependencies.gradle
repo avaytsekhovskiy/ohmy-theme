@@ -6,7 +6,7 @@ ext.versions = [
         kotlinPlugin       : "1.2.21",
 
         /*APPLICATION DEPENDENCIES*/
-        kotlinStd          : "1.2.0",
+        kotlinStd          : "1.2.21",
         supportLibrary     : "27.0.2",
         multidex           : "1.0.1",
         slf4j              : "1.7.25",
@@ -29,7 +29,7 @@ ext.versions = [
         stetho             : "1.5.0",
         phoenix            : "2.0.0",
         leakCanary         : "1.5.1",
-        debugDrawer        : "0.7.0",
+        debugDrawer        : "0.8.0",
         noveoPreferences   : "0.0.3",
         noveoDebugDrawer   : "0.0.3",
 
@@ -122,6 +122,7 @@ ext.lib = [
         debugDrawerOkHttp3        : "io.palaima.debugdrawer:debugdrawer-okhttp3:$versions.debugDrawer",
         debugDrawerGlide          : "io.palaima.debugdrawer:debugdrawer-glide:$versions.debugDrawer",
         debugDrawerScalpel        : "io.palaima.debugdrawer:debugdrawer-scalpel:$versions.debugDrawer",
+        debugDrawerActions        : "io.palaima.debugdrawer:debugdrawer-actions:$versions.debugDrawer",
         debugDrawerBuildInfo      : "com.noveogroup:debugdrawer-buildinfo:$versions.noveoDebugDrawer",
         debugDrawerBuildConfig    : "com.noveogroup:debugdrawer-buildconfig:$versions.noveoDebugDrawer",
         debugDrawerBuildConfigNoOp: "com.noveogroup:debugdrawer-buildconfig-no-op:$versions.noveoDebugDrawer",

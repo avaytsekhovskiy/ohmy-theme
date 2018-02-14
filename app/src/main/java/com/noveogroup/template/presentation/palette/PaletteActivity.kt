@@ -4,11 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.StyleRes
 import android.view.Menu
 import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.noveogroup.debugdrawer.data.theme.Theme
+import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.R
 import com.noveogroup.template.domain.navigation.router.PaletteRouter
 import com.noveogroup.template.presentation.common.android.BaseActivity
@@ -28,16 +29,29 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
     @Inject
     lateinit var paletteRouter: PaletteRouter
 
+    @Inject
+    lateinit var themeProxy: ThemeProxy
+
     @InjectPresenter
     internal lateinit var presenter: PalettePresenter
 
     @ProvidePresenter
-    fun providePresenter() = DI.paletteScope.getInstance(PalettePresenter::class.java)!!
+    fun providePresenter() =
+            DI.paletteScope.getInstance(PalettePresenter::class.java)!!
 
     override val orientationHelper by lazy { OrientationHelper(this, ActivityOrientation.BOTH, ActivityOrientation.BOTH) }
 
     override val lazyScope by lazy { ActivityScopeInitializer { DI.paletteScope } }
-    override val themeId by lazy { intent.getIntExtra(EXTRA_THEME, 0) }
+    override val themeId by lazy {
+        themeProxy.read().let {
+            when (it) {
+                Theme.BASE_LIGHT -> R.style.AppTheme_Light
+                Theme.BASE_DARK -> R.style.AppTheme_Dark
+                Theme.GREEN_LIGHT -> R.style.AppTheme_Light_Green
+                Theme.GREEN_DARK -> R.style.AppTheme_Dark_Green
+            }
+        }.also { log.warn("themeId = $it") }
+    }
 
     private lateinit var toolbarHolder: ToolbarHolder
 
@@ -74,12 +88,10 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
 
     override fun onBackPressed() = presenter.back()
 
-    companion object {
-        private const val EXTRA_THEME = "EXTRA_THEME_BOOLEAN_IS_LIGHT"
+    override fun showSettings() = debugDrawer.openDrawer()
 
-        fun newIntent(context: Context, @StyleRes styleRes: Int) = Intent(context, PaletteActivity::class.java).apply {
-            putExtra(EXTRA_THEME, styleRes)
-        }
+    companion object {
+        fun newIntent(context: Context) = Intent(context, PaletteActivity::class.java)
     }
 
 }

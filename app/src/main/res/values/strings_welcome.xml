@@ -3,8 +3,5 @@
     <string name="title_inheritance">Style Inheritance</string>
 
     <string name="welcome_inheritance">Inheritance</string>
-    <string name="welcome_palette">Palette Light </string>
-    <string name="welcome_palette_dark">Palette Dark </string>
-    <string name="welcome_palette_green">Palette Green</string>
-    <string name="welcome_palette_dark_green">Palette Dark Green</string>
+    <string name="welcome_palette">Palette</string>
 </resources>

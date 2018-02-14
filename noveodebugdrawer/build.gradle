@@ -53,6 +53,7 @@ dependencies {
 
     /* Palamia debug drawer */
     api lib.debugDrawerCommons
+    api lib.debugDrawerActions
     api lib.debugDrawerOkHttp
     api lib.debugDrawerOkHttp3
     api lib.debugDrawerScalpel

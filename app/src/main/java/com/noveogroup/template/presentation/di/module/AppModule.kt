@@ -3,8 +3,7 @@ package com.noveogroup.template.presentation.di.module
 import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
-import com.noveogroup.debugdrawer.data.canary.LeakCanaryProxy
-import com.noveogroup.debugdrawer.data.endpoint.EndpointProxy
+import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.data.android.lifecycle.ActivityScopePublisher
 import com.noveogroup.template.data.android.lifecycle.ForegroundPublisher
 import com.noveogroup.template.data.android.system.ResourceManager
@@ -50,7 +49,6 @@ class AppModule(app: ExampleApplication) : Module() {
 
         //DebugTools
         bind(DebugDrawerHelper::class.java).toInstance(drawerHelper)
-        bind(LeakCanaryProxy::class.java).toInstance(drawerHelper.debugHelper.leakCanaryProxy)
-        bind(EndpointProxy::class.java).toInstance(drawerHelper.debugHelper.endpointProxy)
+        bind(ThemeProxy::class.java).toInstance(drawerHelper.debugHelper.themeProxy)
     }
 }

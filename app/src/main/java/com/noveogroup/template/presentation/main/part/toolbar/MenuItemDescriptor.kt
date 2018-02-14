@@ -6,7 +6,7 @@ import android.view.MenuItem
 import com.noveogroup.template.R
 
 enum class MenuItemDescriptor(@IdRes val id: Int = 0) {
-    SAVE(R.id.menu_save),
+    SETTINGS(R.id.menu_settings),
     SHARE_MAIL(R.id.menu_share_mail),
     SHARE_SMS(R.id.menu_share_sms);
 

@@ -64,7 +64,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     /* VIEW */
     @Inject
     lateinit var debugHelper: DebugDrawerHelper
-    private lateinit var debugDrawer: DebugDrawer
+    lateinit var debugDrawer: DebugDrawer
     @StyleRes
     open val themeId: Int = R.style.AppTheme_Light
 
@@ -109,7 +109,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         tryAttachMvp()
 
         log.debug("started")
-        debugDrawer.onStart()
     }
 
     override fun onResume() {
@@ -118,14 +117,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         tryAttachMvp()
 
         log.debug("resumed")
-        debugDrawer.onResume()
         navigatorLifecycle.onResume()
     }
 
     override fun onPause() {
         super.onPause()
         log.debug("paused")
-        debugDrawer.onPause()
         navigatorLifecycle.onPause()
         orientationHelper.onPause()
 
@@ -137,7 +134,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         mvpDelegate.onDetach()
 
         log.debug("stopped")
-        debugDrawer.onStop()
     }
 
     override fun onDestroy() {

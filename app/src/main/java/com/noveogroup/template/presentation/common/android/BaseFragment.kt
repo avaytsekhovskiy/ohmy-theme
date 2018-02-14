@@ -13,13 +13,11 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.MvpDelegate
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import com.noveogroup.debugdrawer.data.canary.LeakCanaryProxy
 import com.noveogroup.template.core.ext.logger
 import com.noveogroup.template.presentation.common.ext.ButterKnife
 import com.noveogroup.template.presentation.common.ext.contentFrom
 import com.noveogroup.template.presentation.common.mvp.delegate.*
 import com.noveogroup.template.presentation.common.mvp.view.BaseView
-import com.noveogroup.template.presentation.di.DI
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 open class BaseFragment : Fragment(), BaseView {
@@ -118,8 +116,6 @@ open class BaseFragment : Fragment(), BaseView {
         super.onDestroy()
         log.debug("destroyed")
         releaseMvp()
-
-        DI.appScope.getInstance(LeakCanaryProxy::class.java).watch(this)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -228,6 +224,11 @@ open class BaseFragment : Fragment(), BaseView {
             mvpDelegate.onDestroy()
         }
     }
+
+    private fun test() =
+            (1234 / 345)
+                    .let { 3 }
+                    .also { log.warn("") }
 
     protected fun Fragment.addTo(@IdRes containerId: Int) = childFragmentManager.let {
         it.beginTransaction().replace(containerId, this).commit()

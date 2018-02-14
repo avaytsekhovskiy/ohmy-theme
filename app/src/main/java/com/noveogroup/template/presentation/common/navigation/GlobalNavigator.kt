@@ -21,7 +21,7 @@ class GlobalNavigator(private val activity: BaseActivity) : SupportAppNavigator(
 
     override fun createActivityIntent(screenKey: String, data: Any?): Intent = when (screenKey) {
         GlobalRouter.SPLASH -> SplashActivity.newIntentClearTask(activity)
-        GlobalRouter.PALETTE -> PaletteActivity.newIntent(activity, data as Int)
+        GlobalRouter.PALETTE -> PaletteActivity.newIntent(activity)
         GlobalRouter.MAIN -> MainActivity.newIntent(activity)
         GlobalRouter.INSTAGRAM -> openInstagram(data as String)
         else -> throw IllegalArgumentException("Unknown Activity screen key")

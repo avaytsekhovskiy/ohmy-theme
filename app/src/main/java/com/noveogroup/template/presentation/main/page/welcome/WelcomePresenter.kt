@@ -30,11 +30,6 @@ class WelcomePresenter @Inject constructor(
 
     internal fun openInheritance() = mainRouter.openInheritance()
 
-    internal fun openPaletteDark() = globalRouter.nextPalette(R.style.AppTheme_Dark)
+    internal fun openPalette() = globalRouter.nextPalette()
 
-    internal fun openPalette() = globalRouter.nextPalette(R.style.AppTheme_Light)
-
-    internal fun openPaletteDarkGreen() = globalRouter.nextPalette(R.style.AppTheme_Dark_Green)
-
-    internal fun openPaletteGreen() = globalRouter.nextPalette(R.style.AppTheme_Light_Green)
 }

@@ -15,6 +15,7 @@ import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.BaseMvpComponent
 import com.noveogroup.template.presentation.common.ext.*
 import com.noveogroup.template.presentation.di.DI
+import com.noveogroup.template.presentation.main.part.toolbar.MenuItemDescriptor
 
 class ToolbarHolder(activity: BaseActivity) : BaseMvpComponent(activity), ToolbarView, ViewBinder {
 
@@ -72,11 +73,18 @@ class ToolbarHolder(activity: BaseActivity) : BaseMvpComponent(activity), Toolba
         toolbarPresenter.requestAppearanceRefresh()
     }
 
-    fun onOptionsItemSelected(menuItem: MenuItem) = true
+    fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        val descriptor = menuItem.asDescriptor() ?: return false
+        toolbarPresenter.handleMenuItemClick(descriptor)
+        return true
+    }
 
     fun onDestroy() {
         ButterKnife.reset(this)
         rxHelper.unsubscribeAll()
     }
+
+    private fun MenuItem.asDescriptor(): MenuItemDescriptor? =
+            MenuItemDescriptor.findById(itemId)
 
 }

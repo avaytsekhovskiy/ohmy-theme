@@ -1,13 +1,11 @@
 package com.noveogroup.debugdrawer
 
 object Config {
-    const val ENABLER_STETHO = "Stetho"
-    const val ENABLER_LEAK = "LeakCanary"
 
-    const val SELECTOR_ENDPOINT = "Endpoint"
+    const val SELECTOR_THEME_ID = "Theme Id"
 
-    internal val ENDPOINTS = arrayOf(
-            "http://staging.noveogroup.com",
-            "http://production.noveogroup.com",
-            "http://mock.noveogroup.com")
+    fun test() {
+//        new Spinner
+    }
+
 }

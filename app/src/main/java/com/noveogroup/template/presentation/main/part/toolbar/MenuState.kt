@@ -40,7 +40,7 @@ class MenuState {
     companion object {
         val ALLOWED_MAP = mapOf(
                 ToolbarMenu.MENU to listOf(
-                        MenuItemDescriptor.SAVE,
+                        MenuItemDescriptor.SETTINGS,
                         MenuItemDescriptor.SHARE_MAIL, MenuItemDescriptor.SHARE_SMS
                 ),
                 ToolbarMenu.NO_MENU to emptyList())
