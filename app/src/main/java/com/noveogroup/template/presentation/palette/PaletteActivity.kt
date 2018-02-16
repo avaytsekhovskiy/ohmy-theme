@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.debugdrawer.data.theme.Theme
 import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.R
+import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.navigation.router.PaletteRouter
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.helper.orientation.ActivityOrientation
@@ -31,6 +32,9 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
 
     @Inject
     lateinit var themeProxy: ThemeProxy
+
+    @Inject
+    lateinit var resourceManager: ResourceManager
 
     @InjectPresenter
     internal lateinit var presenter: PalettePresenter
@@ -60,7 +64,15 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
         super.onCreate(savedInstanceState)
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
 
-        switchExampleButton.setOnClickListener { presenter.replaceExample() }
+        addButton(PaletteTab.HOME)
+        addButton(PaletteTab.BUTTONS)
+        addButton(PaletteTab.OTHER)
+
+        bottomTabs.setOnNavigationItemSelectedListener {
+            presenter.openPage(PaletteTab.values()[it.itemId])
+            return@setOnNavigationItemSelectedListener true
+        }
+
         explainButton.setOnClickListener { presenter.explain() }
         disableView.setOnCheckedChangeListener { _, checked -> presenter.disable(checked) }
     }
@@ -89,6 +101,16 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
     override fun onBackPressed() = presenter.back()
 
     override fun showSettings() = debugDrawer.openDrawer()
+
+    override fun selectTab(position: PaletteTab) {
+        bottomTabs.selectedItemId = position.ordinal
+    }
+
+    private fun addButton(tab: PaletteTab): MenuItem {
+        return bottomTabs.menu.add(Menu.NONE, tab.ordinal, Menu.NONE, getString(tab.stringRes)).apply {
+            icon = resourceManager.getDrawable(tab.drawableRes)
+        }
+    }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, PaletteActivity::class.java)

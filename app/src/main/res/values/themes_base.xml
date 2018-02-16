@@ -67,6 +67,17 @@
         <item name="csCompatTertiary">?android:textColorTertiary</item>
         <item name="csCompatColoredSecondary">?colorAccent</item>
         <item name="csCompatColoredTertiary">?colorAccent</item>
+
+        <item name="acsCompatPrimary">?android:textColorPrimary</item>
+        <item name="acsCompatPrimaryInverse">?android:textColorPrimaryInverse</item>
+        <item name="acsCompatSecondary">?android:textColorSecondary</item>
+        <item name="acsCompatSecondaryInverse">?android:textColorSecondaryInverse</item>
+        <item name="acsCompatTertiary">?android:textColorTertiary</item>
+        <item name="acsCompatTertiaryInverse">?android:textColorTertiaryInverse</item>
+        <item name="acsCompatColoredPrimary">?colorAccent</item>
+        <item name="acsCompatColoredPrimaryInverse">?colorAccent</item>
+        <item name="acsCompatColoredSecondary">?colorAccent</item>
+        <item name="acsCompatColoredSecondaryInverse">?colorAccent</item>
     </style>
 
     <style name="Base.AppTheme" parent="Base.AppTheme.V15">

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:ignore="MissingPrefix">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?android:colorBackground"
@@ -17,22 +17,19 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            android:layout_alignParentTop="true"
             android:background="?colorPrimary"
             android:minHeight="?actionBarSize"
             android:theme="?appToolbarStyle" />
 
         <LinearLayout
+            android:id="@+id/paletteControlsFrame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@id/toolbar"
+            android:layout_centerInParent="true"
             android:gravity="center"
             android:paddingTop="@dimen/small">
-
-            <Button
-                android:id="@+id/switchExampleButton"
-                style="@style/AppTheme.Button.Colored"
-                android:layout_gravity="center_horizontal"
-                android:text="Next" />
 
             <Button
                 android:id="@+id/explainButton"
@@ -57,9 +54,20 @@
         <FrameLayout
             android:id="@+id/pageContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomTabs"
+            android:layout_below="@id/paletteControlsFrame" />
 
-    </LinearLayout>
+        <android.support.design.widget.BottomNavigationView
+            android:id="@id/bottomTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:itemBackground="?colorPrimary"
+            app:itemIconTint="?acsCompatSecondaryInverse"
+            app:itemTextColor="?acsCompatSecondaryInverse" />
+
+    </RelativeLayout>
 
     <!--MAKE TRANSACTION-->
     <FrameLayout

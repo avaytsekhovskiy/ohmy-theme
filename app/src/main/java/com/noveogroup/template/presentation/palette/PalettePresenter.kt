@@ -28,9 +28,9 @@ class PalettePresenter @Inject constructor(
         globalRouter: GlobalRouter
 ) : BasePresenter<PaletteView>(globalRouter) {
 
-    private var position = 0
-
     private val consumer = Consumer<Optional<Int>> { viewState.recreate() }
+
+    private var position: PaletteTab = PaletteTab.BUTTONS
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -38,7 +38,7 @@ class PalettePresenter @Inject constructor(
                 .observeSafe(AndroidSchedulers.mainThread()) { viewState.showSettings() }
                 .unsubscribeOnDestroy()
 
-        replaceExample()
+        openPageWithoutChecks(position)
         themeProxy.addListener(consumer)
     }
 
@@ -50,6 +50,8 @@ class PalettePresenter @Inject constructor(
                 pageMode = PageMode.TOOLBAR,
                 sideMode = SideMode.DISABLED
         )
+
+        viewState.selectTab(position)
     }
 
     override fun onDestroy() {
@@ -59,13 +61,18 @@ class PalettePresenter @Inject constructor(
 
     override fun back() = globalRouter.exit()
 
-    fun replaceExample() {
-        when (position) {
-            0 -> paletteRouter.displayButtons()
-            else -> paletteRouter.displayAllControls()
-        }
+    fun openPage(tab: PaletteTab) {
+        if (position == tab) return
+        openPageWithoutChecks(tab)
+    }
 
-        position = (position + 1) % 2
+    private fun openPageWithoutChecks(tab: PaletteTab) {
+        position = tab
+        when (tab) {
+            PaletteTab.HOME -> paletteRouter.displayButtons()
+            PaletteTab.BUTTONS -> paletteRouter.displayButtons()
+            PaletteTab.OTHER -> paletteRouter.displayAllControls()
+        }
     }
 
     fun explain() {

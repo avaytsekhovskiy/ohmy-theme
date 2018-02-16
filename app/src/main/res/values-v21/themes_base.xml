@@ -19,6 +19,17 @@
         <item name="csCompatTertiary">@color/cs_text_tertiary</item>
         <item name="csCompatColoredSecondary">@color/cs_colored_text_secondary</item>
         <item name="csCompatColoredTertiary">@color/cs_colored_text_tertiary</item>
+
+        <item name="acsCompatPrimary">@color/acs_primary</item>
+        <item name="acsCompatPrimaryInverse">@color/acs_primary_inverse</item>
+        <item name="acsCompatSecondary">@color/acs_secondary</item>
+        <item name="acsCompatSecondaryInverse">@color/acs_secondary_inverse</item>
+        <item name="acsCompatTertiary">@color/acs_tertiary</item>
+        <item name="acsCompatTertiaryInverse">@color/acs_tertiary_inverse</item>
+        <item name="acsCompatColoredPrimary">@color/acs_colored_primary</item>
+        <item name="acsCompatColoredPrimaryInverse">@color/acs_colored_primary_inverse</item>
+        <item name="acsCompatColoredSecondary">@color/acs_colored_secondary</item>
+        <item name="acsCompatColoredSecondaryInverse">@color/acs_colored_secondary_inverse</item>
     </style>
 
 </resources>

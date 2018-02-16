@@ -30,8 +30,8 @@ class PaletteNavigator(
             fragmentTransaction: FragmentTransaction
     ) {
         val (enter, exit, popEnter, popExit) = when (empty) {
-            true -> AnimationDescriptor.FROM_BOTTOM
-            else -> AnimationDescriptor.FROM_RIGHT
+            true -> AnimationDescriptor.FADE
+            else -> AnimationDescriptor.FADE
         }
         fragmentTransaction.setCustomAnimations(enter, exit, popEnter, popExit)
     }

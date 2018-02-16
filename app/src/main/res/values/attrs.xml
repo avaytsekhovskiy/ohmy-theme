@@ -23,4 +23,16 @@
     <attr name="csCompatTertiary" format="color|reference" />
     <attr name="csCompatColoredSecondary" format="color|reference" />
     <attr name="csCompatColoredTertiary" format="color|reference" />
+
+    /* Activated */
+    <attr name="acsCompatPrimary" format="color|reference" />
+    <attr name="acsCompatPrimaryInverse" format="color|reference" />
+    <attr name="acsCompatSecondary" format="color|reference" />
+    <attr name="acsCompatSecondaryInverse" format="color|reference" />
+    <attr name="acsCompatTertiary" format="color|reference" />
+    <attr name="acsCompatTertiaryInverse" format="color|reference" />
+    <attr name="acsCompatColoredPrimary" format="color|reference" />
+    <attr name="acsCompatColoredPrimaryInverse" format="color|reference" />
+    <attr name="acsCompatColoredSecondary" format="color|reference" />
+    <attr name="acsCompatColoredSecondaryInverse" format="color|reference" />
 </resources>
