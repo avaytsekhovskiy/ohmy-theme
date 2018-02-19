@@ -2,34 +2,95 @@
 <resources>
 
     <style name="Base.AppTheme" parent="Base.AppTheme.V15">
-        <item name="colorButtonNormal">?csCompatButtonBackground</item>
-        <item name="android:colorButtonNormal">?csCompatButtonBackground</item>
+        <item name="colorButtonNormal">?ohmyCompatColorSelectorButtonBackground</item>
+        <item name="android:colorButtonNormal">?ohmyCompatColorSelectorButtonBackground</item>
 
         /* COMPATIBILITY */
-        <item name="dsCompatListBackground">@drawable/list_item_background</item>
-        <item name="csCompatButtonBackground">@color/cs_button_background</item>
+        <item name="ohmyCompatColorSelectorButtonBackground">@color/ohmy_bg_cs_button</item>
 
-        <item name="csCompatAccent">@color/cs_accent</item>
-        <item name="csCompatTextError">@color/cs_text_error</item>
-        <item name="csCompatPrimaryLight">@color/cs_primary_light</item>
-        <item name="csCompatPrimary">@color/cs_primary</item>
-        <item name="csCompatPrimaryDark">@color/cs_primary_dark</item>
-        <item name="csCompatSecondary">@color/cs_text_secondary</item>
-        <item name="csCompatSecondaryInverse">@color/cs_text_secondary_inverse</item>
-        <item name="csCompatTertiary">@color/cs_text_tertiary</item>
-        <item name="csCompatColoredSecondary">@color/cs_colored_text_secondary</item>
-        <item name="csCompatColoredTertiary">@color/cs_colored_text_tertiary</item>
+        <!--COLOR SELECTOR (NORMAL/DISABLED)-->
+        <item name="ohmyCsAccentDisabledNatural">@color/ohmy_cs_accent_disabled_natural</item>
+        <item name="ohmyCsErrorDisabledNatural">@color/ohmy_cs_error_disabled_natural</item>
+        <item name="ohmyCsPrimaryLightDisabledNatural">
+            @color/ohmy_cs_primary_light_disabled_natural
+        </item>
+        <item name="ohmyCsPrimaryDisabledNatural">@color/ohmy_cs_primary_disabled_natural</item>
+        <item name="ohmyCsPrimaryDarkDisabledNatural">@color/ohmy_cs_primary_dark_disabled_natural
+        </item>
+        <item name="ohmyCsSecondaryDisabledNatural">@color/ohmy_cs_secondary_disabled_natural</item>
+        <item name="ohmyCsSecondaryInverseDisabledNatural">
+            @color/ohmy_cs_secondary_inverse_disabled_natural
+        </item>
+        <item name="ohmyCsTertiaryDisabledNatural">@color/ohmy_cs_tertiary_disabled_natural</item>
+        <item name="ohmyCsTertiaryInverseDisabledNatural">
+            @color/ohmy_cs_tertiary_inverse_disabled_natural
+        </item>
+        <item name="ohmyCsAccentDisabledDefault">@color/ohmy_cs_accent_disabled_default</item>
+        <item name="ohmyCsErrorDisabledDefault">@color/ohmy_cs_error_disabled_default</item>
+        <item name="ohmyCsPrimaryLightDisabledDefault">
+            @color/ohmy_cs_primary_light_disabled_default
+        </item>
+        <item name="ohmyCsPrimaryDisabledDefault">@color/ohmy_cs_primary_disabled_default</item>
+        <item name="ohmyCsPrimaryDarkDisabledDefault">@color/ohmy_cs_primary_dark_disabled_default
+        </item>
+        <item name="ohmyCsSecondaryDisabledDefault">@color/ohmy_cs_secondary_disabled_default</item>
+        <item name="ohmyCsSecondaryInverseDisabledDefault">
+            @color/ohmy_cs_secondary_inverse_disabled_default
+        </item>
+        <item name="ohmyCsTertiaryDisabledDefault">@color/ohmy_cs_tertiary_disabled_default</item>
+        <item name="ohmyCsTertiaryInverseDisabledDefault">
+            @color/ohmy_cs_tertiary_inverse_disabled_default
+        </item>
 
-        <item name="acsCompatPrimary">@color/acs_primary</item>
-        <item name="acsCompatPrimaryInverse">@color/acs_primary_inverse</item>
-        <item name="acsCompatSecondary">@color/acs_secondary</item>
-        <item name="acsCompatSecondaryInverse">@color/acs_secondary_inverse</item>
-        <item name="acsCompatTertiary">@color/acs_tertiary</item>
-        <item name="acsCompatTertiaryInverse">@color/acs_tertiary_inverse</item>
-        <item name="acsCompatColoredPrimary">@color/acs_colored_primary</item>
-        <item name="acsCompatColoredPrimaryInverse">@color/acs_colored_primary_inverse</item>
-        <item name="acsCompatColoredSecondary">@color/acs_colored_secondary</item>
-        <item name="acsCompatColoredSecondaryInverse">@color/acs_colored_secondary_inverse</item>
+        <!--COLOR SELECTOR SELECTABLE (NORMAL/SELECTED/DISABLED)-->
+        <item name="ohmyCsPrimaryLightSelectedAccent">@color/ohmy_cs_primary_light_selected_accent
+        </item>
+        <item name="ohmyCsPrimarySelectedAccent">@color/ohmy_cs_primary_selected_accent</item>
+        <item name="ohmyCsPrimaryDarkSelectedAccent">@color/ohmy_cs_primary_dark_selected_accent
+        </item>
+        <item name="ohmyCsSecondarySelectedAccent">@color/ohmy_cs_secondary_selected_accent</item>
+        <item name="ohmyCsSecondaryInverseSelectedAccent">
+            @color/ohmy_cs_secondary_inverse_selected_accent
+        </item>
+        <item name="ohmyCsTertiarySelectedAccent">@color/ohmy_cs_tertiary_selected_accent</item>
+        <item name="ohmyCsTertiaryInverseSelectedAccent">
+            @color/ohmy_cs_tertiary_inverse_selected_accent
+        </item>
+        <item name="ohmyCsPrimaryLightSelectedInverse">
+            @color/ohmy_cs_primary_light_selected_inverse
+        </item>
+        <item name="ohmyCsPrimaryDarkSelectedInverse">@color/ohmy_cs_primary_dark_selected_inverse
+        </item>
+        <item name="ohmyCsSecondarySelectedInverse">@color/ohmy_cs_secondary_selected_inverse</item>
+        <item name="ohmyCsSecondaryInverseSelectedInverse">
+            @color/ohmy_cs_secondary_inverse_selected_inverse
+        </item>
+        <item name="ohmyCsTertiarySelectedInverse">@color/ohmy_cs_tertiary_selected_inverse</item>
+        <item name="ohmyCsTertiaryInverseSelectedInverse">
+            @color/ohmy_cs_tertiary_inverse_selected_inverse
+        </item>
+
+        <!--DRAWABLE RIPPLE-->
+        <item name="ohmyRippleAccent">@drawable/ohmy_ripple_just_accent</item>
+        <item name="ohmyRippleError">@drawable/ohmy_ripple_just_error</item>
+        <item name="ohmyRipplePrimary">@drawable/ohmy_ripple_just_primary</item>
+        <item name="ohmyRipplePrimaryLight">@drawable/ohmy_ripple_just_primary_light</item>
+        <item name="ohmyRipplePrimaryDark">@drawable/ohmy_ripple_just_primary_dark</item>
+        <item name="ohmyRippleSecondary">@drawable/ohmy_ripple_just_secondary</item>
+        <item name="ohmyRippleSecondaryInverse">@drawable/ohmy_ripple_just_secondary_inverse</item>
+        <item name="ohmyRippleTertiary">@drawable/ohmy_ripple_just_tertiary</item>
+        <item name="ohmyRippleTertiaryInverse">@drawable/ohmy_ripple_just_tertiary_inverse</item>
+        <item name="ohmyRippleRectAccent">@drawable/ohmy_ripple_rect_accent</item>
+        <item name="ohmyRippleRectError">@drawable/ohmy_ripple_rect_error</item>
+        <item name="ohmyRippleRectPrimary">@drawable/ohmy_ripple_rect_primary</item>
+        <item name="ohmyRippleRectPrimaryLight">@drawable/ohmy_ripple_rect_primary_light</item>
+        <item name="ohmyRippleRectPrimaryDark">@drawable/ohmy_ripple_rect_primary_dark</item>
+        <item name="ohmyRippleRectSecondary">@drawable/ohmy_ripple_rect_secondary</item>
+        <item name="ohmyRippleRectSecondaryInverse">@drawable/ohmy_ripple_rect_secondary_inverse
+        </item>
+        <item name="ohmyRippleRectTertiary">@drawable/ohmy_ripple_rect_tertiary</item>
+        <item name="ohmyRippleRectTertiaryInverse">@drawable/ohmy_ripple_rect_tertiary_inverse
+        </item>
     </style>
 
 </resources>

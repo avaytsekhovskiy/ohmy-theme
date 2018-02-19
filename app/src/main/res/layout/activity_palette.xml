@@ -20,7 +20,7 @@
             android:layout_alignParentTop="true"
             android:background="?colorPrimary"
             android:minHeight="?actionBarSize"
-            android:theme="?appToolbarStyle" />
+            android:theme="?barStyle" />
 
         <LinearLayout
             android:id="@+id/paletteControlsFrame"
@@ -59,13 +59,13 @@
             android:layout_below="@id/paletteControlsFrame" />
 
         <android.support.design.widget.BottomNavigationView
-            android:id="@id/bottomTabs"
+            android:id="@+id/bottomTabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            app:itemBackground="?colorPrimary"
-            app:itemIconTint="?acsCompatSecondaryInverse"
-            app:itemTextColor="?acsCompatSecondaryInverse" />
+            android:background="?colorPrimary"
+            app:itemIconTint="?ohmyCsSecondaryInverseSelectedInverse"
+            app:itemTextColor="?ohmyCsSecondaryInverseSelectedInverse" />
 
     </RelativeLayout>
 

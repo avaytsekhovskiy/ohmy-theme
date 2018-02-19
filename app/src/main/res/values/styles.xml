@@ -10,31 +10,31 @@
     </style>
 
     <style name="AppTheme.ListStyle" parent="None">
-        <item name="android:listSelector">?dsCompatListBackground</item>
+        <item name="android:listSelector">?ohmyRippleRectPrimaryLight</item>
         <item name="android:dividerHeight">@dimen/divider_height</item>
         <item name="android:divider">?android:listDivider</item>
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">?csCompatSecondary</item>
+        <item name="android:textColor">?ohmyCsSecondaryDisabledDefault</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="AppTheme.Button.Colored" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textColor">?csCompatSecondaryInverse</item>
+        <item name="android:textColor">?ohmyCsSecondaryInverseDisabledDefault</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="AppTheme.Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:textColor">?csCompatSecondary</item>
+        <item name="android:textColor">?ohmyCsSecondaryDisabledDefault</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="AppTheme.Button.Borderless.Colored" parent="Widget.AppCompat.Button.Borderless.Colored">
-        <item name="android:textColor">?csCompatColoredSecondary</item>
+        <item name="android:textColor">?ohmyCsAccentDisabledDefault</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>

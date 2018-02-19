@@ -42,7 +42,7 @@ class ButtonsPresenter @Inject constructor(
         screenInteractor.publish(
                 toggle = Toggle.BACK,
                 sideMode = SideMode.DISABLED,
-                title = resourceManager.getString(R.string.title_inheritance)
+                title = resourceManager.getString(R.string.palette_title_buttons)
         )
     }
 

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:textColorTertiaryInverse"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/disabledDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/normal"
+                    android:text="Disabled Default" />
+
+                <RadioButton
+                    android:id="@+id/radioDdFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="first"
+                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault" />
+
+                <RadioButton
+                    android:id="@+id/radioDdSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="seconda"
+                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/disabledNatural"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/normal"
+                    android:text="Disabled Natural" />
+
+                <RadioButton
+                    android:id="@+id/radioDnFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="first"
+                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural" />
+
+                <RadioButton
+                    android:id="@+id/radioDnSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="seconda"
+                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <RadioGroup
+                android:id="@+id/selectedInverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/normal"
+                    android:text="Selected Inverse" />
+
+                <RadioButton
+                    android:id="@+id/radioSiFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="first"
+                    android:textColor="?ohmyCsSecondarySelectedInverse" />
+
+                <RadioButton
+                    android:id="@+id/radioSiSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="seconda"
+                    android:textColor="?ohmyCsSecondarySelectedInverse" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/selectedNatural"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/normal"
+                    android:text="Selected Accent" />
+
+                <RadioButton
+                    android:id="@+id/radioSaFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="first"
+                    android:textColor="?ohmyCsSecondarySelectedAccent" />
+
+                <RadioButton
+                    android:id="@+id/radioSaSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="seconda"
+                    android:textColor="?ohmyCsSecondarySelectedAccent" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

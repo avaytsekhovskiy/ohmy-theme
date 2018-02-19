@@ -64,11 +64,12 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
         super.onCreate(savedInstanceState)
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
 
-        addButton(PaletteTab.HOME)
-        addButton(PaletteTab.BUTTONS)
         addButton(PaletteTab.OTHER)
+        addButton(PaletteTab.BUTTONS)
+        addButton(PaletteTab.SELECTORS)
 
         bottomTabs.setOnNavigationItemSelectedListener {
+            log.debug("tab selected listener $it")
             presenter.openPage(PaletteTab.values()[it.itemId])
             return@setOnNavigationItemSelectedListener true
         }
@@ -103,6 +104,7 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
     override fun showSettings() = debugDrawer.openDrawer()
 
     override fun selectTab(position: PaletteTab) {
+        log.debug("select tab command $position")
         bottomTabs.selectedItemId = position.ordinal
     }
 

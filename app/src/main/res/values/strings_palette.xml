@@ -1,7 +1,11 @@
 <resources>
     <string name="palette_title">Toolbar Title</string>
 
-    <string name="palette_tab_home">Home</string>
+    <string name="palette_title_selectors">Selectors</string>
+    <string name="palette_title_buttons">Buttons</string>
+    <string name="palette_title_other">Other Items</string>
+
+    <string name="palette_tab_selectors">Selectors</string>
     <string name="palette_tab_buttons">Buttons</string>
     <string name="palette_tab_other">Other</string>
 </resources>

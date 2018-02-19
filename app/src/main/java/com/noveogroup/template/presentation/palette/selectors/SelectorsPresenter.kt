@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.all
+package com.noveogroup.template.presentation.palette.selectors
 
 import com.arellomobile.mvp.InjectViewState
 import com.noveogroup.template.R
@@ -14,16 +14,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
 @InjectViewState
-class AllPresenter @Inject constructor(
+class SelectorsPresenter @Inject constructor(
         private val paletteInteractor: PaletteInteractor,
         private val resourceManager: ResourceManager,
         private val screenInteractor: ScreenInteractor,
         globalRouter: GlobalRouter
-) : BasePresenter<AllView>(globalRouter) {
+) : BasePresenter<SelectorsView>(globalRouter) {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.enableViews()
         paletteInteractor.observeExplain()
                 .observeSafe(AndroidSchedulers.mainThread()) {
                     viewState.showExplanation()
@@ -38,12 +37,12 @@ class AllPresenter @Inject constructor(
                 .unsubscribeOnDestroy()
     }
 
-    override fun attachView(view: AllView?) {
+    override fun attachView(view: SelectorsView?) {
         super.attachView(view)
         screenInteractor.publish(
                 toggle = Toggle.BACK,
                 sideMode = SideMode.DISABLED,
-                title = resourceManager.getString(R.string.palette_title_other)
+                title = resourceManager.getString(R.string.palette_title_selectors)
         )
     }
 

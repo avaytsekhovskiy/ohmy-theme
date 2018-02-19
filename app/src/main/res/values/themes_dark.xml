@@ -19,11 +19,11 @@
         <item name="colorPrimaryLight">@color/orange_light</item>
         <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryDark">@color/orange_dark</item>
-        <item name="colorAccent">@color/blue_light</item>
-        <item name="colorControlNormal">@color/blue</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorControlNormal">@color/blue_light</item>
 
         /* STYLES INCEPTION */
-        <item name="appToolbarStyle">@style/AppThemeOverlay.Toolbar.Light</item>
+        <item name="barStyle">@style/AppThemeOverlay.Toolbar.Light</item>
         <item name="drawerArrowStyle">@style/AppThemeOverlay.Toolbar.DrawerArrow.Dark</item>
         <item name="alertDialogTheme">@style/AppThemeOverlay.Dialog.Alert.Dark</item>
     </style>

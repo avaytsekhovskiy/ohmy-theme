@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:alpha="?android:disabledAlpha" android:color="?colorAccent" android:state_enabled="false" android:state_selected="true" />
+    <item android:alpha="?android:disabledAlpha" android:color="?colorAccent" android:state_activated="true" android:state_enabled="false" />
+    <item android:alpha="?android:disabledAlpha" android:color="?colorAccent" android:state_checked="true" android:state_enabled="false" />
+    <item android:alpha="?android:disabledAlpha" android:color="?colorPrimaryDark" android:state_enabled="false" />
+    <item android:color="?colorAccent" android:state_selected="true" />
+    <item android:color="?colorAccent" android:state_activated="true" />
+    <item android:color="?colorAccent" android:state_checked="true" />
+    <item android:color="?colorPrimaryDark" />
+</selector>

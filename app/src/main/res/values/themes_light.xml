@@ -2,9 +2,9 @@
 <resources>
 
     <style name="AppTheme.Light" parent="Base.AppTheme">
+        <item name="barStyle">@style/AppThemeOverlay.Toolbar.Dark</item>
         <item name="alertDialogTheme">@style/AppThemeOverlay.Dialog.Alert.Light</item>
         <item name="drawerArrowStyle">@style/AppThemeOverlay.Toolbar.DrawerArrow.Light</item>
-        <item name="appToolbarStyle">@style/AppThemeOverlay.Toolbar.Dark</item>
     </style>
 
     <style name="AppTheme.Light.SplashTheme">

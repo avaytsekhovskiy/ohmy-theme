@@ -11,6 +11,7 @@ import com.noveogroup.template.presentation.common.navigation.AnimationDescripto
 import com.noveogroup.template.presentation.common.navigation.BaseFragmentNavigator
 import com.noveogroup.template.presentation.palette.all.AllFragment
 import com.noveogroup.template.presentation.palette.buttons.ButtonsFragment
+import com.noveogroup.template.presentation.palette.selectors.SelectorsFragment
 import ru.terrakok.cicerone.commands.Command
 
 class PaletteNavigator(
@@ -38,6 +39,7 @@ class PaletteNavigator(
 
     override fun createFragment(screenKey: String, data: Any?): Fragment = when (screenKey) {
         PaletteRouter.BUTTONS -> ButtonsFragment.newInstance()
+        PaletteRouter.SELECTORS -> SelectorsFragment.newInstance()
         PaletteRouter.ALL_CONTROLS -> AllFragment.newInstance()
         else -> throw Error("Unknown Fragment Key")
     }

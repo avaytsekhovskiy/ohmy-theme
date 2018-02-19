@@ -11,7 +11,7 @@ enum class PaletteTab(
         @DrawableRes val drawableRes: Int,
         @StringRes val stringRes: Int
 ) {
-    HOME(R.drawable.ic_save, R.string.palette_tab_home),
+    SELECTORS(R.drawable.ic_save, R.string.palette_tab_selectors),
     BUTTONS(R.drawable.ic_mail, R.string.palette_tab_buttons),
     OTHER(R.drawable.ic_settings, R.string.palette_tab_other)
 }
