@@ -21,7 +21,11 @@ class ButtonsFragment : BaseFragment(), ButtonsView {
     @ProvidePresenter
     fun providePresenter() = DI.paletteScope.getInstance(ButtonsPresenter::class.java)!!
 
-    private val uiControls by lazy { listOf(normalButton, normalFlatButton, coloredButton, coloredFlatButton) }
+    private val uiControls by lazy {
+        listOf(normalButton, normalFlatButton,
+                coloredButton, coloredFlatButton,
+                toggleButton, switchButton)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

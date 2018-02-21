@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,16 +35,20 @@
                     android:id="@+id/radioDdFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="?ohmyCsPrimaryDarkDisabledDefault"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault" />
+                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault"
+                    tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioDdSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="seconda"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault" />
+                    android:buttonTint="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:text="second"
+                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault"
+                    tools:targetApi="lollipop" />
 
             </RadioGroup>
 
@@ -66,16 +68,20 @@
                     android:id="@+id/radioDnFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="?ohmyCsPrimaryDarkDisabledNatural"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural" />
+                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural"
+                    tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioDnSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="seconda"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural" />
+                    android:buttonTint="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:text="second"
+                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural"
+                    tools:targetApi="lollipop" />
 
             </RadioGroup>
 
@@ -105,16 +111,20 @@
                     android:id="@+id/radioSiFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="?ohmyCsPrimaryLightSelectedInverse"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsSecondarySelectedInverse" />
+                    android:textColor="?ohmyCsPrimaryLightSelectedInverse"
+                    tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioSiSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="seconda"
-                    android:textColor="?ohmyCsSecondarySelectedInverse" />
+                    android:buttonTint="?ohmyCsPrimaryLightSelectedInverse"
+                    android:text="second"
+                    android:textColor="?ohmyCsPrimaryLightSelectedInverse"
+                    tools:targetApi="lollipop" />
 
             </RadioGroup>
 
@@ -134,16 +144,20 @@
                     android:id="@+id/radioSaFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="?ohmyCsPrimaryDarkSelectedAccent"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsSecondarySelectedAccent" />
+                    android:textColor="?ohmyCsPrimaryDarkSelectedAccent"
+                    tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioSaSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="seconda"
-                    android:textColor="?ohmyCsSecondarySelectedAccent" />
+                    android:buttonTint="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:text="second"
+                    android:textColor="?ohmyCsPrimaryDarkSelectedAccent"
+                    tools:targetApi="lollipop" />
 
             </RadioGroup>
 

@@ -6,8 +6,6 @@ import com.noveogroup.template.core.ext.observeSafe
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.interactor.PaletteInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
-import com.noveogroup.template.domain.interactor.state.model.SideMode
-import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -40,8 +38,6 @@ class SelectorsPresenter @Inject constructor(
     override fun attachView(view: SelectorsView?) {
         super.attachView(view)
         screenInteractor.publish(
-                toggle = Toggle.BACK,
-                sideMode = SideMode.DISABLED,
                 title = resourceManager.getString(R.string.palette_title_selectors)
         )
     }

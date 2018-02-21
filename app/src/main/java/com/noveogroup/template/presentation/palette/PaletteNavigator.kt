@@ -11,6 +11,7 @@ import com.noveogroup.template.presentation.common.navigation.AnimationDescripto
 import com.noveogroup.template.presentation.common.navigation.BaseFragmentNavigator
 import com.noveogroup.template.presentation.palette.all.AllFragment
 import com.noveogroup.template.presentation.palette.buttons.ButtonsFragment
+import com.noveogroup.template.presentation.palette.overview.OverviewFragment
 import com.noveogroup.template.presentation.palette.selectors.SelectorsFragment
 import ru.terrakok.cicerone.commands.Command
 
@@ -30,8 +31,8 @@ class PaletteNavigator(
             nextFragment: Fragment,
             fragmentTransaction: FragmentTransaction
     ) {
-        val (enter, exit, popEnter, popExit) = when (empty) {
-            true -> AnimationDescriptor.FADE
+        val (enter, exit, popEnter, popExit) = when {
+            empty -> AnimationDescriptor.FADE
             else -> AnimationDescriptor.FADE
         }
         fragmentTransaction.setCustomAnimations(enter, exit, popEnter, popExit)
@@ -41,6 +42,7 @@ class PaletteNavigator(
         PaletteRouter.BUTTONS -> ButtonsFragment.newInstance()
         PaletteRouter.SELECTORS -> SelectorsFragment.newInstance()
         PaletteRouter.ALL_CONTROLS -> AllFragment.newInstance()
+        PaletteRouter.OVERVIEW -> OverviewFragment.newInstance()
         else -> throw Error("Unknown Fragment Key")
     }
 

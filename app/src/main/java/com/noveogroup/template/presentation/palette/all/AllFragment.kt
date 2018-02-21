@@ -27,7 +27,6 @@ class AllFragment : BaseFragment(), AllView {
                 inputLayout, inputField, validateInputButton,
                 check, radio1, radio2,
                 ratingBar, seekBar,
-                switchButton, toggleButton,
                 selectableLabel
         )
     }
@@ -36,8 +35,8 @@ class AllFragment : BaseFragment(), AllView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rootView.setOnTouchListener { view, _ ->
-            return@setOnTouchListener when (view) {
+        rootView.setOnTouchListener { touchedView, _ ->
+            return@setOnTouchListener when (touchedView) {
                 inputLayout, inputField -> true
                 else -> false.also { deFocus() }
             }

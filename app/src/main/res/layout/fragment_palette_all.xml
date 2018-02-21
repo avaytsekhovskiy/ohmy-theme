@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
         tools:ignore="HardcodedText,UselessParent">
 
@@ -104,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:numStars="5"
                 android:rating="3"
-                android:stepSize="1" />
+                android:stepSize="0.5" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -124,29 +125,6 @@
                     android:max="10" />
 
             </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <android.support.v7.widget.SwitchCompat
-                    android:id="@+id/switchButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/large"
-                    android:enabled="false"
-                    android:text="Switch"
-                    app:switchPadding="@dimen/small" />
-
-                <ToggleButton
-                    android:id="@+id/toggleButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:textOff="NOK"
-                    android:textOn="OK" />
-
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/selectableLabel"

@@ -11,6 +11,9 @@ interface PaletteView : BaseView {
     fun showSettings()
 
     @StateStrategyType(OneExecutionStateStrategy::class)
+    fun hideSettings()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
     fun recreate()
 
     @StateStrategyType(AddToEndSingleStrategy::class)

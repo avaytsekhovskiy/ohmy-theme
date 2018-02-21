@@ -4,7 +4,6 @@ import com.arellomobile.mvp.InjectViewState
 import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.preferences.guava.Optional
 import com.noveogroup.preferences.lambda.Consumer
-import com.noveogroup.template.R
 import com.noveogroup.template.core.ext.observeSafe
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.interactor.PaletteInteractor
@@ -28,13 +27,12 @@ class PalettePresenter @Inject constructor(
         globalRouter: GlobalRouter
 ) : BasePresenter<PaletteView>(globalRouter) {
 
-    private val consumer = Consumer<Optional<Int>> { viewState.recreate() }
-
-    private var position: PaletteTab
-
-    init {
-        position = PaletteTab.OTHER
+    private val themeChangedListener = Consumer<Optional<Int>> {
+        viewState.hideSettings()
+        viewState.recreate()
     }
+
+    private var position: PaletteTab = PaletteTab.OTHER
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -42,25 +40,24 @@ class PalettePresenter @Inject constructor(
                 .observeSafe(AndroidSchedulers.mainThread()) { viewState.showSettings() }
                 .unsubscribeOnDestroy()
 
-        themeProxy.addListener(consumer)
+        themeProxy.addListener(themeChangedListener)
+        openPageWithoutChecks(position)
     }
 
     override fun attachView(view: PaletteView?) {
         super.attachView(view)
         screenInteractor.publish(
-                title = resourceManager.getString(R.string.palette_title),
                 toggle = Toggle.BACK,
                 pageMode = PageMode.TOOLBAR,
                 sideMode = SideMode.DISABLED
         )
 
-        openPageWithoutChecks(position)
         viewState.selectTab(position)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        themeProxy.removeListener(consumer)
+        themeProxy.removeListener(themeChangedListener)
     }
 
     override fun back() = globalRouter.exit()
@@ -72,13 +69,9 @@ class PalettePresenter @Inject constructor(
         viewState.selectTab(tab)
     }
 
-    fun explain() {
-        paletteInteractor.explain()
-    }
+    fun explain() = paletteInteractor.explain()
 
-    fun disable(disabled: Boolean) {
-        paletteInteractor.disable(disabled)
-    }
+    fun disable(disabled: Boolean) = paletteInteractor.disable(disabled)
 
     private fun openPageWithoutChecks(tab: PaletteTab) {
         position = tab
@@ -86,6 +79,7 @@ class PalettePresenter @Inject constructor(
             PaletteTab.SELECTORS -> paletteRouter.displaySelectors()
             PaletteTab.BUTTONS -> paletteRouter.displayButtons()
             PaletteTab.OTHER -> paletteRouter.displayAllControls()
+            PaletteTab.OVERVIEW -> paletteRouter.displayOverview()
         }
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,75 +10,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:gravity="left"
+        android:orientation="vertical"
+        android:padding="@dimen/normal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:orientation="vertical">
+        <Button
+            android:id="@+id/normalButton"
+            style="@style/AppTheme.Button"
+            android:text="AppTheme.Button"
+            android:textAllCaps="false" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small"
-                android:text="Raised Buttons" />
+        <Button
+            android:id="@+id/normalFlatButton"
+            style="@style/AppTheme.Button.Borderless"
+            android:text="AppTheme.Button.Borderless"
+            android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/normalButton"
-                style="@style/AppTheme.Button"
-                android:text="AppTheme.Button"
-                android:textAllCaps="false" />
+        <Button
+            android:id="@+id/coloredButton"
+            style="@style/AppTheme.Button.Colored"
+            android:text="AppTheme.Button.Colored"
+            android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/coloredButton"
-                style="@style/AppTheme.Button.Colored"
-                android:text="AppTheme.Button.Colored"
-                android:textAllCaps="false" />
+        <Button
+            android:id="@+id/coloredFlatButton"
+            style="@style/AppTheme.Button.Borderless.Colored"
+            android:text="AppTheme.Button.Borderless.Colored"
+            android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/disabledButton"
-                style="@style/AppTheme.Button.Colored"
-                android:enabled="false"
-                android:text="AppTheme.Button.*"
-                android:textAllCaps="false" />
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textAllCaps="false"
+            android:textOff="ToggleButton Off"
+            android:textOn="ToggleButton On" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/small"
-                android:text="Flat Buttons" />
-
-            <Button
-                android:id="@+id/normalFlatButton"
-                style="@style/AppTheme.Button.Borderless"
-                android:text="AppTheme.Button.Borderless"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/coloredFlatButton"
-                style="@style/AppTheme.Button.Borderless.Colored"
-                android:text="AppTheme.Button.Borderless.Colored"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/disabledFlatButton"
-                style="@style/AppTheme.Button.Borderless.Colored"
-                android:enabled="false"
-                android:text="AppTheme.Button.Borderless.*"
-                android:textAllCaps="false" />
-
-        </LinearLayout>
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small"
+            android:text="SwitchButton"
+            app:switchPadding="@dimen/small" />
 
     </LinearLayout>
 

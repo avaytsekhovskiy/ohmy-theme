@@ -6,8 +6,6 @@ import com.noveogroup.template.core.ext.observeSafe
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.interactor.PaletteInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
-import com.noveogroup.template.domain.interactor.state.model.SideMode
-import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,6 +21,7 @@ class ButtonsPresenter @Inject constructor(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
+
         paletteInteractor.observeExplain()
                 .observeSafe(AndroidSchedulers.mainThread()) {
                     viewState.showExplanation()
@@ -30,8 +29,8 @@ class ButtonsPresenter @Inject constructor(
                 .unsubscribeOnDestroy()
 
         paletteInteractor.observeDisable()
-                .observeSafe(AndroidSchedulers.mainThread()) {
-                    if (it) viewState.disableViews()
+                .observeSafe(AndroidSchedulers.mainThread()) { disabled ->
+                    if (disabled) viewState.disableViews()
                     else viewState.enableViews()
                 }
                 .unsubscribeOnDestroy()
@@ -40,8 +39,6 @@ class ButtonsPresenter @Inject constructor(
     override fun attachView(view: ButtonsView?) {
         super.attachView(view)
         screenInteractor.publish(
-                toggle = Toggle.BACK,
-                sideMode = SideMode.DISABLED,
                 title = resourceManager.getString(R.string.palette_title_buttons)
         )
     }

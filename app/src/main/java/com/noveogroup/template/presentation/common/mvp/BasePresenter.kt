@@ -3,7 +3,6 @@ package com.noveogroup.template.presentation.common.mvp
 import com.arellomobile.mvp.MvpPresenter
 import com.arellomobile.mvp.MvpView
 import com.noveogroup.template.core.ext.logger
-import com.noveogroup.template.core.ext.trackBy
 import com.noveogroup.template.core.rx.RxHelper
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import io.reactivex.disposables.Disposable
@@ -32,6 +31,6 @@ abstract class BasePresenter<View : MvpView>(
 
     open fun back() = globalRouter.defaultExit()
 
-    protected fun Disposable.unsubscribeOnDestroy() = trackBy(rxHelper)
+    protected fun Disposable.unsubscribeOnDestroy() = rxHelper.add(this)
 
 }

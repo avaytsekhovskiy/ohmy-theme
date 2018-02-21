@@ -30,7 +30,9 @@
             android:name=".presentation.main.MainActivity"
             android:theme="@style/AppTheme.Light" />
 
-        <activity android:name=".presentation.palette.PaletteActivity" />
+        <activity
+            android:name=".presentation.palette.PaletteActivity"
+            android:windowSoftInputMode="adjustPan" />
 
     </application>
 

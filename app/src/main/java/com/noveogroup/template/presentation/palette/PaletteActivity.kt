@@ -40,8 +40,7 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
     internal lateinit var presenter: PalettePresenter
 
     @ProvidePresenter
-    fun providePresenter() =
-            DI.paletteScope.getInstance(PalettePresenter::class.java)!!
+    fun providePresenter() = DI.paletteScope.getInstance(PalettePresenter::class.java)!!
 
     override val orientationHelper by lazy { OrientationHelper(this, ActivityOrientation.BOTH, ActivityOrientation.BOTH) }
 
@@ -64,9 +63,7 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
         super.onCreate(savedInstanceState)
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
 
-        addButton(PaletteTab.OTHER)
-        addButton(PaletteTab.BUTTONS)
-        addButton(PaletteTab.SELECTORS)
+        PaletteTab.values().forEach { addButton(it) }
 
         bottomTabs.setOnNavigationItemSelectedListener {
             log.debug("tab selected listener $it")
@@ -102,6 +99,8 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
     override fun onBackPressed() = presenter.back()
 
     override fun showSettings() = debugDrawer.openDrawer()
+
+    override fun hideSettings() = debugDrawer.closeDrawer()
 
     override fun selectTab(position: PaletteTab) {
         log.debug("select tab command $position")
