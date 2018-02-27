@@ -5,7 +5,6 @@ import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.preferences.guava.Optional
 import com.noveogroup.preferences.lambda.Consumer
 import com.noveogroup.template.core.ext.observeSafe
-import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.interactor.PaletteInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
 import com.noveogroup.template.domain.interactor.state.model.PageMode
@@ -22,7 +21,6 @@ class PalettePresenter @Inject constructor(
         private val themeProxy: ThemeProxy,
         private val paletteInteractor: PaletteInteractor,
         private val paletteRouter: PaletteRouter,
-        private val resourceManager: ResourceManager,
         private val screenInteractor: ScreenInteractor,
         globalRouter: GlobalRouter
 ) : BasePresenter<PaletteView>(globalRouter) {
@@ -71,7 +69,7 @@ class PalettePresenter @Inject constructor(
 
     fun explain() = paletteInteractor.explain()
 
-    fun disable(disabled: Boolean) = paletteInteractor.disable(disabled)
+    fun enable(enabled: Boolean) = paletteInteractor.enable(enabled)
 
     private fun openPageWithoutChecks(tab: PaletteTab) {
         position = tab
@@ -79,7 +77,6 @@ class PalettePresenter @Inject constructor(
             PaletteTab.SELECTORS -> paletteRouter.displaySelectors()
             PaletteTab.BUTTONS -> paletteRouter.displayButtons()
             PaletteTab.OTHER -> paletteRouter.displayAllControls()
-            PaletteTab.OVERVIEW -> paletteRouter.displayOverview()
         }
     }
 

@@ -12,14 +12,12 @@ class DebugHelper(app: Application) {
 
     val themeProxy = ThemeProxy(developerPreferences.theme)
 
-    fun createThemeSpinner(): SpinnerAction<Theme> {
-        val values = Theme.values().toList()
-        val current = developerPreferences.theme.read().let { Theme.values()[it.or(0)] }
-        val selectedItem = values.indexOf(current)
-
-        return SpinnerAction<Theme>(values, SpinnerAction.OnItemSelectedListener {
+    fun createThemeSpinner() = Theme.values().toList().let {
+        val current = it[developerPreferences.theme.read().or(0)]
+        val listener = SpinnerAction.OnItemSelectedListener<Theme> {
             developerPreferences.theme.save(it.ordinal)
-        }, selectedItem)
+        }
+        return@let SpinnerAction<Theme>(it, listener, it.indexOf(current))
     }
 
 }

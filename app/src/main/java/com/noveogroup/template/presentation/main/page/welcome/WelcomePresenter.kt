@@ -30,6 +30,10 @@ class WelcomePresenter @Inject constructor(
 
     internal fun openInheritance() = mainRouter.openInheritance()
 
+    internal fun openThemeOverview() = mainRouter.openThemeOverview()
+
+    internal fun openSelectorOverview() = mainRouter.openSelectorOverview()
+
     internal fun openPalette() = globalRouter.nextPalette()
 
 }

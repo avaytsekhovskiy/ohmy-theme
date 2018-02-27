@@ -12,6 +12,18 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome_inheritance" />
 
+    <Button
+        android:id="@+id/themeOverviewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_theme_overview" />
+
+    <Button
+        android:id="@+id/selectorOverviewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_selector_overview" />
+
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
         android:layout_height="@dimen/large" />

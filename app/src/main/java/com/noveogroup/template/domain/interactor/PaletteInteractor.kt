@@ -10,11 +10,11 @@ class PaletteInteractor @Inject constructor() : Publisher() {
 
     private val explainSubject: PublishSubject<Any> = PublishSubject.create()
     private val settingsSubject: PublishSubject<Any> = PublishSubject.create()
-    private val disabledSubject: BehaviorSubject<Boolean> = BehaviorSubject.create()
+    private val enabledSubject: BehaviorSubject<Boolean> = BehaviorSubject.create()
 
     val disabled: Boolean
         get() = when {
-            disabledSubject.hasValue() -> disabledSubject.value
+            enabledSubject.hasValue() -> enabledSubject.value
             else -> false
         }
 
@@ -26,8 +26,8 @@ class PaletteInteractor @Inject constructor() : Publisher() {
         explainSubject.onNext(SIGNAL)
     }
 
-    fun disable(disabled: Boolean) {
-        disabledSubject.onNext(disabled)
+    fun enable(enabled: Boolean) {
+        enabledSubject.onNext(enabled)
     }
 
     fun observeSettings(): Observable<Any> {
@@ -38,8 +38,8 @@ class PaletteInteractor @Inject constructor() : Publisher() {
         return explainSubject
     }
 
-    fun observeDisable(): Observable<Boolean> {
-        return disabledSubject
+    fun observeEnable(): Observable<Boolean> {
+        return enabledSubject
     }
 
     companion object {

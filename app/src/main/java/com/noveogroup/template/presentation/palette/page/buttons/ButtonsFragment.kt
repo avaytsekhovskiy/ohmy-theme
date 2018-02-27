@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.buttons
+package com.noveogroup.template.presentation.palette.page.buttons
 
 import android.os.Bundle
 import android.support.annotation.StyleRes
@@ -61,15 +61,27 @@ class ButtonsFragment : BaseFragment(), ButtonsView {
 
     override fun showExplanation() {
         dialogDelegate.showSimpleDialog(
-                title = "Theme attrs",
+                title = "Button Styles",
                 description = """
-                               |colorAccent="@color/orange"
+                               |AppTheme (ohmyCompat)
+                               |  normal = ?secondary
+                               |  disabled = @color/grey
                                |
-                               |android:textColorSecondary="@color/black"
-                               |android:textColorSecondaryInverse="@color/white"
+                               |AppTheme.Button
+                               |  textColor = ?secondary
+                               |  background = ?normal/?disabled
                                |
-                               |android:disabledAlpha="0.5"
-                               |cCompatButtonDisabled="@color/grey"
+                               |AppTheme.Button.Colored
+                               |  textColor = ?secondaryInverse
+                               |  background = ?accent/?disabled
+                               |
+                               |AppTheme.Button.Borderless
+                               |  textColor = ?secondary
+                               |  background = @null/?disabled
+                               |
+                               |AppTheme.Button.Borderless.Colored
+                               |  textColor = ?accent
+                               |  background = @null/?disabled
                                 """.trimMargin()
         )
     }

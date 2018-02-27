@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.selectors
+package com.noveogroup.template.presentation.palette.page.selectors
 
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -36,7 +36,26 @@ class SelectorsFragment : BaseFragment(), SelectorsView {
         dialogDelegate.showSimpleDialog(
                 title = "Theme attrs",
                 description = """
-                               |ohmyCs_COLOR_BEHAVIOR attrs
+                               |R.attr.ohmyCs* / ?ohmyCs*
+                               |  - "cs" is xml color selector
+                               |
+                               |regular views require 2 states:
+                               |  - normal
+                               |  - disabled
+                               |use as textColor:
+                               |  ohmyCs*Disabled(Default/Natural)
+                               |
+                               |active views require 4 states:
+                               |  - active
+                               |  - active disabled
+                               |  - normal
+                               |  - disabled
+                               |use as buttonTint:
+                               |  ohmyCs*Selected(Accent/Inverse)
+                               |
+                               |__________________________________
+                               |
+                               |see more in R.layout.fragment_selectors
                                 """.trimMargin()
         )
     }

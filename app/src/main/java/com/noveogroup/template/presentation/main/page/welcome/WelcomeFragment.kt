@@ -22,6 +22,8 @@ class WelcomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         inheritanceButton.setOnClickListener { presenter.openInheritance() }
+        themeOverviewButton.setOnClickListener { presenter.openThemeOverview() }
+        selectorOverviewButton.setOnClickListener { presenter.openSelectorOverview() }
         paletteButton.setOnClickListener { presenter.openPalette() }
     }
 

@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.buttons
+package com.noveogroup.template.presentation.palette.page.buttons
 
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy

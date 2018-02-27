@@ -42,10 +42,11 @@
                 tools:targetApi="m" />
 
             <android.support.v7.widget.SwitchCompat
-                android:id="@+id/disableView"
+                android:id="@+id/enableView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="disable"
+                android:checked="true"
+                android:text="enabled"
                 app:switchPadding="@dimen/small" />
 
         </LinearLayout>

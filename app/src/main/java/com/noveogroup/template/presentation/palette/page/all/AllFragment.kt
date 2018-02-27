@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.all
+package com.noveogroup.template.presentation.palette.page.all
 
 import android.annotation.SuppressLint
 import android.os.Bundle

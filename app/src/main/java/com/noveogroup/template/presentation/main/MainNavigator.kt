@@ -10,6 +10,8 @@ import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.navigation.AnimationDescriptor
 import com.noveogroup.template.presentation.common.navigation.BaseFragmentNavigator
 import com.noveogroup.template.presentation.main.page.inheritance.InheritanceFragment
+import com.noveogroup.template.presentation.main.page.selector_overview.SelectorOverviewFragment
+import com.noveogroup.template.presentation.main.page.theme_overview.ThemeOverviewFragment
 import com.noveogroup.template.presentation.main.page.welcome.WelcomeFragment
 
 import ru.terrakok.cicerone.commands.Command
@@ -40,6 +42,8 @@ class MainNavigator(
     override fun createFragment(screenKey: String, data: Any?) = when (screenKey) {
         MainRouter.WELCOME -> WelcomeFragment.newInstance()
         MainRouter.INHERITANCE -> InheritanceFragment.newInstance()
+        MainRouter.THEME_OVERVIEW -> ThemeOverviewFragment.newInstance()
+        MainRouter.SELECTOR_OVERVIEW -> SelectorOverviewFragment.newInstance()
         else -> throw Error("Unknown Fragment Key")
     }
 

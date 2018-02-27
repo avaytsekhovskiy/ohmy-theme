@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @Layout(R.layout.activity_main)
-class MainActivity : BaseActivity(), NavigatorProvider {
+class MainActivity : BaseActivity(), MainView, NavigatorProvider {
 
     @InjectPresenter
     internal lateinit var presenter: MainPresenter
@@ -81,6 +81,8 @@ class MainActivity : BaseActivity(), NavigatorProvider {
         if (processBackIfListener(currentMainFragment)) return
         presenter.back()
     }
+
+    override fun hideSettings() = debugDrawer.closeDrawer()
 
     companion object {
         fun newIntent(context: Context) = Intent(context, MainActivity::class.java)

@@ -99,6 +99,7 @@ ext.lib = [
         glideCompiler             : "com.github.bumptech.glide:compiler:$versions.glide",
         calligraphy               : "uk.co.chrisjenx:calligraphy:$versions.calligraphy",
         joda                      : "net.danlew:android.joda:$versions.androidJoda",
+        noveoPreferences       : "com.noveogroup:preferences:$versions.noveoPreferences",
         noveoPreferencesRx2       : "com.noveogroup:preferences-rx2:$versions.noveoPreferences",
 
         /* Custom View Components */

@@ -3,5 +3,7 @@
     <string name="title_inheritance">Style Inheritance</string>
 
     <string name="welcome_inheritance">Inheritance</string>
+    <string name="welcome_theme_overview">Overview theme attrs</string>
+    <string name="welcome_selector_overview">Overview selector attrs</string>
     <string name="welcome_palette">Palette</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.buttons
+package com.noveogroup.template.presentation.palette.page.buttons
 
 import com.arellomobile.mvp.InjectViewState
 import com.noveogroup.template.R
@@ -28,10 +28,10 @@ class ButtonsPresenter @Inject constructor(
                 }
                 .unsubscribeOnDestroy()
 
-        paletteInteractor.observeDisable()
-                .observeSafe(AndroidSchedulers.mainThread()) { disabled ->
-                    if (disabled) viewState.disableViews()
-                    else viewState.enableViews()
+        paletteInteractor.observeEnable()
+                .observeSafe(AndroidSchedulers.mainThread()) { enabled ->
+                    if (enabled) viewState.enableViews()
+                    else viewState.disableViews()
                 }
                 .unsubscribeOnDestroy()
     }

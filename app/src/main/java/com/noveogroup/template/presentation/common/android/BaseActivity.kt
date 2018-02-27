@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
-import android.support.annotation.StyleRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.SupportFragmentUtils.cleanSupportLibraryIssues
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import com.arellomobile.mvp.MvpDelegate
+import com.noveogroup.debugdrawer.data.theme.Theme
+import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.R
 import com.noveogroup.template.core.ext.logger
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
@@ -65,8 +66,22 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     @Inject
     lateinit var debugHelper: DebugDrawerHelper
     lateinit var debugDrawer: DebugDrawer
-    @StyleRes
-    open val themeId: Int = R.style.AppTheme_Light
+
+    @Inject
+    lateinit var themeProxy: ThemeProxy
+
+    open val themeId by lazy {
+        themeProxy.read()
+                .let {
+                    when (it) {
+                        Theme.BASE_LIGHT -> R.style.AppTheme_Light
+                        Theme.BASE_DARK -> R.style.AppTheme_Dark
+                        Theme.GREEN_LIGHT -> R.style.AppTheme_Light_Green
+                        Theme.GREEN_DARK -> R.style.AppTheme_Dark_Green
+                    }
+                }
+                .also { log.warn("themeId = $it") }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

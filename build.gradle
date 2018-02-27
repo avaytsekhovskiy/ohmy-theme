@@ -12,7 +12,6 @@ buildscript {
     dependencies {
         classpath plugin.android
         classpath plugin.kotlin
-        classpath plugin.noveoCheck
     }
 }
 
@@ -23,12 +22,5 @@ allprojects {
         google()
 
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-    }
-}
-
-gradle.taskGraph.beforeTask { task ->
-    if (task.name == 'androidFindbugs') {
-        task.deleteAllActions()
-        println "Task $task.name is being rendered useless"
     }
 }

@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.internal.BottomNavigationItemView
+import android.support.design.internal.BottomNavigationMenuView
+import android.support.design.widget.BottomNavigationView
 import android.view.Menu
 import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import com.noveogroup.debugdrawer.data.theme.Theme
-import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.R
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.navigation.router.PaletteRouter
@@ -24,14 +25,12 @@ import com.noveogroup.template.presentation.palette.toolbar.ToolbarHolder
 import kotlinx.android.synthetic.main.activity_palette.*
 import javax.inject.Inject
 
+
 @Layout(R.layout.activity_palette)
 class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
 
     @Inject
     lateinit var paletteRouter: PaletteRouter
-
-    @Inject
-    lateinit var themeProxy: ThemeProxy
 
     @Inject
     lateinit var resourceManager: ResourceManager
@@ -45,16 +44,6 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
     override val orientationHelper by lazy { OrientationHelper(this, ActivityOrientation.BOTH, ActivityOrientation.BOTH) }
 
     override val lazyScope by lazy { ActivityScopeInitializer { DI.paletteScope } }
-    override val themeId by lazy {
-        themeProxy.read().let {
-            when (it) {
-                Theme.BASE_LIGHT -> R.style.AppTheme_Light
-                Theme.BASE_DARK -> R.style.AppTheme_Dark
-                Theme.GREEN_LIGHT -> R.style.AppTheme_Light_Green
-                Theme.GREEN_DARK -> R.style.AppTheme_Dark_Green
-            }
-        }.also { log.warn("themeId = $it") }
-    }
 
     private lateinit var toolbarHolder: ToolbarHolder
 
@@ -70,9 +59,10 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
             presenter.openPage(PaletteTab.values()[it.itemId])
             return@setOnNavigationItemSelectedListener true
         }
+        bottomTabs.disableShiftMode()
 
         explainButton.setOnClickListener { presenter.explain() }
-        disableView.setOnCheckedChangeListener { _, checked -> presenter.disable(checked) }
+        enableView.setOnCheckedChangeListener { _, checked -> presenter.enable(checked) }
     }
 
     override fun onInstallNavigator() {
@@ -81,6 +71,25 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
 
     override fun onReleaseNavigator() {
         paletteRouter.removeNavigator()
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun BottomNavigationView.disableShiftMode() = try {
+        (getChildAt(0) as BottomNavigationMenuView).let {
+            it.javaClass.getDeclaredField("mShiftingMode").run {
+                isAccessible = true
+                setBoolean(it, false)
+                isAccessible = false
+            }
+            for (i in 0 until it.childCount) {
+                (it.getChildAt(i) as BottomNavigationItemView).run {
+                    setShiftingMode(false)
+                    setChecked(itemData.isChecked)
+                }
+            }
+        }
+    } catch (e: NoSuchFieldException) {
+    } catch (e: IllegalAccessException) {
     }
 
     override fun onDestroy() {

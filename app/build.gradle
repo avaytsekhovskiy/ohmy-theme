@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.noveogroup.android.check'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
@@ -123,11 +122,4 @@ dependencies {
 
     /* Debug Drawer */
     implementation project(':noveodebugdrawer')
-}
-
-check {
-    abortOnError true
-    checkstyle { config rootProject.file('analyzers/checkstyle.xml').absolutePath }
-    pmd { config rootProject.file('analyzers/pmd.xml').absolutePath }
-    findbugs { skip true }
 }
