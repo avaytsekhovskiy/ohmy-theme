@@ -1,9 +1,6 @@
 package com.noveogroup.template.domain.interactor.state
 
-import com.noveogroup.template.domain.interactor.state.model.PageMode
-import com.noveogroup.template.domain.interactor.state.model.ScreenState
-import com.noveogroup.template.domain.interactor.state.model.SideMode
-import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
+import com.noveogroup.template.domain.interactor.state.model.*
 
 class ScreenStateDiffHelper(
         private val current: ScreenState,
@@ -11,6 +8,8 @@ class ScreenStateDiffHelper(
 ) {
 
     fun ifTitleChanged(listener: (String) -> Unit) = compare({ it.title }, stringsContentEquals, listener)
+
+    fun ifToggleChanged(listener: (Toggle) -> Unit) = compare({ it.toggle }, objectsEquals, listener)
 
     fun ifToolbarMenuChanged(listener: (ToolbarMenu) -> Unit) = compare({ it.toolbarMenu }, objectsEquals, listener)
 

@@ -11,9 +11,9 @@ import com.noveogroup.template.presentation.common.android.BaseFragment
 import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.common.ext.fromHtml
 import com.noveogroup.template.presentation.di.DI
-import kotlinx.android.synthetic.main.fragment_palette_all.*
+import kotlinx.android.synthetic.main.fragment_texts.*
 
-@Layout(R.layout.fragment_palette_all)
+@Layout(R.layout.fragment_texts)
 class AllFragment : BaseFragment(), AllView {
 
     @InjectPresenter
@@ -24,10 +24,8 @@ class AllFragment : BaseFragment(), AllView {
 
     private val uiControls by lazy {
         listOf(
-                label,
                 selectableLabel,
-                inputLayout, inputField, validateInputButton,
-                ratingBar, seekBar
+                inputLayout, inputField, validateInputButton
         )
     }
 
@@ -56,7 +54,14 @@ class AllFragment : BaseFragment(), AllView {
                                  |<br>
                                  |<a href="http://google.com">i'm web link</a>
                                  |<br>
-                                 |Select me by long tap</p>""".trimMargin().fromHtml()
+                                 |Select me by long tap</p>
+                                 |<p>The form input is quite tricky.
+                                 |It is valid only if contains "input" word.
+                                 |You can validate it after input - and can see behavior for error and hint labels.
+                                 |Its styled with colors.
+                                 |<br>
+                                 |Tip: tap outside to remove focus from EditText box.
+                                 |</p>""".trimMargin().fromHtml()
 
     }
 

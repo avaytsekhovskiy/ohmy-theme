@@ -1,24 +1,22 @@
 package com.noveogroup.template.domain.interactor.state
 
-import com.noveogroup.template.domain.interactor.state.model.PageMode
-import com.noveogroup.template.domain.interactor.state.model.ScreenState
-import com.noveogroup.template.domain.interactor.state.model.SideMode
-import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
+import com.noveogroup.template.domain.interactor.state.model.*
 
 class ScreenValidator {
 
     fun autofix(
             title: String,
+            toggle: Toggle,
             toolbarMenu: ToolbarMenu,
             pageMode: PageMode,
             sideMode: SideMode
     ): ScreenState {
         val newSideMode = when {
-            pageMode === com.noveogroup.template.domain.interactor.state.model.PageMode.FULLSCREEN_MODAL -> SideMode.DISABLED
+            pageMode === PageMode.FULLSCREEN_MODAL -> SideMode.DISABLED
             else -> sideMode
         }
 
-        return ScreenState(title, toolbarMenu, pageMode, newSideMode)
+        return ScreenState(title, toggle, toolbarMenu, pageMode, newSideMode)
     }
 
     fun check(state: ScreenState): Unit = with(state) {

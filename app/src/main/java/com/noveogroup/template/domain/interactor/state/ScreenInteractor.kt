@@ -7,10 +7,7 @@ import com.noveogroup.template.core.ext.debugName
 import com.noveogroup.template.core.ext.observeSafe
 import com.noveogroup.template.core.ext.trackBy
 import com.noveogroup.template.domain.common.Publisher
-import com.noveogroup.template.domain.interactor.state.model.PageMode
-import com.noveogroup.template.domain.interactor.state.model.ScreenState
-import com.noveogroup.template.domain.interactor.state.model.SideMode
-import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
+import com.noveogroup.template.domain.interactor.state.model.*
 import io.reactivex.Scheduler
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -38,15 +35,16 @@ class ScreenInteractor @Inject constructor() : Publisher() {
 
     fun publish(
             title: String? = null,
+            toggle: Toggle? = null,
             toolbarMenu: ToolbarMenu? = null,
             pageMode: PageMode? = null,
             sideMode: SideMode? = null
-    ) = arrayOf(pageMode, title, sideMode, toolbarMenu)
+    ) = arrayOf(pageMode, toggle, title, sideMode, toolbarMenu)
             .filterNotNull()
             .forEach(stateChangeRequest::accept)
 
     fun publish(state: ScreenState) = with(state) {
-        publish(title, toolbarMenu, pageMode, sideMode)
+        publish(title, toggle, toolbarMenu, pageMode, sideMode)
     }
 
     fun listenForChanges(scheduler: Scheduler? = null, next: (ScreenState) -> Unit) =
@@ -55,6 +53,7 @@ class ScreenInteractor @Inject constructor() : Publisher() {
 
     private fun List<Any>.toState() = validator.autofix(
             title = take(String::class.java) ?: state.title,
+            toggle = take(Toggle::class.java) ?: state.toggle,
             pageMode = take(PageMode::class.java) ?: state.pageMode,
             toolbarMenu = take(ToolbarMenu::class.java) ?: state.toolbarMenu,
             sideMode = take(SideMode::class.java) ?: state.sideMode
@@ -69,6 +68,7 @@ class ScreenInteractor @Inject constructor() : Publisher() {
 
         val initialState = ScreenState(
                 title = "\$\$ Default Title \$\$".takeIf { BuildConfig.DEBUG } ?: "",
+                toggle = Toggle.HIDDEN,
                 toolbarMenu = ToolbarMenu.NO_MENU,
                 pageMode = PageMode.TOOLBAR,
                 sideMode = SideMode.CLOSED)

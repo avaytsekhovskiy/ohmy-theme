@@ -14,5 +14,5 @@ enum class PaletteTab(
     SELECTORS(R.drawable.ic_code, R.string.palette_tab_selectors),
     BUTTONS(R.drawable.ic_radio_button, R.string.palette_tab_buttons),
     PICKERS(R.drawable.ic_star_half, R.string.palette_tab_pickers),
-    OTHER(R.drawable.ic_more_horiz, R.string.palette_tab_other)
+    TEXTS(R.drawable.ic_text, R.string.palette_tab_text)
 }

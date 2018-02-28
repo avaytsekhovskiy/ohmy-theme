@@ -25,10 +25,13 @@ class ToolbarPresenter @Inject constructor(
         screenInteractor
                 .listenForChanges(AndroidSchedulers.mainThread(), ::dispatchAppearance)
                 .unsubscribeOnDestroy()
+
+        observeAppearance().unsubscribeOnDestroy()
     }
 
     override fun onScreenStateChanged(helper: ScreenStateDiffHelper) = with(helper) {
         ifPageModeChanged(viewState::changePageMode)
+        ifToggleChanged(viewState::changeToggle)
         ifTitleChanged(viewState::changeTitle)
         ifToolbarMenuChanged(viewState::changeToolbarMenu)
     }

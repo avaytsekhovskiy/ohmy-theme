@@ -13,6 +13,7 @@ import com.noveogroup.template.R
 import com.noveogroup.template.core.ext.warnOrThrow
 import com.noveogroup.template.core.rx.RxHelper
 import com.noveogroup.template.domain.interactor.state.model.PageMode
+import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.BaseMvpComponent
@@ -41,8 +42,8 @@ class ToolbarHolder(
     override fun onCreate() {
         super.onCreate()
         activity.setSupportActionBar(toolbar)
-        actionBar?.setDisplayHomeAsUpEnabled(false)
-        actionBar?.setDisplayShowHomeEnabled(false)
+
+        toolbar.setNavigationOnClickListener { toolbarPresenter.back() }
 
         rxHelper.add(state.observe { descriptor ->
             val allowed = descriptor.allowed
@@ -68,6 +69,19 @@ class ToolbarHolder(
         when (pageMode) {
             PageMode.TOOLBAR -> toolbar.show()
             PageMode.FULLSCREEN_MODAL -> toolbar.hide()
+            else -> log.warnOrThrow("unknown PageMode")
+        }
+    }
+
+    override fun changeToggle(toggle: Toggle) {
+        log.debug("Toggle changed $toggle")
+        when (toggle) {
+            Toggle.HIDDEN -> actionBar?.apply {
+                setDisplayHomeAsUpEnabled(false)
+            }
+            Toggle.BACK -> actionBar?.apply {
+                setDisplayHomeAsUpEnabled(true)
+            }
             else -> log.warnOrThrow("unknown PageMode")
         }
     }

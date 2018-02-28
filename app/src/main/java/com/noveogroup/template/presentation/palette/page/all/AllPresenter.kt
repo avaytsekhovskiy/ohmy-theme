@@ -41,7 +41,7 @@ class AllPresenter @Inject constructor(
     override fun attachView(view: AllView?) {
         super.attachView(view)
         screenInteractor.publish(
-                title = resourceManager.getString(R.string.palette_title_other)
+                title = resourceManager.getString(R.string.palette_title_texts)
         )
     }
 

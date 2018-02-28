@@ -3,7 +3,7 @@
 
     <string name="palette_title_selectors">Selectors</string>
     <string name="palette_title_buttons">Buttons</string>
-    <string name="palette_title_other">Other Items</string>
+    <string name="palette_title_texts">Text Views</string>
     <string name="palette_title_theme_overview">Theme Overview</string>
     <string name="palette_title_selector_overview">Selector Overview</string>
     <string name="palette_title_pickers">Pickers</string>
@@ -11,5 +11,5 @@
     <string name="palette_tab_selectors">Selectors</string>
     <string name="palette_tab_buttons">Buttons</string>
     <string name="palette_tab_pickers">Pickers</string>
-    <string name="palette_tab_other">Other</string>
+    <string name="palette_tab_text">Text Views</string>
 </resources>

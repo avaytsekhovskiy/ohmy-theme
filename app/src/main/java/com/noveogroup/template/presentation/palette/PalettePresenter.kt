@@ -7,6 +7,7 @@ import com.noveogroup.template.domain.interactor.ThemeInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
 import com.noveogroup.template.domain.interactor.state.model.PageMode
 import com.noveogroup.template.domain.interactor.state.model.SideMode
+import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.domain.navigation.router.PaletteRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
@@ -39,6 +40,7 @@ class PalettePresenter @Inject constructor(
         super.attachView(view)
         screenInteractor.publish(
                 pageMode = PageMode.TOOLBAR,
+                toggle = Toggle.BACK,
                 sideMode = SideMode.CLOSED
         )
 
@@ -64,7 +66,7 @@ class PalettePresenter @Inject constructor(
             PaletteTab.SELECTORS -> paletteRouter.displaySelectors()
             PaletteTab.BUTTONS -> paletteRouter.displayButtons()
             PaletteTab.PICKERS -> paletteRouter.displayPickers()
-            PaletteTab.OTHER -> paletteRouter.displayAllControls()
+            PaletteTab.TEXTS -> paletteRouter.displayAllControls()
         }
     }
 

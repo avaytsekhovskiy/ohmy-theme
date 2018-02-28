@@ -5,6 +5,7 @@ import com.noveogroup.template.R
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
 import com.noveogroup.template.domain.interactor.state.model.SideMode
+import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.presentation.common.mvp.BasePresenter
 import javax.inject.Inject
@@ -20,6 +21,7 @@ class InheritancePresenter @Inject constructor(
         super.attachView(view)
         screenInteractor.publish(
                 sideMode = SideMode.DISABLED,
+                toggle = Toggle.BACK,
                 title = resourceManager.getString(R.string.title_inheritance)
         )
     }

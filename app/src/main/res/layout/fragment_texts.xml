@@ -26,15 +26,8 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/large"
-                android:text="Label" />
-
-            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/selectableLabel"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/large"
                 android:layout_marginTop="@dimen/large"
@@ -70,34 +63,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="validate" />
-
-            </FrameLayout>
-
-            <android.support.v7.widget.AppCompatRatingBar
-                android:id="@+id/ratingBar"
-                style="@style/Widget.AppCompat.RatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:rating="3"
-                android:stepSize="0.5" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/small"
-                android:layout_marginRight="@dimen/small"
-                android:clickable="false"
-                android:duplicateParentState="false">
-
-                <android.support.v7.widget.AppCompatSeekBar
-                    android:id="@+id/seekBar"
-                    style="@style/Base.Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/large"
-                    android:duplicateParentState="false"
-                    android:max="10" />
 
             </FrameLayout>
 
