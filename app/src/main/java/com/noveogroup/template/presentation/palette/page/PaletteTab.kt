@@ -11,8 +11,8 @@ enum class PaletteTab(
         @DrawableRes val drawableRes: Int,
         @StringRes val stringRes: Int
 ) {
-    SELECTORS(R.drawable.ic_code, R.string.palette_tab_selectors),
-    BUTTONS(R.drawable.ic_radio_button, R.string.palette_tab_buttons),
+    SELECTORS(R.drawable.ic_radio_button, R.string.palette_tab_selectors),
+    BUTTONS(R.drawable.ic_button, R.string.palette_tab_buttons),
     PICKERS(R.drawable.ic_star_half, R.string.palette_tab_pickers),
     TEXTS(R.drawable.ic_text, R.string.palette_tab_text)
 }
