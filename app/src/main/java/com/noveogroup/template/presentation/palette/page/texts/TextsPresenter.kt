@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.page.all
+package com.noveogroup.template.presentation.palette.page.texts
 
 import com.arellomobile.mvp.InjectViewState
 import com.noveogroup.template.R
@@ -12,12 +12,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
 @InjectViewState
-class AllPresenter @Inject constructor(
+class TextsPresenter @Inject constructor(
         private val paletteInteractor: PaletteInteractor,
         private val resourceManager: ResourceManager,
         private val screenInteractor: ScreenInteractor,
         globalRouter: GlobalRouter
-) : BasePresenter<AllView>(globalRouter) {
+) : BasePresenter<TextsView>(globalRouter) {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -38,7 +38,7 @@ class AllPresenter @Inject constructor(
                 .unsubscribeOnDestroy()
     }
 
-    override fun attachView(view: AllView?) {
+    override fun attachView(view: TextsView?) {
         super.attachView(view)
         screenInteractor.publish(
                 title = resourceManager.getString(R.string.palette_title_texts)

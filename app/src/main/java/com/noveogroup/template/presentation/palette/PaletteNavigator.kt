@@ -9,10 +9,10 @@ import com.noveogroup.template.domain.navigation.router.PaletteRouter
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.navigation.AnimationDescriptor
 import com.noveogroup.template.presentation.common.navigation.BaseFragmentNavigator
-import com.noveogroup.template.presentation.palette.page.all.AllFragment
 import com.noveogroup.template.presentation.palette.page.buttons.ButtonsFragment
 import com.noveogroup.template.presentation.palette.page.pickers.PickersFragment
 import com.noveogroup.template.presentation.palette.page.selectors.SelectorsFragment
+import com.noveogroup.template.presentation.palette.page.texts.TextsFragment
 import ru.terrakok.cicerone.commands.Command
 
 class PaletteNavigator(
@@ -42,7 +42,7 @@ class PaletteNavigator(
         PaletteRouter.BUTTONS -> ButtonsFragment.newInstance()
         PaletteRouter.SELECTORS -> SelectorsFragment.newInstance()
         PaletteRouter.PICKERS -> PickersFragment.newInstance()
-        PaletteRouter.ALL_CONTROLS -> AllFragment.newInstance()
+        PaletteRouter.ALL_CONTROLS -> TextsFragment.newInstance()
         else -> throw Error("Unknown Fragment Key")
     }
 

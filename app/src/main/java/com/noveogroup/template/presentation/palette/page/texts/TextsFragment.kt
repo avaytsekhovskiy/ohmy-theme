@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.page.all
+package com.noveogroup.template.presentation.palette.page.texts
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,13 +14,13 @@ import com.noveogroup.template.presentation.di.DI
 import kotlinx.android.synthetic.main.fragment_texts.*
 
 @Layout(R.layout.fragment_texts)
-class AllFragment : BaseFragment(), AllView {
+class TextsFragment : BaseFragment(), TextsView {
 
     @InjectPresenter
-    lateinit var presenter: AllPresenter
+    lateinit var presenter: TextsPresenter
 
     @ProvidePresenter
-    fun providePresenter() = DI.paletteScope.getInstance(AllPresenter::class.java)!!
+    fun providePresenter() = DI.paletteScope.getInstance(TextsPresenter::class.java)!!
 
     private val uiControls by lazy {
         listOf(
@@ -52,7 +52,7 @@ class AllFragment : BaseFragment(), AllView {
         selectableLabel.movementMethod = LinkMovementMethod.getInstance()
         selectableLabel.text = """<p>I'm text with link
                                  |<br>
-                                 |<a href="http://google.com">i'm web link</a>
+                                 |<a href="https://github.com/avaytsekhovskiy/ohmy-theme">i'm web link</a>
                                  |<br>
                                  |Select me by long tap</p>
                                  |<p>The form input is quite tricky.
@@ -90,6 +90,6 @@ class AllFragment : BaseFragment(), AllView {
     }
 
     companion object {
-        fun newInstance() = AllFragment()
+        fun newInstance() = TextsFragment()
     }
 }
