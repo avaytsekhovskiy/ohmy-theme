@@ -15,7 +15,6 @@ import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.R
 import com.noveogroup.template.core.ext.logger
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
-import com.noveogroup.template.presentation.common.android.helper.DebugDrawerHelper
 import com.noveogroup.template.presentation.common.android.helper.orientation.ActivityOrientation
 import com.noveogroup.template.presentation.common.android.helper.orientation.OrientationHelper
 import com.noveogroup.template.presentation.common.ext.contentFrom
@@ -25,7 +24,6 @@ import com.noveogroup.template.presentation.common.mvp.view.BaseView
 import com.noveogroup.template.presentation.common.navigation.BackListener
 import com.noveogroup.template.presentation.common.navigation.NavigatorLifecycle
 import com.noveogroup.template.presentation.di.ScopeInitializer
-import io.palaima.debugdrawer.DebugDrawer
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.concurrent.atomic.AtomicReference
 import javax.inject.Inject
@@ -61,11 +59,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
     lateinit var keyboardDelegate: KeyboardDelegate
     lateinit var loadingDelegate: LoadingDelegate
     lateinit var debugDelegate: DebugDelegate
-
-    /* VIEW */
-    @Inject
-    lateinit var debugHelper: DebugDrawerHelper
-    lateinit var debugDrawer: DebugDrawer
 
     @Inject
     lateinit var themeProxy: ThemeProxy
@@ -104,9 +97,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         keyboardDelegate = KeyboardDelegate(this)
         loadingDelegate = LoadingDelegate(this, log)
         debugDelegate = DebugDelegate(toastDelegate, log)
-
-        /* Debug (with UI) */
-        debugDrawer = debugHelper.makeDrawer(this)
 
         /* MVP */
         mvpDelegate.onCreate(savedInstanceState)

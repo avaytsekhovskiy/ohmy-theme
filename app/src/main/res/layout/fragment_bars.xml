@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        tools:ignore="HardcodedText,UselessParent">
+
+        <EditText
+            android:id="@+id/focusStealer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:ignore="TextFields" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/normal">
+
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="0.5" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small"
+                android:layout_marginRight="@dimen/small"
+                android:clickable="false"
+                android:duplicateParentState="false">
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Base.Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/large"
+                    android:duplicateParentState="false"
+                    android:max="10" />
+
+            </FrameLayout>
+
+            <DatePicker
+                android:id="@+id/spinnerPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:maxDate="01/01/2022"
+                android:minDate="01/01/2012"
+                tools:targetApi="lollipop" />
+
+            <DatePicker
+                android:id="@+id/calendarPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:maxDate="01/01/2022"
+                android:minDate="01/01/2012"
+                android:spinnersShown="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

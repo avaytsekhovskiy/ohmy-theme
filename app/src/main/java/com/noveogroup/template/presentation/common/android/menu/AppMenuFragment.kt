@@ -1,25 +1,18 @@
-package com.noveogroup.template.presentation.main.part.menu
+package com.noveogroup.template.presentation.common.android.menu
 
 import android.os.Bundle
 import android.view.View
-import com.arellomobile.mvp.presenter.InjectPresenter
-import com.arellomobile.mvp.presenter.ProvidePresenter
-import com.noveogroup.template.R
+import android.widget.RadioGroup
+import com.noveogroup.debugdrawer.data.theme.Theme
 import com.noveogroup.template.presentation.common.android.BaseFragment
-import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.common.mvp.delegate.DrawerDelegate
 import com.noveogroup.template.presentation.common.navigation.BackListener
-import com.noveogroup.template.presentation.di.DI
+import kotlinx.android.synthetic.main.fragment_app_menu.*
 
 
-@Layout(R.layout.fragment_menu_left)
-class LeftMenuFragment : BaseFragment(), LeftMenuView, BackListener {
+open class AppMenuFragment : BaseFragment(), AppMenuView, BackListener {
 
-    @InjectPresenter
-    lateinit var presenter: LeftMenuPresenter
-
-    @ProvidePresenter
-    fun providePresenter() = DI.mainScope.getInstance(LeftMenuPresenter::class.java)!!
+    open lateinit var presenter: AppMenuPresenter
 
     private var drawerDelegate: DrawerDelegate? = null
 
@@ -28,9 +21,11 @@ class LeftMenuFragment : BaseFragment(), LeftMenuView, BackListener {
             onClose = { presenter.closeMenu() }
     )
 
+    private val themeChangedListener = RadioGroup.OnCheckedChangeListener { _, selectedButtonId -> presenter.changeTheme(selectedButtonId) }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.setOnClickListener { menuView -> presenter.openSomething(menuView.javaClass.simpleName) }
+        themeChoices.setOnCheckedChangeListener(themeChangedListener)
     }
 
     override fun onDestroyView() {
@@ -71,6 +66,17 @@ class LeftMenuFragment : BaseFragment(), LeftMenuView, BackListener {
 
     override fun unlock() {
         drawerDelegate?.unlock()
+    }
+
+    override fun selectChoice(theme: Theme) {
+        themeChoices.setOnCheckedChangeListener(null)
+        when (theme) {
+            Theme.BASE_LIGHT -> choiceBaseLight.isChecked = true
+            Theme.BASE_DARK -> choiceBaseDark.isChecked = true
+            Theme.GREEN_LIGHT -> choiceGreenLight.isChecked = true
+            Theme.GREEN_DARK -> choiceGreenDark.isChecked = true
+        }
+        themeChoices.setOnCheckedChangeListener(themeChangedListener)
     }
 
 }

@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.toolbar
+package com.noveogroup.template.presentation.palette.part.toolbar
 
 import android.view.Menu
 import android.view.MenuItem

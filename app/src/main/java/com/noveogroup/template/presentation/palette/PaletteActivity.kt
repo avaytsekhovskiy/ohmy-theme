@@ -18,16 +18,20 @@ import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.helper.orientation.ActivityOrientation
 import com.noveogroup.template.presentation.common.android.helper.orientation.OrientationHelper
 import com.noveogroup.template.presentation.common.android.inflater.Layout
+import com.noveogroup.template.presentation.common.ext.findFragmentByContainer
+import com.noveogroup.template.presentation.common.mvp.delegate.DrawerDelegate
 import com.noveogroup.template.presentation.common.navigation.NavigatorProvider
 import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.DI
-import com.noveogroup.template.presentation.palette.toolbar.ToolbarHolder
+import com.noveogroup.template.presentation.palette.page.PaletteTab
+import com.noveogroup.template.presentation.palette.part.menu.PaletteMenuFragment
+import com.noveogroup.template.presentation.palette.part.toolbar.ToolbarHolder
 import kotlinx.android.synthetic.main.activity_palette.*
 import javax.inject.Inject
 
 
 @Layout(R.layout.activity_palette)
-class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
+class PaletteActivity : BaseActivity(), PaletteView, NavigatorProvider {
 
     @Inject
     lateinit var paletteRouter: PaletteRouter
@@ -47,10 +51,20 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
 
     private lateinit var toolbarHolder: ToolbarHolder
 
+    private val menuFragment: PaletteMenuFragment
+        get() = findFragmentByContainer(menuContainer)!!
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (savedInstanceState == null) {
+            PaletteMenuFragment().addTo(menuContainer)
+        }
+
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
+        DrawerDelegate(DrawerDelegate.Orientation.RIGHT, menuContainer, drawer).let { drawer ->
+            menuFragment.initialize(drawer)
+        }
 
         PaletteTab.values().forEach { addButton(it) }
 
@@ -105,11 +119,10 @@ class PaletteActivity : BaseActivity(), NavigatorProvider, PaletteView {
 
     override fun onOptionsItemSelected(item: MenuItem) = toolbarHolder.onOptionsItemSelected(item)
 
-    override fun onBackPressed() = presenter.back()
-
-    override fun showSettings() = debugDrawer.openDrawer()
-
-    override fun hideSettings() = debugDrawer.closeDrawer()
+    override fun onBackPressed() {
+        if (processBackIfListener(menuFragment)) return
+        presenter.back()
+    }
 
     override fun selectTab(position: PaletteTab) {
         log.debug("select tab command $position")

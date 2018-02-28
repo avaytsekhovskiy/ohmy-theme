@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.toolbar
+package com.noveogroup.template.presentation.palette.part.toolbar
 
 import android.annotation.SuppressLint
 import android.support.v7.view.menu.MenuBuilder

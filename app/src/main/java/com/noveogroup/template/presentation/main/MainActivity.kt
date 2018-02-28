@@ -17,7 +17,7 @@ import com.noveogroup.template.presentation.common.mvp.delegate.DrawerDelegate
 import com.noveogroup.template.presentation.common.navigation.NavigatorProvider
 import com.noveogroup.template.presentation.di.ActivityScopeInitializer
 import com.noveogroup.template.presentation.di.DI
-import com.noveogroup.template.presentation.main.part.menu.LeftMenuFragment
+import com.noveogroup.template.presentation.main.part.menu.MainMenuFragment
 import com.noveogroup.template.presentation.main.part.toolbar.ToolbarHolder
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -38,8 +38,8 @@ class MainActivity : BaseActivity(), MainView, NavigatorProvider {
 
     private lateinit var toolbarHolder: ToolbarHolder
 
-    private val leftMenuFragment: LeftMenuFragment
-        get() = findFragmentByContainer(leftContainer)!!
+    private val menuFragment: MainMenuFragment
+        get() = findFragmentByContainer(menuContainer)!!
 
     private val currentMainFragment: BaseFragment
         get() = findFragmentByContainer(mainContainer)!!
@@ -47,12 +47,12 @@ class MainActivity : BaseActivity(), MainView, NavigatorProvider {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            LeftMenuFragment().addTo(leftContainer)
+            MainMenuFragment().addTo(menuContainer)
         }
 
-        DrawerDelegate(DrawerDelegate.Orientation.LEFT, leftContainer, drawer).let { drawer ->
-            leftMenuFragment.initialize(drawer)
-            toolbarHolder = ToolbarHolder(this, drawer).apply { onCreate() }
+        toolbarHolder = ToolbarHolder(this).apply { onCreate() }
+        DrawerDelegate(DrawerDelegate.Orientation.RIGHT, menuContainer, drawer).let { drawer ->
+            menuFragment.initialize(drawer)
         }
     }
 
@@ -77,12 +77,10 @@ class MainActivity : BaseActivity(), MainView, NavigatorProvider {
             toolbarHolder.onOptionsItemSelected(item)
 
     override fun onBackPressed() {
-        if (processBackIfListener(leftMenuFragment)) return
+        if (processBackIfListener(menuFragment)) return
         if (processBackIfListener(currentMainFragment)) return
         presenter.back()
     }
-
-    override fun hideSettings() = debugDrawer.closeDrawer()
 
     companion object {
         fun newIntent(context: Context) = Intent(context, MainActivity::class.java)

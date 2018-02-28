@@ -74,7 +74,6 @@
         android:id="@+id/menuContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:background="?android:colorForeground" />
+        android:layout_gravity="right" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -1,7 +1,6 @@
 package com.noveogroup.template.presentation.main.part.toolbar
 
 import android.annotation.SuppressLint
-import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.view.menu.MenuBuilder
 import android.support.v7.view.menu.MenuItemImpl
 import android.support.v7.widget.Toolbar
@@ -14,17 +13,14 @@ import com.noveogroup.template.R
 import com.noveogroup.template.core.ext.warnOrThrow
 import com.noveogroup.template.core.rx.RxHelper
 import com.noveogroup.template.domain.interactor.state.model.PageMode
-import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.BaseMvpComponent
 import com.noveogroup.template.presentation.common.ext.*
-import com.noveogroup.template.presentation.common.mvp.delegate.DrawerDelegate
 import com.noveogroup.template.presentation.di.DI
 
 class ToolbarHolder(
-        activity: BaseActivity,
-        private val drawerHelper: DrawerDelegate
+        activity: BaseActivity
 ) : BaseMvpComponent(activity), ToolbarView, ViewBinder {
 
     override val container: View = activity.findViewById(android.R.id.content)
@@ -34,7 +30,6 @@ class ToolbarHolder(
 
     private val toolbar: Toolbar by bindView(R.id.toolbar)
 
-    private lateinit var toggle: ActionBarDrawerToggle
     private val actionBar get() = activity.supportActionBar
 
     @InjectPresenter
@@ -46,9 +41,8 @@ class ToolbarHolder(
     override fun onCreate() {
         super.onCreate()
         activity.setSupportActionBar(toolbar)
-
-        toggle = drawerHelper.createToggle(activity, toolbar).also(drawerHelper::addListener)
-        toolbar.setNavigationOnClickListener { toolbarPresenter.handleActionBarToggle() }
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+        actionBar?.setDisplayShowHomeEnabled(false)
 
         rxHelper.add(state.observe { descriptor ->
             val allowed = descriptor.allowed
@@ -66,20 +60,6 @@ class ToolbarHolder(
     override fun changeToolbarMenu(toolbarMenu: ToolbarMenu) {
         log.debug("ToolbarMenu changed $toolbarMenu")
         state.onContentReady(toolbarMenu)
-    }
-
-    @Suppress("REDUNDANT_ELSE_IN_WHEN")
-    override fun changeToggle(icon: Toggle) {
-        log.debug("Toggle changed $icon")
-        when (icon) {
-            Toggle.BURGER -> {
-                actionBar?.setDisplayHomeAsUpEnabled(false)
-                toggle.isDrawerIndicatorEnabled = true
-                toggle.syncState()
-            }
-            Toggle.BACK -> actionBar?.setDisplayHomeAsUpEnabled(true)
-            else -> log.warnOrThrow("Unknown toggle icon")
-        }
     }
 
     @Suppress("REDUNDANT_ELSE_IN_WHEN")
@@ -120,7 +100,6 @@ class ToolbarHolder(
     }
 
     fun onDestroy() {
-        drawerHelper.removeListener(toggle)
         ButterKnife.reset(this)
         rxHelper.unsubscribeAll()
     }

@@ -9,7 +9,6 @@ import javax.inject.Inject
 class PaletteInteractor @Inject constructor() : Publisher() {
 
     private val explainSubject: PublishSubject<Any> = PublishSubject.create()
-    private val settingsSubject: PublishSubject<Any> = PublishSubject.create()
     private val enabledSubject: BehaviorSubject<Boolean> = BehaviorSubject.create()
 
     val disabled: Boolean
@@ -18,20 +17,12 @@ class PaletteInteractor @Inject constructor() : Publisher() {
             else -> false
         }
 
-    fun showSettings() {
-        settingsSubject.onNext(SIGNAL)
-    }
-
     fun explain() {
         explainSubject.onNext(SIGNAL)
     }
 
     fun enable(enabled: Boolean) {
         enabledSubject.onNext(enabled)
-    }
-
-    fun observeSettings(): Observable<Any> {
-        return settingsSubject
     }
 
     fun observeExplain(): Observable<Any> {

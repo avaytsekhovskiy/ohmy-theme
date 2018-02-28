@@ -32,6 +32,15 @@
                 android:layout_margin="@dimen/large"
                 android:text="Label" />
 
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/selectableLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large"
+                android:layout_marginTop="@dimen/large"
+                android:textIsSelectable="true"
+                tools:text="Here will be link example in runtime" />
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,40 +73,6 @@
 
             </FrameLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:id="@+id/check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="check" />
-
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/radio1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="radio 1" />
-
-                    <RadioButton
-                        android:id="@+id/radio2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="radio 2" />
-
-                </RadioGroup>
-
-            </LinearLayout>
-
             <android.support.v7.widget.AppCompatRatingBar
                 android:id="@+id/ratingBar"
                 style="@style/Widget.AppCompat.RatingBar"
@@ -125,14 +100,6 @@
                     android:max="10" />
 
             </FrameLayout>
-
-            <TextView
-                android:id="@+id/selectableLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/large"
-                android:textIsSelectable="true"
-                tools:text="Here will be link example in runtime" />
 
         </LinearLayout>
 

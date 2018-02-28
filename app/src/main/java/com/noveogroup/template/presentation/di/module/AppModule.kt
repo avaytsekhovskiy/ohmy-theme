@@ -7,6 +7,7 @@ import com.noveogroup.debugdrawer.data.theme.ThemeProxy
 import com.noveogroup.template.data.android.lifecycle.ActivityScopePublisher
 import com.noveogroup.template.data.android.lifecycle.ForegroundPublisher
 import com.noveogroup.template.data.android.system.ResourceManager
+import com.noveogroup.template.domain.interactor.ThemeInteractor
 import com.noveogroup.template.domain.navigation.Routers
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
 import com.noveogroup.template.domain.navigation.router.MainRouter
@@ -50,5 +51,6 @@ class AppModule(app: ExampleApplication) : Module() {
         //DebugTools
         bind(DebugDrawerHelper::class.java).toInstance(drawerHelper)
         bind(ThemeProxy::class.java).toInstance(drawerHelper.debugHelper.themeProxy)
+        bind(ThemeInteractor::class.java).singletonInScope()
     }
 }

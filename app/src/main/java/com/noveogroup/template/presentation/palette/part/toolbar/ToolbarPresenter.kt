@@ -1,7 +1,6 @@
-package com.noveogroup.template.presentation.palette.toolbar
+package com.noveogroup.template.presentation.palette.part.toolbar
 
 import com.arellomobile.mvp.InjectViewState
-import com.noveogroup.template.domain.interactor.PaletteInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenInteractor
 import com.noveogroup.template.domain.interactor.state.ScreenStateDiffHelper
 import com.noveogroup.template.domain.interactor.state.model.ScreenState
@@ -14,7 +13,6 @@ import javax.inject.Inject
 
 @InjectViewState
 class ToolbarPresenter @Inject constructor(
-        private val paletteInteractor: PaletteInteractor,
         override val screenInteractor: ScreenInteractor,
         globalRouter: GlobalRouter
 ) : BasePresenter<ToolbarView>(globalRouter), ScreenStateListener {
@@ -35,9 +33,9 @@ class ToolbarPresenter @Inject constructor(
     override fun back() = globalRouter.exit()
 
     @Suppress("NON_EXHAUSTIVE_WHEN")
-    fun handleMenuItemClick(item: MenuItemDescriptor) {
-        when (item) {
-            MenuItemDescriptor.SETTINGS -> paletteInteractor.showSettings()
+    fun handleMenuItemClick(item: MenuItemDescriptor) = with(screenInteractor) {
+        if (item == MenuItemDescriptor.SETTINGS) {
+            publish(sideMode = state.sideMode.toggle())
         }
     }
 

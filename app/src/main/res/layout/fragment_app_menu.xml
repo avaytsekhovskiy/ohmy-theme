@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/large"
+    tools:ignore="Overdraw">
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/large"
+        android:drawablePadding="@dimen/small"
+        android:drawableStart="@mipmap/ic_launcher"
+        android:gravity="center_vertical"
+        android:text="@string/app_menu.label" />
+
+    <RadioGroup
+        android:id="@+id/themeChoices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/choiceBaseLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppTheme.Light" />
+
+        <RadioButton
+            android:id="@+id/choiceBaseDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppTheme.Dark" />
+
+        <RadioButton
+            android:id="@+id/choiceGreenLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppTheme.Green.Light" />
+
+        <RadioButton
+            android:id="@+id/choiceGreenDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppTheme.Green.Dark" />
+
+    </RadioGroup>
+
+</LinearLayout>

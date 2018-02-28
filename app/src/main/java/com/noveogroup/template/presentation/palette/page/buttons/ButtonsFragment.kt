@@ -24,7 +24,7 @@ class ButtonsFragment : BaseFragment(), ButtonsView {
     private val uiControls by lazy {
         listOf(normalButton, normalFlatButton,
                 coloredButton, coloredFlatButton,
-                toggleButton, switchButton)
+                toggleButton1, toggleButton2, switchButton)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

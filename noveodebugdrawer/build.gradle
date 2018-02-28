@@ -63,7 +63,7 @@ dependencies {
     releaseApi lib.debugDrawerViewNoOp
 
     /* Noveo debug drawer */
-    api lib.noveoPreferences
+    api lib.noveoPreferencesRx2
     api lib.debugDrawerBuildInfo
     debugApi lib.debugDrawerBuildConfig
     releaseApi lib.debugDrawerBuildConfigNoOp

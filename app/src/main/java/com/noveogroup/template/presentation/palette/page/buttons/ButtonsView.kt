@@ -3,7 +3,7 @@ package com.noveogroup.template.presentation.palette.page.buttons
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.noveogroup.template.presentation.palette.DisableDemoView
+import com.noveogroup.template.presentation.palette.page.DisableDemoView
 
 
 interface ButtonsView : DisableDemoView {

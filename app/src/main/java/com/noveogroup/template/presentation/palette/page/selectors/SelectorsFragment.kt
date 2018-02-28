@@ -22,7 +22,11 @@ class SelectorsFragment : BaseFragment(), SelectorsView {
                 radioDdFirst, radioDdSecond,
                 radioDnFirst, radioDnSecond,
                 radioSaFirst, radioSaSecond,
-                radioSiFirst, radioSiSecond
+                radioSiFirst, radioSiSecond,
+                checkDdFirst, checkDdSecond,
+                checkDnFirst, checkDnSecond,
+                checkSaFirst, checkSaSecond,
+                checkSiFirst, checkSiSecond
         )
     }
 

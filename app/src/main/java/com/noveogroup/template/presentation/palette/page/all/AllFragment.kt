@@ -2,6 +2,7 @@ package com.noveogroup.template.presentation.palette.page.all
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -24,10 +25,9 @@ class AllFragment : BaseFragment(), AllView {
     private val uiControls by lazy {
         listOf(
                 label,
+                selectableLabel,
                 inputLayout, inputField, validateInputButton,
-                check, radio1, radio2,
-                ratingBar, seekBar,
-                selectableLabel
+                ratingBar, seekBar
         )
     }
 
@@ -51,9 +51,10 @@ class AllFragment : BaseFragment(), AllView {
             deFocus()
         }
 
+        selectableLabel.movementMethod = LinkMovementMethod.getInstance()
         selectableLabel.text = """<p>I'm text with link
                                  |<br>
-                                 |<a href="">i'm web link</a>
+                                 |<a href="http://google.com">i'm web link</a>
                                  |<br>
                                  |Select me by long tap</p>""".trimMargin().fromHtml()
 

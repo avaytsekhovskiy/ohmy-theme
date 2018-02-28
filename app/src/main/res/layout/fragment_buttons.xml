@@ -10,14 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:gravity="left"
         android:orientation="vertical"
-        android:padding="@dimen/normal">
+        android:padding="@dimen/normal"
+        tools:ignore="UselessParent">
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:checked="true"
             android:padding="@dimen/small"
             android:text="SwitchButton"
@@ -26,12 +27,14 @@
         <Button
             android:id="@+id/normalFlatButton"
             style="@style/AppTheme.Button.Borderless"
+            android:layout_width="match_parent"
             android:text="AppTheme.Button.Borderless"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/coloredFlatButton"
             style="@style/AppTheme.Button.Borderless.Colored"
+            android:layout_width="match_parent"
             android:text="AppTheme.Button.Borderless.Colored"
             android:textAllCaps="false" />
 
@@ -39,24 +42,45 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/large" />
 
-        <ToggleButton
-            android:id="@+id/toggleButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:textAllCaps="false"
-            android:textOff="ToggleButton Off"
-            android:textOn="ToggleButton On" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ToggleButton
+                android:id="@+id/toggleButton1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:maxLines="1"
+                android:textAllCaps="false"
+                android:textOff="Toggle Off"
+                android:textOn="Toggle On" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:maxLines="1"
+                android:textAllCaps="false"
+                android:textOff="Toggle Off"
+                android:textOn="Toggle On" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/normalButton"
             style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
             android:text="AppTheme.Button"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/coloredButton"
             style="@style/AppTheme.Button.Colored"
+            android:layout_width="match_parent"
             android:text="AppTheme.Button.Colored"
             android:textAllCaps="false" />
 

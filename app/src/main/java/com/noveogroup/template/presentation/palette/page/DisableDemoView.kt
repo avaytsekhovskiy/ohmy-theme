@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette
+package com.noveogroup.template.presentation.palette.page
 
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.noveogroup.template.presentation.common.mvp.strategy.AddToEndSingleByTagStrategy

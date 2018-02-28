@@ -1,4 +1,4 @@
-package com.noveogroup.template.presentation.palette.toolbar
+package com.noveogroup.template.presentation.palette.part.toolbar
 
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
