@@ -11,5 +11,3 @@ build
 # IntelliJ Idea
 *.iml
 .idea/*
-!.idea/codeStyleSettings.xml
-!.idea/inspectionProfiles
