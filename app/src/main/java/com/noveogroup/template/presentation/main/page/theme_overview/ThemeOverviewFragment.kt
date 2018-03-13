@@ -2,12 +2,11 @@ package com.noveogroup.template.presentation.main.page.theme_overview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.SpannableStringBuilder
 import android.view.View
+import androidx.text.buildSpannedString
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
-import com.noveogroup.template.data.android.system.AlphaColor
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.presentation.common.android.BaseFragment
 import com.noveogroup.template.presentation.common.android.inflater.Layout
@@ -30,65 +29,33 @@ class ThemeOverviewFragment : BaseFragment(), OverviewFragment, ThemeOverviewVie
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        SpannableStringBuilder()
-                .appendln("BACKGROUNDS")
-                .appendln("android:colorBackground".withBlocks(
-                        AlphaColor(android.R.attr.colorBackground)
-                ))
-                .appendln("android:colorForeground".withBlocks(
-                        AlphaColor(android.R.attr.colorForeground)
-                ))
-                .appendln().appendln("COLORS BRIGHT")
-                .appendln("colorPrimaryLight".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryLight)
-                ))
-                .appendln("colorPrimary".withBlocks(
-                        AlphaColor(R.attr.colorPrimary)
-                ))
-                .appendln("colorPrimaryDark".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryDark)
-                ))
-                .appendln("colorAccent".withBlocks(
-                        AlphaColor(R.attr.colorAccent)
-                ))
-                .appendln().appendln("COLORS TEXT")
-                .appendln("textColorError".withBlocks(
-                        AlphaColor(R.attr.textColorError)
-                ))
-                .appendln("android:textColorPrimary = colorPrimary".withBlocks(
-                        AlphaColor(android.R.attr.textColorPrimary)
-                ))
-                .appendln("android:textColorSecondary".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary)
-                ))
-                .appendln("android:textColorSecondaryInverse".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondaryInverse)
-                ))
-                .appendln("android:textColorTertiary".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiary)
-                ))
-                .appendln("android:textColorTertiaryInverse".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse)
-                ))
-                .appendln().appendln("SELECTORS")
-                .appendln("android:textColor = secondaryDisabledNatural".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(android.R.attr.textColorSecondary, 128)
-                ))
-                .appendln("android:editTextColor = secondaryDisabledNatural".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(android.R.attr.textColorSecondary, 128)
-                ))
-                .appendln("android:textColorHint = tertiaryDisabledNatural".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiary),
-                        AlphaColor(android.R.attr.textColorTertiary, 128)
-                ))
-                .appendln("android:textColorLink = accentDisabledNatural".withBlocks(
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .let { it as SpannableStringBuilder }
-                .let(colorsLabel::setText)
+        resolveThemeAttrs().let(colorsLabel::setText)
+    }
+
+    private fun resolveThemeAttrs() = buildSpannedString {
+        appendln("BACKGROUNDS")
+        appendln("android:colorBackground".colorOf(android.R.attr.colorBackground))
+        appendln("android:colorForeground".colorOf(android.R.attr.colorForeground))
+        appendln()
+        appendln("COLORS BRIGHT")
+        appendln("colorPrimaryLight".colorOf(R.attr.colorPrimaryLight))
+        appendln("colorPrimary".colorOf(R.attr.colorPrimary))
+        appendln("colorPrimaryDark".colorOf(R.attr.colorPrimaryDark))
+        appendln("colorAccent".colorOf(R.attr.colorAccent))
+        appendln()
+        appendln("COLORS TEXT")
+        appendln("textColorError".colorOf(R.attr.textColorError))
+        appendln("android:textColorPrimary = colorPrimary".colorOf(android.R.attr.textColorPrimary))
+        appendln("android:textColorSecondary".colorOf(android.R.attr.textColorSecondary))
+        appendln("android:textColorSecondaryInverse".colorOf(android.R.attr.textColorSecondaryInverse))
+        appendln("android:textColorTertiary".colorOf(android.R.attr.textColorTertiary))
+        appendln("android:textColorTertiaryInverse".colorOf(android.R.attr.textColorTertiaryInverse))
+        appendln()
+        appendln("SELECTORS")
+        appendln("android:textColor = secondaryDisabledNatural".selectorOf(android.R.attr.textColorSecondary))
+        appendln("android:editTextColor = secondaryDisabledNatural".selectorOf(android.R.attr.textColorSecondary))
+        appendln("android:textColorHint = tertiaryDisabledNatural".selectorOf(android.R.attr.textColorTertiary))
+        appendln("android:textColorLink = accentDisabledNatural".selectorOf(R.attr.colorAccent))
     }
 
     companion object {

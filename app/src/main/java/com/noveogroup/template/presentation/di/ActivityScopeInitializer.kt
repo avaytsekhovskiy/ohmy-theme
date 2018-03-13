@@ -5,7 +5,7 @@ import com.noveogroup.template.presentation.di.module.ActivityModule
 import toothpick.Scope
 import toothpick.config.Module
 
-class ActivityScopeInitializer(scopeProvider: () -> Scope) : ScopeInitializer(scopeProvider) {
+open class ActivityScopeInitializer(scopeProvider: () -> Scope) : ScopeInitializer(scopeProvider) {
 
     override fun provideModules(): Array<Module> = arrayOf(ActivityModule())
 

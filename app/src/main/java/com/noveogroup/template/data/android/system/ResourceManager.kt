@@ -30,8 +30,17 @@ class ResourceManager @Inject constructor(private val context: Context) {
         return ContextCompat.getColor(context, colorId)
     }
 
-    fun resolve(context: Context, @AttrRes attrId: Int): Int =
-            TypedValue().also { context.theme.resolveAttribute(attrId, it, true) }.data
+    @Suppress("UNCHECKED_CAST")
+    inline fun <reified T> resolve(context: Context, @AttrRes attrId: Int): T = TypedValue()
+            .also { context.theme.resolveAttribute(attrId, it, true) }
+            .run {
+                when (T::class) {
+                    Int::class -> data as T
+                    CharSequence::class -> string as T
+                    Float::class -> float as T
+                    else -> error("Unsupported TypedValue type")
+                }
+            }
 
     @ColorInt
     fun processColor(color: AlphaColor, context: Context): Int = color.run {

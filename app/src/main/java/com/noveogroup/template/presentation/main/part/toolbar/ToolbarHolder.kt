@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.view.isVisible
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
@@ -17,7 +18,10 @@ import com.noveogroup.template.domain.interactor.state.model.Toggle
 import com.noveogroup.template.domain.interactor.state.model.ToolbarMenu
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.BaseMvpComponent
-import com.noveogroup.template.presentation.common.ext.*
+import com.noveogroup.template.presentation.common.ext.ButterKnife
+import com.noveogroup.template.presentation.common.ext.ViewBinder
+import com.noveogroup.template.presentation.common.ext.bindView
+import com.noveogroup.template.presentation.common.ext.colorizeDrawable
 import com.noveogroup.template.presentation.di.DI
 
 class ToolbarHolder(
@@ -67,8 +71,8 @@ class ToolbarHolder(
     override fun changePageMode(pageMode: PageMode) {
         log.debug("PageMode changed $pageMode")
         when (pageMode) {
-            PageMode.TOOLBAR -> toolbar.show()
-            PageMode.FULLSCREEN_MODAL -> toolbar.hide()
+            PageMode.TOOLBAR -> toolbar.isVisible = true
+            PageMode.FULLSCREEN_MODAL -> toolbar.isVisible = false
             else -> log.warnOrThrow("unknown PageMode")
         }
     }

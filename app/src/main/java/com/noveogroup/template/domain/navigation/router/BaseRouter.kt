@@ -3,7 +3,6 @@
 package com.noveogroup.template.domain.navigation.router
 
 import com.noveogroup.template.BuildConfig
-
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.Router
@@ -43,11 +42,12 @@ open class BaseRouter(private val cicerone: Cicerone<Router>) {
      * @return previous or newly created cache object.
      */
     @Suppress("UNCHECKED_CAST")
-    fun <T : PagesCache> getOrCreateCache(cacheCreator: () -> T) = synchronized(this) {
-        when (cache) {
-            null -> cacheCreator().also { cache = it }
-            else -> cache as T
-        }
+    fun <T : PagesCache> getOrCreateCache(cacheCreator: (() -> T)? = null): T? = synchronized(this) {
+        return@synchronized cacheCreator
+                ?.takeIf { cache == null }
+                ?.invoke()
+                ?.also { cache = it }
+                ?: cache as T
     }
 
     interface PagesCache {

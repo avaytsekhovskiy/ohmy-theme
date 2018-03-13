@@ -7,13 +7,13 @@ import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
-import com.noveogroup.template.presentation.common.android.BaseFragment
+import com.noveogroup.template.presentation.common.android.PagerFragment
 import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.di.DI
 import kotlinx.android.synthetic.main.fragment_buttons.*
 
 @Layout(R.layout.fragment_buttons)
-class ButtonsFragment : BaseFragment(), ButtonsView {
+class ButtonsFragment : PagerFragment(), ButtonsView {
 
     @InjectPresenter
     lateinit var presenter: ButtonsPresenter

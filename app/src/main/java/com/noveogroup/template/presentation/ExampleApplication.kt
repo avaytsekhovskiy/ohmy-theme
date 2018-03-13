@@ -31,7 +31,7 @@ class ExampleApplication : MultiDexApplication() {
 
         setupErrorHandling()
 
-        /*Dagger*/
+        /*DI*/
         DI.initialize(this)
         DI.appScope.inject(this)
 

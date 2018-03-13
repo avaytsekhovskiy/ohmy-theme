@@ -7,13 +7,17 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.view.isVisible
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
 import com.noveogroup.template.core.rx.RxHelper
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.android.BaseMvpComponent
-import com.noveogroup.template.presentation.common.ext.*
+import com.noveogroup.template.presentation.common.ext.ButterKnife
+import com.noveogroup.template.presentation.common.ext.ViewBinder
+import com.noveogroup.template.presentation.common.ext.bindView
+import com.noveogroup.template.presentation.common.ext.colorizeDrawable
 import com.noveogroup.template.presentation.di.DI
 import com.noveogroup.template.presentation.main.part.toolbar.MenuItemDescriptor
 
@@ -44,7 +48,7 @@ class ToolbarHolder(activity: BaseActivity) : BaseMvpComponent(activity), Toolba
         rxHelper.add(state.observe { state.allMenuItems.forEach { it.isVisible = true } })
         state.onContentReady()
 
-        toolbar.show()
+        toolbar.isVisible = true
     }
 
     override fun changeTitle(title: String) {

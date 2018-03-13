@@ -4,58 +4,29 @@ package com.noveogroup.template.presentation.common.ext
 
 import android.content.Context
 import android.os.Build
-import android.support.annotation.DimenRes
 import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.text.Html
 import android.text.Spanned
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.view.isGone
+import androidx.view.isInvisible
+import androidx.view.isVisible
 import com.noveogroup.template.R
 import com.noveogroup.template.presentation.common.android.inflater.Layout
 import com.noveogroup.template.presentation.common.android.inflater.LayoutWrapper
 import java.util.*
 
-/**
- * publish View.visibility to View.VISIBLE
- */
-fun View.show() {
-    visibility = View.VISIBLE
-}
+fun ViewBinder.showViews(vararg views: View?) = views.forEach { it?.isVisible = true }
 
-/**
- * publish View.visibility to View.INVISIBLE
- */
-fun View.dissolve() {
-    visibility = View.INVISIBLE
-}
+fun ViewBinder.dissolveViews(vararg views: View?) = views.forEach { it?.isInvisible = true }
 
-/**
- * publish View.visibility to View.GONE
- */
-fun View.hide() {
-    visibility = View.GONE
-}
-
-/**
- * publish View.visibility to View.VISIBLE
- */
-fun ViewBinder.showViews(vararg views: View?) = views.forEach { it?.show() }
-
-/**
- * publish View.visibility to View.INVISIBLE
- */
-fun ViewBinder.dissolveViews(vararg views: View?) = views.forEach { it?.dissolve() }
-
-/**
- * publish View.visibility to View.GONE
- */
-fun ViewBinder.hideViews(vararg views: View?) = views.forEach { it?.hide() }
+fun ViewBinder.hideViews(vararg views: View?) = views.forEach { it?.isGone = true }
 
 fun ViewGroup.inflateChild(@LayoutRes layoutId: Int, attachToRoot: Boolean = false): View {
     return context.inflater.inflate(layoutId, this, attachToRoot)
@@ -77,10 +48,6 @@ fun LayoutInflater.contentFrom(source: Any, parent: ViewGroup? = null): View = s
         else -> throw IllegalArgumentException("Activity or Fragment should use @Layout or @LayoutWrapper annotation")
     }
 }
-
-fun Context.dimensionToPx(@DimenRes dimenId: Int) = dpToPx(resources.getDimension(dimenId))
-
-fun Context.dpToPx(dp: Float) = Math.round(dp * (resources.displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
 
 val Context.inflater: LayoutInflater
     get() = LayoutInflater.from(this)

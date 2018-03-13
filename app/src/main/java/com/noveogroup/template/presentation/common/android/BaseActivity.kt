@@ -6,7 +6,6 @@ import android.os.Handler
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
-import android.support.v4.app.SupportFragmentUtils.cleanSupportLibraryIssues
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import com.arellomobile.mvp.MvpDelegate
@@ -51,7 +50,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
 
     /* SUPPORT */
     val handler by lazy { Handler() }
-    private val cleanSupportLibraryIssuesTask = { cleanSupportLibraryIssues() }
 
     /* DELEGATES */
     lateinit var toastDelegate: ToastDelegate
@@ -105,7 +103,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         navigatorLifecycle = NavigatorLifecycle(this, globalRouter, orientationHelper)
 
         savedInstanceState?.let(::tryRestoreState)
-        handler.post(cleanSupportLibraryIssuesTask.apply { invoke() })
     }
 
     override fun onStart() {
@@ -130,8 +127,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, UniqueIdentifiable 
         log.debug("paused")
         navigatorLifecycle.onPause()
         orientationHelper.onPause()
-
-        handler.removeCallbacks(cleanSupportLibraryIssuesTask)
     }
 
     override fun onStop() {

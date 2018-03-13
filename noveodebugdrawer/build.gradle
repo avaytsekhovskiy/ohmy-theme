@@ -49,6 +49,7 @@ dependencies {
 
     /* Kotlin */
     api lib.kotlinStd
+    api lib.androidKtx
 
     /* Palamia debug drawer */
     api lib.debugDrawerCommons

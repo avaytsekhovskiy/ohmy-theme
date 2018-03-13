@@ -11,12 +11,12 @@ class PaletteRouter(cicerone: Cicerone<Router>) : BaseRouter(cicerone) {
 
     fun displayPickers() = router.replaceScreen(PICKERS)
 
-    fun displayAllControls() = router.replaceScreen(ALL_CONTROLS)
+    fun displayAllControls() = router.replaceScreen(TEXTS)
 
     companion object {
         const val BUTTONS = "palette buttons"
         const val SELECTORS = "palette selectors"
         const val PICKERS = "palette pickers"
-        const val ALL_CONTROLS = "palette all controls"
+        const val TEXTS = "palette texts"
     }
 }

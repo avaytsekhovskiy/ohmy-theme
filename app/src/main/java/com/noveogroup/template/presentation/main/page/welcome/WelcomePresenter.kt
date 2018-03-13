@@ -20,7 +20,7 @@ class WelcomePresenter @Inject constructor(
         globalRouter: GlobalRouter
 ) : BasePresenter<BaseView>(globalRouter) {
 
-    override fun attachView(view: BaseView) {
+    override fun attachView(view: BaseView?) {
         super.attachView(view)
         screenInteractor.publish(
                 sideMode = SideMode.CLOSED,

@@ -4,7 +4,6 @@ import android.support.annotation.IdRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
-
 import com.noveogroup.template.domain.navigation.router.MainRouter
 import com.noveogroup.template.presentation.common.android.BaseActivity
 import com.noveogroup.template.presentation.common.navigation.AnimationDescriptor
@@ -13,8 +12,8 @@ import com.noveogroup.template.presentation.main.page.inheritance.InheritanceFra
 import com.noveogroup.template.presentation.main.page.selector_overview.SelectorOverviewFragment
 import com.noveogroup.template.presentation.main.page.theme_overview.ThemeOverviewFragment
 import com.noveogroup.template.presentation.main.page.welcome.WelcomeFragment
-
 import ru.terrakok.cicerone.commands.Command
+
 
 class MainNavigator(
         activity: BaseActivity,
@@ -48,4 +47,5 @@ class MainNavigator(
     }
 
     override fun showSystemMessage(message: String) = activity.showToast(message)
+
 }

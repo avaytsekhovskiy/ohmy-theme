@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
-import android.support.v4.app.SupportFragmentUtils.enableChildFragmentManagerAccess
-import android.support.v4.app.SupportFragmentUtils.updateLoaderManagerHostController
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +40,6 @@ open class BaseFragment : Fragment(), BaseView {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         log.debug("attached")
-        updateLoaderManagerHostController()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,7 +106,6 @@ open class BaseFragment : Fragment(), BaseView {
     override fun onDetach() {
         super.onDetach()
         log.debug("detached")
-        enableChildFragmentManagerAccess()
     }
 
     override fun onDestroy() {

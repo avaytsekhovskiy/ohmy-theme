@@ -2,12 +2,11 @@ package com.noveogroup.template.presentation.main.page.selector_overview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.SpannableStringBuilder
 import android.view.View
+import androidx.text.buildSpannedString
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.noveogroup.template.R
-import com.noveogroup.template.data.android.system.AlphaColor
 import com.noveogroup.template.data.android.system.ResourceManager
 import com.noveogroup.template.presentation.common.android.BaseFragment
 import com.noveogroup.template.presentation.common.android.inflater.Layout
@@ -30,172 +29,124 @@ class SelectorOverviewFragment : BaseFragment(), OverviewFragment, SelectorOverv
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        SpannableStringBuilder()
-                .appendln("NAME: ohmy_cs_*")
-                .appendln().appendln("SELECTABLE SELECTORS")
-                .appendln().appendln("color blocks order:")
-                .appendln("1. regular")
-                .appendln("2. regular disabled")
-                .appendln("3. selected")
-                .appendln("4. selected disabled")
-                .appendln()
-                .appendln("primary_selected_accent".withBlocks(
-                        AlphaColor(R.attr.colorPrimary),
-                        AlphaColor(R.attr.colorPrimary, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("primary_dark_selected_accent".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryDark),
-                        AlphaColor(R.attr.colorPrimaryDark, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("primary_dark_selected_inverse".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryDark),
-                        AlphaColor(R.attr.colorPrimaryDark, 128),
-                        AlphaColor(R.attr.colorPrimaryLight),
-                        AlphaColor(R.attr.colorPrimaryLight, 128)
-                ))
-                .appendln("primary_light_selected_accent".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryLight),
-                        AlphaColor(R.attr.colorPrimaryLight, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("primary_light_selected_inverse".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryLight),
-                        AlphaColor(R.attr.colorPrimaryLight, 128),
-                        AlphaColor(R.attr.colorPrimaryDark),
-                        AlphaColor(R.attr.colorPrimaryDark, 128)
-                ))
-                .appendln("secondary_selected_accent".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(android.R.attr.textColorSecondary, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("secondary_selected_inverse".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(android.R.attr.textColorSecondary, 128),
-                        AlphaColor(android.R.attr.textColorSecondaryInverse),
-                        AlphaColor(android.R.attr.textColorSecondaryInverse, 128)
-                ))
-                .appendln("secondary_inverse_selected_accent".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondaryInverse),
-                        AlphaColor(android.R.attr.textColorSecondaryInverse, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("secondary_inverse_selected_inverse".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondaryInverse),
-                        AlphaColor(android.R.attr.textColorSecondaryInverse, 128),
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(android.R.attr.textColorSecondary, 128)
-                ))
-                .appendln("tertiary_selected_accent".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiary),
-                        AlphaColor(android.R.attr.textColorTertiary, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("tertiary_selected_inverse".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiary),
-                        AlphaColor(android.R.attr.textColorTertiary, 128),
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(android.R.attr.textColorTertiaryInverse, 128)
-                ))
-                .appendln("tertiary_inverse_selected_accent".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(android.R.attr.textColorTertiaryInverse, 128),
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("tertiary_inverse_selected_inverse".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(android.R.attr.textColorTertiaryInverse, 128),
-                        AlphaColor(android.R.attr.textColorTertiary),
-                        AlphaColor(android.R.attr.textColorTertiary, 128)
-                ))
-                .appendln().appendln("REGULAR SELECTORS (with correct disabled state)")
-                .appendln().appendln("color blocks order:")
-                .appendln("1. regular")
-                .appendln("2. disabled")
-                .appendln()
-                .appendln("accent_disabled_default".withBlocks(
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("accent_disabled_natural".withBlocks(
-                        AlphaColor(R.attr.colorAccent),
-                        AlphaColor(R.attr.colorAccent, 128)
-                ))
-                .appendln("error_disabled_default".withBlocks(
-                        AlphaColor(R.attr.textColorError),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("error_disabled_natural".withBlocks(
-                        AlphaColor(R.attr.textColorError),
-                        AlphaColor(R.attr.textColorError, 128)
-                ))
-                .appendln("primary_dark_disabled_default".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryDark),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("primary_dark_disabled_natural".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryDark),
-                        AlphaColor(R.attr.colorPrimaryDark, 128)
-                ))
-                .appendln("primary_disabled_default".withBlocks(
-                        AlphaColor(R.attr.colorPrimary),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("primary_disabled_natural".withBlocks(
-                        AlphaColor(R.attr.colorPrimary),
-                        AlphaColor(R.attr.colorPrimary, 128)
-                ))
-                .appendln("primary_light_disabled_default".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryLight),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("primary_light_disabled_natural".withBlocks(
-                        AlphaColor(R.attr.colorPrimaryLight),
-                        AlphaColor(R.attr.colorPrimaryLight, 128)
-                ))
-                .appendln("secondary_disabled_default".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("secondary_disabled_natural".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondary),
-                        AlphaColor(android.R.attr.textColorSecondary, 128)
-                ))
-                .appendln("secondary_inverse_disabled_default".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondaryInverse),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("secondary_inverse_disabled_natural".withBlocks(
-                        AlphaColor(android.R.attr.textColorSecondaryInverse),
-                        AlphaColor(android.R.attr.textColorSecondaryInverse, 128)
-                ))
-                .appendln("tertiary_disabled_default".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("tertiary_disabled_natural".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(android.R.attr.textColorTertiaryInverse, 128)
-                ))
-                .appendln("tertiary_inverse_disabled_default".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(R.attr.textColorDefaultDisabled, 128)
-                ))
-                .appendln("tertiary_inverse_disabled_natural".withBlocks(
-                        AlphaColor(android.R.attr.textColorTertiaryInverse),
-                        AlphaColor(android.R.attr.textColorTertiaryInverse, 128)
-                ))
-                .let { it as SpannableStringBuilder }
-                .let(colorsLabel::setText)
+        resolveThemeAttrs().let(colorsLabel::setText)
+    }
+
+    private fun resolveThemeAttrs() = buildSpannedString {
+        appendln("NAME: ohmy_cs_*")
+        appendln()
+        appendln("SELECTABLE SELECTORS")
+        appendln()
+        appendln("color blocks order:")
+        appendln("1. regular")
+        appendln("2. regular disabled")
+        appendln("3. selected")
+        appendln("4. selected disabled")
+        appendln()
+        appendln("primary_selected_accent".selectableSelectorOf(
+                R.attr.colorPrimary,
+                R.attr.colorAccent
+        ))
+        appendln("primary_dark_selected_accent".selectableSelectorOf(
+                R.attr.colorPrimaryDark,
+                R.attr.colorAccent
+        ))
+        appendln("primary_dark_selected_inverse".selectableSelectorOf(
+                R.attr.colorPrimaryDark,
+                R.attr.colorPrimaryLight
+        ))
+        appendln("primary_light_selected_accent".selectableSelectorOf(
+                R.attr.colorPrimaryLight,
+                R.attr.colorAccent
+        ))
+        appendln("primary_light_selected_inverse".selectableSelectorOf(
+                R.attr.colorPrimaryLight,
+                R.attr.colorPrimaryDark
+        ))
+        appendln("secondary_selected_accent".selectableSelectorOf(
+                android.R.attr.textColorSecondary,
+                R.attr.colorAccent
+        ))
+        appendln("secondary_selected_inverse".selectableSelectorOf(
+                android.R.attr.textColorSecondary,
+                android.R.attr.textColorSecondaryInverse
+        ))
+        appendln("secondary_inverse_selected_accent".selectableSelectorOf(
+                android.R.attr.textColorSecondaryInverse,
+                R.attr.colorAccent
+        ))
+        appendln("secondary_inverse_selected_inverse".selectableSelectorOf(
+                android.R.attr.textColorSecondaryInverse,
+                android.R.attr.textColorSecondary
+        ))
+        appendln("tertiary_selected_accent".selectableSelectorOf(
+                android.R.attr.textColorTertiary,
+                R.attr.colorAccent
+        ))
+        appendln("tertiary_selected_inverse".selectableSelectorOf(
+                android.R.attr.textColorTertiary,
+                android.R.attr.textColorTertiaryInverse
+        ))
+        appendln("tertiary_inverse_selected_accent".selectableSelectorOf(
+                android.R.attr.textColorTertiaryInverse,
+                R.attr.colorAccent
+        ))
+        appendln("tertiary_inverse_selected_inverse".selectableSelectorOf(
+                android.R.attr.textColorTertiaryInverse,
+                android.R.attr.textColorTertiary
+        ))
+        appendln()
+        appendln("REGULAR SELECTORS (with correct disabled state)")
+        appendln()
+        appendln("color blocks order:")
+        appendln("1. regular")
+        appendln("2. disabled")
+        appendln()
+        appendln("accent_disabled_default".selectorOf(
+                R.attr.colorAccent,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("accent_disabled_natural".selectorOf(R.attr.colorAccent))
+        appendln("error_disabled_default".selectorOf(
+                R.attr.textColorError,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("error_disabled_natural".selectorOf(R.attr.textColorError))
+        appendln("primary_dark_disabled_default".selectorOf(
+                R.attr.colorPrimaryDark,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("primary_dark_disabled_natural".selectorOf(R.attr.colorPrimaryDark))
+        appendln("primary_disabled_default".selectorOf(
+                R.attr.colorPrimary,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("primary_disabled_natural".selectorOf(R.attr.colorPrimary))
+        appendln("primary_light_disabled_default".selectorOf(
+                R.attr.colorPrimaryLight,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("primary_light_disabled_natural".selectorOf(R.attr.colorPrimaryLight))
+        appendln("secondary_disabled_default".selectorOf(
+                android.R.attr.textColorSecondary,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("secondary_disabled_natural".selectorOf(android.R.attr.textColorSecondary))
+        appendln("secondary_inverse_disabled_default".selectorOf(
+                android.R.attr.textColorSecondaryInverse,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("secondary_inverse_disabled_natural".selectorOf(android.R.attr.textColorSecondaryInverse))
+        appendln("tertiary_disabled_default".selectorOf(
+                android.R.attr.textColorTertiaryInverse,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("tertiary_disabled_natural".selectorOf(android.R.attr.textColorTertiaryInverse))
+        appendln("tertiary_inverse_disabled_default".selectorOf(
+                android.R.attr.textColorTertiaryInverse,
+                R.attr.textColorDefaultDisabled
+        ))
+        appendln("tertiary_inverse_disabled_natural".selectorOf(android.R.attr.textColorTertiaryInverse))
     }
 
     companion object {

@@ -36,6 +36,7 @@ abstract class ScopeInitializer(
     }
 
     companion object {
+        @JvmStatic
         internal val log by logger("ScopeInitializer")
     }
 }

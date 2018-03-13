@@ -71,9 +71,12 @@ dependencies {
 
     /* Kotlin */
     implementation lib.kotlinStd
+    implementation lib.androidKtx
 
     /* Support Libraries */
+    implementation lib.supportLibrary
     implementation lib.supportCompat
+    implementation lib.supportAppCompat
     implementation lib.supportRecyclerView
     implementation lib.supportCardView
     implementation lib.supportDesign

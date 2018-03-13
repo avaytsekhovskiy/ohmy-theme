@@ -61,26 +61,36 @@ class PaletteActivity : BaseActivity(), PaletteView, NavigatorProvider {
             PaletteMenuFragment().addTo(menuContainer)
         }
 
+
+
         toolbarHolder = ToolbarHolder(this).apply { onCreate() }
         DrawerDelegate(DrawerDelegate.Orientation.RIGHT, menuContainer, drawer).let { drawer ->
             menuFragment.initialize(drawer)
         }
 
-        PaletteTab.values().forEach { addButton(it) }
-
-        bottomTabs.setOnNavigationItemSelectedListener {
-            log.debug("tab selected listener $it")
-            presenter.openPage(PaletteTab.values()[it.itemId])
-            return@setOnNavigationItemSelectedListener true
+        PaletteTab.values().also { tabs ->
+            tabs.forEach { addButton(it) }
+            with(fragmentPager) {
+                adapter = PalettePagerAdapter(tabs, supportFragmentManager)
+                offscreenPageLimit = tabs.size
+            }
         }
-        bottomTabs.disableShiftMode()
+
+        with(bottomTabs) {
+            setOnNavigationItemSelectedListener {
+                log.debug("tab selected listener $it")
+                presenter.openPage(PaletteTab.values()[it.itemId])
+                return@setOnNavigationItemSelectedListener true
+            }
+            disableShiftMode()
+        }
 
         explainButton.setOnClickListener { presenter.explain() }
         enableView.setOnCheckedChangeListener { _, checked -> presenter.enable(checked) }
     }
 
     override fun onInstallNavigator() {
-        paletteRouter.setNavigator(PaletteNavigator(this, R.id.pageContainer))
+        paletteRouter.setNavigator(PaletteNavigator(fragmentPager))
     }
 
     override fun onReleaseNavigator() {

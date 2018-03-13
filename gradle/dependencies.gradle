@@ -3,11 +3,11 @@ ext.versions = [
         /*GRADLE DEPENDENCIES*/
         androidPlugin      : "3.0.1",
         noveoCheckPlugin   : "1.2.5",
-        kotlinPlugin       : "1.2.21",
+        kotlinPlugin       : "1.2.30",
 
         /*APPLICATION DEPENDENCIES*/
-        kotlinStd          : "1.2.21",
-        supportLibrary     : "27.0.2",
+        kotlinStd          : "1.2.30",
+        supportLibrary     : "27.1.0",
         multidex           : "1.0.1",
         slf4j              : "1.7.25",
         logback            : "1.1.1-6",
@@ -29,6 +29,7 @@ ext.versions = [
         stetho             : "1.5.0",
         phoenix            : "2.0.0",
         leakCanary         : "1.5.1",
+        androidKtx         : "0.2",
         debugDrawer        : "0.8.0",
         noveoPreferences   : "0.0.3",
         noveoDebugDrawer   : "0.0.3",
@@ -50,6 +51,7 @@ ext.lib = [
 
         /* Kotlin*/
         kotlinStd                 : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlinStd",
+        androidKtx                : "androidx.core:core-ktx:$versions.androidKtx",
 
         /* Support Libraries */
         supportLibrary            : "com.android.support:support-v4:$versions.supportLibrary",

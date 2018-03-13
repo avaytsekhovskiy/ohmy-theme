@@ -2,6 +2,7 @@ package com.noveogroup.template.presentation.common.mvp
 
 import com.arellomobile.mvp.MvpPresenter
 import com.arellomobile.mvp.MvpView
+import com.noveogroup.template.core.ext.debugName
 import com.noveogroup.template.core.ext.logger
 import com.noveogroup.template.core.rx.RxHelper
 import com.noveogroup.template.domain.navigation.router.GlobalRouter
@@ -22,6 +23,16 @@ abstract class BasePresenter<View : MvpView>(
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         log.info("initialized")
+    }
+
+    override fun attachView(view: View?) {
+        super.attachView(view)
+        log.debug("attached ${view?.debugName}")
+    }
+
+    override fun detachView(view: View?) {
+        super.detachView(view)
+        log.debug("detached ${view?.debugName}")
     }
 
     override fun onDestroy() {
