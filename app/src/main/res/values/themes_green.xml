@@ -5,16 +5,16 @@
         <item name="colorPrimaryLight">@color/green_light</item>
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/green_dark</item>
-        <item name="colorAccent">@color/red</item>
-        <item name="colorControlNormal">@color/red_light</item>
+        <item name="colorAccent">@color/red_light</item>
+        <item name="colorControlActivated">@color/red</item>
     </style>
 
     <style name="AppTheme.Dark.Green">
         <item name="colorPrimaryLight">@color/green_light</item>
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/green_dark</item>
-        <item name="colorAccent">@color/red</item>
-        <item name="colorControlNormal">@color/red_light</item>
+        <item name="colorAccent">@color/red_light</item>
+        <item name="colorControlActivated">@color/red</item>
     </style>
 
 </resources>

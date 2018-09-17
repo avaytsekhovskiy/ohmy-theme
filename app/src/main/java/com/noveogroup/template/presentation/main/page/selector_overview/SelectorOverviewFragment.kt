@@ -104,47 +104,47 @@ class SelectorOverviewFragment : BaseFragment(), OverviewFragment, SelectorOverv
         appendln()
         appendln("accent_disabled_default".selectorOf(
                 R.attr.colorAccent,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("accent_disabled_natural".selectorOf(R.attr.colorAccent))
         appendln("error_disabled_default".selectorOf(
                 R.attr.textColorError,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("error_disabled_natural".selectorOf(R.attr.textColorError))
         appendln("primary_dark_disabled_default".selectorOf(
                 R.attr.colorPrimaryDark,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("primary_dark_disabled_natural".selectorOf(R.attr.colorPrimaryDark))
         appendln("primary_disabled_default".selectorOf(
                 R.attr.colorPrimary,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("primary_disabled_natural".selectorOf(R.attr.colorPrimary))
         appendln("primary_light_disabled_default".selectorOf(
                 R.attr.colorPrimaryLight,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("primary_light_disabled_natural".selectorOf(R.attr.colorPrimaryLight))
         appendln("secondary_disabled_default".selectorOf(
                 android.R.attr.textColorSecondary,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("secondary_disabled_natural".selectorOf(android.R.attr.textColorSecondary))
         appendln("secondary_inverse_disabled_default".selectorOf(
                 android.R.attr.textColorSecondaryInverse,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("secondary_inverse_disabled_natural".selectorOf(android.R.attr.textColorSecondaryInverse))
         appendln("tertiary_disabled_default".selectorOf(
                 android.R.attr.textColorTertiaryInverse,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("tertiary_disabled_natural".selectorOf(android.R.attr.textColorTertiaryInverse))
         appendln("tertiary_inverse_disabled_default".selectorOf(
                 android.R.attr.textColorTertiaryInverse,
-                R.attr.textColorDefaultDisabled
+                R.attr.textColorDisabledDefault
         ))
         appendln("tertiary_inverse_disabled_natural".selectorOf(android.R.attr.textColorTertiaryInverse))
     }

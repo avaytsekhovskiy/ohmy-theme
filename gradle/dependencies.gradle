@@ -3,10 +3,10 @@ ext.versions = [
         /*GRADLE DEPENDENCIES*/
         androidPlugin      : "3.0.1",
         noveoCheckPlugin   : "1.2.5",
-        kotlinPlugin       : "1.2.30",
+        kotlinPlugin       : "1.2.40",
 
         /*APPLICATION DEPENDENCIES*/
-        kotlinStd          : "1.2.30",
+        kotlinStd          : "1.2.40",
         supportLibrary     : "27.1.0",
         multidex           : "1.0.1",
         slf4j              : "1.7.25",

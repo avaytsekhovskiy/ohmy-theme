@@ -2,105 +2,39 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--private: THEME CONFIGURATION-->
-    <style name="Base.AppTheme.V15" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         /* WINDOW */
         <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
         <item name="android:windowBackground">?android:colorBackground</item>
 
-        /* MAIN COLORS */
-        <item name="colorControlNormal">?android:attr/textColorTertiary</item>
-
-        /* TEXT COLORS */
+        /* SPECIAL COLORS */
+        <item name="colorControlNormal">?android:textColorTertiary</item>
         <item name="textColorError">@color/red_dark</item>
 
         /* COLOR SELECTORS */
-        <item name="android:textColor">?ohmyCsSecondaryDisabledNatural</item>
-        <item name="android:editTextColor">?ohmyCsSecondaryDisabledNatural</item>
-        <item name="android:textColorHint">?ohmyCsTertiaryDisabledNatural</item>
-        <item name="android:textColorLink">?ohmyCsAccentDisabledNatural</item>
-        <item name="android:textColorPrimaryDisableOnly">?ohmyCsSecondaryDisabledNatural</item>
+        <item name="android:textColor">@color/ohmy_cs_secondary_disabled_natural</item>
+        <item name="android:editTextColor">@color/ohmy_cs_secondary_disabled_natural</item>
+        <item name="android:textColorHint">@color/ohmy_cs_tertiary_disabled_natural</item>
+        <item name="android:textColorLink">@color/ohmy_cs_accent_disabled_natural</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/ohmy_cs_secondary_disabled_natural</item>
+        <item name="colorButtonNormal">@color/ohmy_bg_cs_button</item>
+        <item name="android:colorButtonNormal">?colorButtonNormal</item>
 
         /* OTHER */
         <item name="android:listDivider">@color/grey</item>
         <item name="android:disabledAlpha">0.5</item>
-        <item name="textColorDefaultDisabled">?android:textColorSecondary</item>
+        <item name="textColorDisabledDefault">?android:textColorSecondary</item>
+        <item name="ohmyButtonColorNormal">?android:textColorSecondaryInverse</item>
+        <item name="ohmyButtonColorDisabled">@color/grey</item>
 
         /* STYLES */
-        <item name="barStyle">@style/AppThemeOverlay.Toolbar.Dark</item>
-        <item name="actionBarStyle">?barStyle</item>
-        <item name="android:toolbarStyle" tools:targetApi="lollipop">?barStyle</item>
+        <item name="android:toolbarStyle" tools:targetApi="lollipop">?actionBarStyle</item>
         <item name="android:dropDownListViewStyle">@style/AppTheme.ListStyle</item>
-
         <item name="android:buttonStyle">@style/AppTheme.Button</item>
         <item name="android:borderlessButtonStyle">@style/AppTheme.Button.Borderless</item>
 
         /* LIBRARY ATTRS */
         <item name="cpbStyle">@style/CircularThemeProgressBar</item>
-
-        /* COMPATIBILITY */
-        <item name="ohmyCompatColorButtonNormal">?android:textColorSecondaryInverse</item>
-        <item name="ohmyCompatColorButtonDisabled">@color/grey</item>
-        <item name="ohmyCompatColorSelectorButtonBackground">?ohmyCompatColorButtonNormal</item>
-
-        <!--COLOR SELECTOR (NORMAL/DISABLED)-->
-        <item name="ohmyCsAccentDisabledNatural">?colorAccent</item>
-        <item name="ohmyCsErrorDisabledNatural">?textColorError</item>
-        <item name="ohmyCsPrimaryLightDisabledNatural">?colorPrimaryLight</item>
-        <item name="ohmyCsPrimaryDisabledNatural">?colorPrimary</item>
-        <item name="ohmyCsPrimaryDarkDisabledNatural">?colorPrimaryDark</item>
-        <item name="ohmyCsSecondaryDisabledNatural">?android:textColorSecondary</item>
-        <item name="ohmyCsSecondaryInverseDisabledNatural">?android:textColorSecondaryInverse</item>
-        <item name="ohmyCsTertiaryDisabledNatural">?android:textColorTertiary</item>
-        <item name="ohmyCsTertiaryInverseDisabledNatural">?android:textColorTertiaryInverse</item>
-        <item name="ohmyCsAccentDisabledDefault">?colorAccent</item>
-        <item name="ohmyCsErrorDisabledDefault">?textColorError</item>
-        <item name="ohmyCsPrimaryLightDisabledDefault">?colorPrimaryLight</item>
-        <item name="ohmyCsPrimaryDisabledDefault">?colorPrimary</item>
-        <item name="ohmyCsPrimaryDarkDisabledDefault">?colorPrimaryDark</item>
-        <item name="ohmyCsSecondaryDisabledDefault">?android:textColorSecondary</item>
-        <item name="ohmyCsSecondaryInverseDisabledDefault">?android:textColorSecondaryInverse</item>
-        <item name="ohmyCsTertiaryDisabledDefault">?android:textColorTertiary</item>
-        <item name="ohmyCsTertiaryInverseDisabledDefault">?android:textColorTertiaryInverse</item>
-
-        <!--COLOR SELECTOR SELECTABLE (NORMAL/SELECTED/DISABLED)-->
-        <item name="ohmyCsPrimaryLightSelectedAccent">?colorPrimaryLight</item>
-        <item name="ohmyCsPrimarySelectedAccent">?colorPrimary</item>
-        <item name="ohmyCsPrimaryDarkSelectedAccent">?colorPrimaryDark</item>
-        <item name="ohmyCsSecondarySelectedAccent">?android:textColorSecondary</item>
-        <item name="ohmyCsSecondaryInverseSelectedAccent">?android:textColorSecondaryInverse</item>
-        <item name="ohmyCsTertiarySelectedAccent">?android:textColorTertiary</item>
-        <item name="ohmyCsTertiaryInverseSelectedAccent">?android:textColorTertiaryInverse</item>
-        <item name="ohmyCsPrimaryLightSelectedInverse">?colorPrimaryLight</item>
-        <item name="ohmyCsPrimaryDarkSelectedInverse">?colorPrimaryDark</item>
-        <item name="ohmyCsSecondarySelectedInverse">?android:textColorSecondary</item>
-        <item name="ohmyCsSecondaryInverseSelectedInverse">?android:textColorSecondaryInverse</item>
-        <item name="ohmyCsTertiarySelectedInverse">?android:textColorTertiary</item>
-        <item name="ohmyCsTertiaryInverseSelectedInverse">?android:textColorTertiaryInverse</item>
-
-        <!--DRAWABLE RIPPLE-->
-        <item name="ohmyRippleAccent">?colorAccent</item>
-        <item name="ohmyRippleError">?textColorError</item>
-        <item name="ohmyRipplePrimary">?colorPrimary</item>
-        <item name="ohmyRipplePrimaryLight">?colorPrimaryLight</item>
-        <item name="ohmyRipplePrimaryDark">?colorPrimaryDark</item>
-        <item name="ohmyRippleSecondary">?android:textColorSecondary</item>
-        <item name="ohmyRippleSecondaryInverse">?android:textColorSecondaryInverse</item>
-        <item name="ohmyRippleTertiary">?android:textColorTertiary</item>
-        <item name="ohmyRippleTertiaryInverse">?android:textColorTertiaryInverse</item>
-        <item name="ohmyRippleRectAccent">?colorAccent</item>
-        <item name="ohmyRippleRectError">?textColorError</item>
-        <item name="ohmyRippleRectPrimary">?colorPrimary</item>
-        <item name="ohmyRippleRectPrimaryLight">?colorPrimaryLight</item>
-        <item name="ohmyRippleRectPrimaryDark">?colorPrimaryDark</item>
-        <item name="ohmyRippleRectSecondary">?android:textColorSecondary</item>
-        <item name="ohmyRippleRectSecondaryInverse">?android:textColorSecondaryInverse</item>
-        <item name="ohmyRippleRectTertiary">?android:textColorTertiary</item>
-        <item name="ohmyRippleRectTertiaryInverse">?android:textColorTertiaryInverse</item>
-    </style>
-
-    <!-- V15/V21 based resources -->
-    <style name="Base.AppTheme" parent="Base.AppTheme.V15">
-        <item name="colorControlActivated">?ohmyCsAccentDisabledNatural</item>
     </style>
 
     <style name="Base.AppThemeOverlay.Dialog.Alert" parent="ThemeOverlay.AppCompat.Dialog.Alert">
@@ -144,7 +78,7 @@
     </style>
 
     <style name="AppThemeOverlay.Dim" parent="ThemeOverlay.AppCompat">
-        <item name="colorControlActivated">?android:attr/textColorTertiary</item>
+        <item name="colorControlActivated">?android:textColorTertiary</item>
     </style>
 
     <!--public: LIGHT THEME -->
@@ -170,7 +104,7 @@
         <item name="android:textColorTertiaryInverse">@color/grey_light</item>
 
         <!---->
-        <item name="barStyle">@style/AppThemeOverlay.Toolbar.Dark</item>
+        <item name="actionBarStyle">@style/AppThemeOverlay.Toolbar.Dark</item>
         <item name="alertDialogTheme">@style/AppThemeOverlay.Dialog.Alert.Light</item>
         <item name="drawerArrowStyle">@style/AppThemeOverlay.Toolbar.DrawerArrow.Light</item>
     </style>
@@ -217,7 +151,7 @@
         <item name="android:textColorTertiaryInverse">@color/grey_dark</item>
 
         /* STYLES INCEPTION */
-        <item name="barStyle">@style/AppThemeOverlay.Toolbar.Light</item>
+        <item name="actionBarStyle">@style/AppThemeOverlay.Toolbar.Light</item>
         <item name="drawerArrowStyle">@style/AppThemeOverlay.Toolbar.DrawerArrow.Dark</item>
         <item name="alertDialogTheme">@style/AppThemeOverlay.Dialog.Alert.Dark</item>
     </style>

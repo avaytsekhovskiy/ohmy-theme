@@ -1,79 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Base.AppTheme">
-        <attr name="textColorDefaultDisabled" format="color|reference" />
         <attr name="colorPrimaryLight" format="color|reference" />
-        <attr name="barStyle" format="reference" />
-    </declare-styleable>
 
-    <!--compatibility with pre lollipop -->
-    <declare-styleable name="OhmyCompat">
-        <attr name="ohmyCompatColorButtonNormal" format="color|reference" />
-        <attr name="ohmyCompatColorButtonDisabled" format="color|reference" />
-        <attr name="ohmyCompatColorSelectorButtonBackground" format="color|reference" />
-    </declare-styleable>
+        <attr name="textColorDisabledDefault" format="color|reference" />
 
-    /* regular, disabled */
-    <declare-styleable name="OhmyColorSelector">
-        <attr name="ohmyCsAccentDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsErrorDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsPrimaryDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsPrimaryLightDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsPrimaryDarkDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsSecondaryDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsSecondaryInverseDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsTertiaryDisabledNatural" format="color|reference" />
-        <attr name="ohmyCsTertiaryInverseDisabledNatural" format="color|reference" />
-
-        <attr name="ohmyCsAccentDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsErrorDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsPrimaryDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsPrimaryLightDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsPrimaryDarkDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsSecondaryDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsSecondaryInverseDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsTertiaryDisabledDefault" format="color|reference" />
-        <attr name="ohmyCsTertiaryInverseDisabledDefault" format="color|reference" />
-    </declare-styleable>
-
-    /* regular, checked/selected/activated, disabled */
-    <declare-styleable name="OhmySelectableColorSelector">
-        <attr name="ohmyCsPrimarySelectedAccent" format="color|reference" />
-        <attr name="ohmyCsPrimaryLightSelectedAccent" format="color|reference" />
-        <attr name="ohmyCsPrimaryDarkSelectedAccent" format="color|reference" />
-        <attr name="ohmyCsSecondarySelectedAccent" format="color|reference" />
-        <attr name="ohmyCsSecondaryInverseSelectedAccent" format="color|reference" />
-        <attr name="ohmyCsTertiarySelectedAccent" format="color|reference" />
-        <attr name="ohmyCsTertiaryInverseSelectedAccent" format="color|reference" />
-
-        <attr name="ohmyCsPrimaryLightSelectedInverse" format="color|reference" />
-        <attr name="ohmyCsPrimaryDarkSelectedInverse" format="color|reference" />
-        <attr name="ohmyCsSecondarySelectedInverse" format="color|reference" />
-        <attr name="ohmyCsSecondaryInverseSelectedInverse" format="color|reference" />
-        <attr name="ohmyCsTertiarySelectedInverse" format="color|reference" />
-        <attr name="ohmyCsTertiaryInverseSelectedInverse" format="color|reference" />
-    </declare-styleable>
-
-    /* Ripple */
-    <declare-styleable name="OhmyRipple">
-        <attr name="ohmyRippleAccent" format="integer|reference" />
-        <attr name="ohmyRippleError" format="integer|reference" />
-        <attr name="ohmyRipplePrimary" format="integer|reference" />
-        <attr name="ohmyRipplePrimaryLight" format="integer|reference" />
-        <attr name="ohmyRipplePrimaryDark" format="integer|reference" />
-        <attr name="ohmyRippleSecondary" format="integer|reference" />
-        <attr name="ohmyRippleSecondaryInverse" format="integer|reference" />
-        <attr name="ohmyRippleTertiary" format="integer|reference" />
-        <attr name="ohmyRippleTertiaryInverse" format="integer|reference" />
-
-        <attr name="ohmyRippleRectAccent" format="integer|reference" />
-        <attr name="ohmyRippleRectError" format="integer|reference" />
-        <attr name="ohmyRippleRectPrimary" format="integer|reference" />
-        <attr name="ohmyRippleRectPrimaryLight" format="integer|reference" />
-        <attr name="ohmyRippleRectPrimaryDark" format="integer|reference" />
-        <attr name="ohmyRippleRectSecondary" format="integer|reference" />
-        <attr name="ohmyRippleRectSecondaryInverse" format="integer|reference" />
-        <attr name="ohmyRippleRectTertiary" format="integer|reference" />
-        <attr name="ohmyRippleRectTertiaryInverse" format="integer|reference" />
+        <attr name="ohmyButtonColorNormal" format="color|reference"/>
+        <attr name="ohmyButtonColorDisabled" format="color|reference" />
     </declare-styleable>
 </resources>

@@ -18,7 +18,7 @@
             android:layout_height="?actionBarSize"
             android:background="?colorPrimary"
             android:minHeight="?actionBarSize"
-            android:theme="?barStyle" />
+            android:theme="?actionBarStyle" />
 
         <FrameLayout
             android:id="@+id/mainContainer"

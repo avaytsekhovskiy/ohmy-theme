@@ -35,38 +35,38 @@
                     android:id="@+id/radioDdFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_default"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_default"
                     tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioDdSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_default"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_default"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkDdFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_default"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_default"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkDdSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_default"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledDefault"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_default"
                     tools:targetApi="lollipop" />
 
             </RadioGroup>
@@ -87,38 +87,38 @@
                     android:id="@+id/radioDnFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_natural"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_natural"
                     tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioDnSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_natural"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_natural"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkDnFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_natural"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_natural"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkDnSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_disabled_natural"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryDarkDisabledNatural"
+                    android:textColor="@color/ohmy_cs_primary_dark_disabled_natural"
                     tools:targetApi="lollipop" />
 
             </RadioGroup>
@@ -149,38 +149,38 @@
                     android:id="@+id/radioSiFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryLightSelectedInverse"
+                    android:buttonTint="@color/ohmy_cs_primary_light_selected_inverse"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryLightSelectedInverse"
+                    android:textColor="@color/ohmy_cs_primary_light_selected_inverse"
                     tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioSiSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryLightSelectedInverse"
+                    android:buttonTint="@color/ohmy_cs_primary_light_selected_inverse"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryLightSelectedInverse"
+                    android:textColor="@color/ohmy_cs_primary_light_selected_inverse"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkSiFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryLightSelectedInverse"
+                    android:buttonTint="@color/ohmy_cs_primary_light_selected_inverse"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryLightSelectedInverse"
+                    android:textColor="@color/ohmy_cs_primary_light_selected_inverse"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkSiSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryLightSelectedInverse"
+                    android:buttonTint="@color/ohmy_cs_primary_light_selected_inverse"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryLightSelectedInverse"
+                    android:textColor="@color/ohmy_cs_primary_light_selected_inverse"
                     tools:targetApi="lollipop" />
 
             </RadioGroup>
@@ -201,38 +201,38 @@
                     android:id="@+id/radioSaFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_selected_accent"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:textColor="@color/ohmy_cs_primary_dark_selected_accent"
                     tools:targetApi="lollipop" />
 
                 <RadioButton
                     android:id="@+id/radioSaSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_selected_accent"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:textColor="@color/ohmy_cs_primary_dark_selected_accent"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkSaFirst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_selected_accent"
                     android:checked="true"
                     android:text="first"
-                    android:textColor="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:textColor="@color/ohmy_cs_primary_dark_selected_accent"
                     tools:targetApi="lollipop" />
 
                 <CheckBox
                     android:id="@+id/checkSaSecond"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:buttonTint="@color/ohmy_cs_primary_dark_selected_accent"
                     android:text="second"
-                    android:textColor="?ohmyCsPrimaryDarkSelectedAccent"
+                    android:textColor="@color/ohmy_cs_primary_dark_selected_accent"
                     tools:targetApi="lollipop" />
 
             </RadioGroup>
