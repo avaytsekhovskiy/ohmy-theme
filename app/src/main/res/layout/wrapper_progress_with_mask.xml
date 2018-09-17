@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.noveogroup.template.presentation.common.android.widget.TouchConsumerFrameLayout
+    <ru.ohmy.theme.presentation.common.android.widget.TouchConsumerFrameLayout
         android:id="@+id/wrapperMask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

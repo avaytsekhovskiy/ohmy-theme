@@ -51,7 +51,7 @@
 
         </LinearLayout>
 
-        <com.noveogroup.template.presentation.common.android.widget.NonSwipeableViewPager
+        <ru.ohmy.theme.presentation.common.android.widget.NonSwipeableViewPager
             android:id="@+id/fragmentPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
