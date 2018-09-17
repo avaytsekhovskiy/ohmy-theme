@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
+        android:theme="@style/AppThemeOverlay.Colorful"
         tools:ignore="HardcodedText,UselessParent">
 
         <EditText
