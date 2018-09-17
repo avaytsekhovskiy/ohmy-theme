@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="AppTheme.Light.SplashTheme">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <style name="AppTheme.Light.NoAnimationTheme">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
     <style name="AppTheme.Light.Green">
         <item name="colorPrimaryLight">@color/green_light</item>
         <item name="colorPrimary">@color/green</item>
